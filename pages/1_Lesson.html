@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Game Theory</title>
+<title>Pygame</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -59,10 +59,10 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Game Theory</h1>
+<h1 class="title">Pygame</h1>
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/7-CS-gameTheory">Fork me on GitHub</a>
+      <a href="https://github.com/stpd11/9-CS-pyGame.git">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -83,292 +83,137 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-1">Learn It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Game theory has a lot of uses; it's not just for playing games. Today we're going to use it to create and play a game. 
+<li>Pygame is a cross-platform set of Python modules designed for creating 2D games. The modules are designed to be simple, easy to use, and fun—a key part of Pygame's ideology.
+
+<p>
+<a href="http://www.pygame.org/">http://www.pygame.org/</a>
+</p>
 </li>
-<li>We are going to learn about a concept called <b>backward induction</b> to solve <b><a href="https://en.wikipedia.org/wiki/Zero-sum_game">zero-sum games</a></b>.
-</li>
-<li>Backward induction is the process of reasoning backwards in time, from the end of a problem or situation, to determine a sequence of optimal actions. It proceeds by first considering the last time a decision might be made and choosing what to do in any situation at that time. Using this information, one can then determine what to do at the second-to-last time of decision. This process continues backwards until one has determined the best action for every possible situation (i.e. for every possible information set) at every point in time.
-</li>
-<li>To start you off, consider this puzle&#x2026;
+
+<li>Pygame was first released in 2000 and has a large community of developers. Have a look at the <a href="http://www.pygame.org/hifi.html">Awesome</a> section of the web site.  
 </li>
 </ul>
 
+<p>
+<b>Video here</b>
+</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N5vJSNXPEwA" frameborder="0" allowfullscreen>
-</iframe>
-</div>
-</div>
+<ul class="org-ul">
+<li>Pygame requires several line of code to get things up and running, this has been provided for you in the form of a template to use of all your pygame projects.
+</li>
+</ul>
 
-<div id="outline-container-sec-1-2" class="outline-3 research">
-<h3 id="sec-1-2">Research It</h3>
-<div class="outline-text-3" id="text-1-2">
 
 <div class="figure">
-<p><img src="img/jvn.gif" alt="jvn.gif" />
+<p><img src="./img/one.png" alt="one.png" />
 </p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3 code">
+<h3 id="sec-1-2">Code It: Template</h3>
+<div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li><i>(Picture courtesy of Wikipedia)</i>
+<li>Create a folder called <code>pygameIntro</code>.
 </li>
-<li>A lot of these types of games were used by John von Neumann. Conduct some research online to see why von Neuman is important in the field of Computer Science as well as in Game Theory. 
+<li>Create a new project using pycharm called <code>pygameCode</code> in the <code>pygameIntro</code> folder.
+</li>
+<li>Download the template <b>pygame</b> to your <code>pygameIntro</code> folder
+</li>
+
+<li>Please download the template and save a copy of it as:
+</li>
+</ul>
+
+<p>
+<a href="./doc/pygameDevTemplate_2.py">Click here for the template</a> 
+</p>
+
+<p>
+The template has two main sections:
+</p>
+
+<ul class="org-ul">
+<li>Game Setup – runs once when the game loads
+</li>
+
+<li>Game loop – runs again and again (loops) 60 times a second
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3 try">
-<h3 id="sec-1-3">Try It</h3>
+
+<div id="outline-container-sec-1-3" class="outline-3 run">
+<h3 id="sec-1-3">Run It</h3>
 <div class="outline-text-3" id="text-1-3">
-<ul class="org-ul">
-<li>"Nim" is an ancient two-player game played with sticks or stones. The objects are divided into piles. 
-</li>
-<li>The players alternate turns. 
-</li>
-<li>On each player's turn they may remove any number of sticks from one of the piles, up to the number of sticks remaining in that pile; but they can only take from a single pile on a given turn. 
-</li>
-<li>The goal is to take the last stick, making you the winner. 
-</li>
-<li>The strategy element is to make the other person clear out all but one pile, so you can take all the sticks in that last pile.
-</li>
-</ul>
-
-
-<ul class="org-ul">
-<li>To illustrate the basic theoretical idea behind the Nim strategy, let's first look at a simpler version of the game called "21". 
-</li>
-<li>Imagine there are 21 sticks in a pile. 
-</li>
-<li>The rules are: You can take one, two, or three sticks on your turn.
-</li>
-<li>Whoever takes the last stick on their turn wins.
-</li>
-<li>Have a few goes here against the computer (click the green flag to restart):
-</li>
-</ul>
-<iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/86810467/?autostart=true" frameborder="0" allowfullscreen>
-</iframe>
-
-<ul class="org-ul">
-<li>If the computer goes first, it will always win. 
-</li>
-<li>Can you find the winning strategy? 
-</li>
-</ul>
+<p>
+Run the template it should create a new window that is black, 1000 * 800 pixels and closes when you click on the new windows X – that means it’s working!
+</p>
 </div>
 </div>
-<div id="outline-container-sec-1-4" class="outline-3 design">
-<h3 id="sec-1-4">Design It</h3>
+
+<div id="outline-container-sec-1-4" class="outline-3 learn">
+<h3 id="sec-1-4">Learn It</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
-<li>You're going to make your own version of Nim for two human players. 
+<li>Screen geometry
 </li>
-<li>We start with a high-level plan; this is written in pseudocode to help work out the sequence of instructions we'll need to code before we start.
-</li>
-<li>The premise is this:
-<ul class="org-ul">
-<li>Store the number of <b>sticks</b> and which <b>player</b>'s turn it is.
-</li>
-<li>LOOP UNTIL THERE ARE NO STICKS LEFT:
-<ul class="org-ul">
-<li>The current <b>player</b> makes a move.
-</li>
-<li>Change the current player.
-</li>
-<li>Output how many sticks remain.
-</li>
-</ul>
-</li>
-<li>When the sticks have run out, announce the winner.
-</li>
-</ul>
+<li>Unlike Scratch, Pygame and most professional game engines have the origin x = 0, y = 0 at the top left hand corner. 
 </li>
 </ul>
 
-
-<ul class="org-ul">
-<li>We can write out some pseudocode to help us think about how we'd write out program.
-</li>
-</ul>
-<pre class="example">
-sticks=21
-player=1
-
-LOOP UNTIL sticks&lt;1:
-    The current &lt;player&gt; makes a move.
-    Change the current player.
-    PRINT How many sticks remain.
-END LOOP
-
-PRINT Winner
-</pre>
-
-<ul class="org-ul">
-<li>Open <b>&gt;&gt;</b> <a href="https://scratch.mit.edu/projects/86929754/#editor">this</a> <b>&lt;&lt;</b> Scratch link in a new tab. If you've a Scratch account, you can log into it at this point. If you've not got one (or can't remember your password), you can always use the 'File -&gt; Download to your Computer' link in the top left-hand corner when you've finished your work. You've now got the pseudocode above all set out.
-</li>
-</ul>
 
 <div class="figure">
-<p><img src="./img/w1_1.png" alt="w1_1.png" />
+<p><img src="./img/two.png" alt="two.png" />
 </p>
 </div>
-<ul class="org-ul">
-<li>Because we broke all the main coding ideas out into blocks (called functions when coding), this keeps the main program clean and easy to read.
-</li>
-<li>If you try playing the game, you'll see there are a few issues.
-<ul class="org-ul">
-<li>It's always player 1's turn
-</li>
-<li>The game doesn't tell you who's won; it just stops.
-</li>
-<li>You can take 1, 2, 3, -2, 100&#x2026; sticks each time.
-</li>
-</ul>
-</li>
-<li>We now need to define the different function blocks to make the program work. 
-</li>
-<li>If you're feeling ambitious, you could eventually implement an AI to play against once you get the two-player version working. 
-</li>
-</ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1-5" class="outline-3 code">
-<h3 id="sec-1-5">Code It: Switch player</h3>
+<div id="outline-container-sec-1-5" class="outline-3 program">
+<h3 id="sec-1-5">Program It</h3>
 <div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>We have a variable called 'player'. Let's use this to store either a 1 or a 2 depending on who's turn it is. 
-</li>
-<li>We need to change the player from 1 to 2 once player 1 has made his/her move.
-</li>
-<li>We also need to set the player back to 1 once player 2 makes their move.
-</li>
-<li>Therefore the code in the 'define Switch Player' block needs to be:
-</li>
-</ul>
-<pre class="example">
-IF player = 1:
-   player = 2
-ELSE:
-   player = 1
-END IF
-</pre>
 
 <ul class="org-ul">
-<li><b>Task:</b> Write the code in Scratch to define this function, using the algorithm shown above. 
+<li>Pygame has several build in shapes:
+</li>
+
+<li>Try a rectangle first.
 </li>
 </ul>
+
+
+<div class="figure">
+<p><img src="./img/three.png" alt="three.png" />
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>Now try creating a few different shapes by inserting the code above into your game loop.
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./img/four.png" alt="four.png" />
+</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-sec-1-6" class="outline-3 code">
-<h3 id="sec-1-6">Code It: Making a move</h3>
+<div id="outline-container-sec-1-6" class="outline-3 badge">
+<h3 id="sec-1-6">Badge It</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
-<li>What is a valid move? The player can pick either 1,2 or 3. 
+<li><b>Silver:</b> Draw and filled and unfilled example of the 3 basic shapes of different colours and in different locations.
 </li>
-<li>People tend to make mistakes (or try and cheat) though, so we need to include a little 'data validation' to ensure the player is making a valid move.
+<li><a href="http://www.rapidtables.com/web/color/RGB_Color.htm">http://www.rapidtables.com/web/color/RGB_Color.htm</a>
 </li>
-<li>Our 'Make a move' algorithm is currently:
+<li><b>Gold:</b>  Add comments below your code explaining, in your own words, how RGB colours work.
 </li>
-</ul>
-<pre class="example">
-answer &lt;-- INPUT "Player &lt;player&gt;'s turn..."
-sticks = sticks - answer
-</pre>
-
-<ul class="org-ul">
-<li>The code in Scratch looks like this:
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/w1_2.png" alt="w1_2.png" />
-</p>
-</div>
-<ul class="org-ul">
-<li>We need to improve this to&#x2026;
-</li>
-</ul>
-
-<pre class="example">
-valid_move = False
-
-REPEAT WHILE valid_move = False
-    answer &lt;-- INPUT "Player &lt;player&gt;'s turn..."
-    IF answer&gt;0 AND answer&lt;4 THEN:
-        valid_move = True
-        sticks = sticks - answer
-    ELSE:
-        PRINT "Invalid move. Try again."
-    ENDIF
-
-END REPEAT
-</pre>
-
-<ul class="org-ul">
-<li><b>Task:</b> Write the code to only allow valid moves.
-</li>
-<li><i>Tip:</i> You'll need to start by creating a 'valid move' variable.
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-7" class="outline-3 code">
-<h3 id="sec-1-7">Code It: Establish the winner</h3>
-<div class="outline-text-3" id="text-1-7">
-<ul class="org-ul">
-<li>The main loop of the program continues until the last stick is removed (i.e. the 'stick' variable goes below 1). 
-</li>
-<li>When this happens, we need to show a message to say that either player 1 or 2 is the winner.
-</li>
-</ul>
-<pre class="example">
-IF player=1 THEN:
-    PRINT "Player 2 wins"
-ELSE:
-    PRINT "Player 1 wins"
-ENDIF
-</pre>
-<ul class="org-ul">
-<li><b>Task:</b> Code this in your script.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-8" class="outline-3 learn">
-<h3 id="sec-1-8">Learn It</h3>
-<div class="outline-text-3" id="text-1-8">
-<ul class="org-ul">
-<li>By using the rules, we can write an AI that always wins. In game theory, a "no-win" situation is one in which no player benefits from any outcome. This may be because of any or all of the following:
-<ul class="org-ul">
-<li>Unavoidable or unforeseeable circumstances causing the situation to change after decisions have been made. This is common in Text adventures
-</li>
-<li><i>Zugzwang</i>, as in chess, when any move a player chooses makes him worse off than before but the rules of chess means they have to move
-</li>
-<li>A situation in which the player has to accomplish two mutually dependent tasks each of which must be completed before the other or that are mutually exclusive (<a href="https://en.wikipedia.org/wiki/Catch-22_(logic)">a Catch-22</a>).
-</li>
-<li>Ignorance of other players' actions, meaning the best decision for all differs from that for any one player (as in the Prisoner's Dilemma).
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-9" class="outline-3 badge">
-<h3 id="sec-1-9">Badge It</h3>
-<div class="outline-text-3" id="text-1-9">
-<ul class="org-ul">
-<li><b>Silver:</b> Write a set of rules for someone who has never played '21' before so that they will always win.
-</li>
-<li><b>Gold:</b> Write a working two-player game of 21 in Scratch. Upload a screenshot of your code AND the <b>.sb2</b> file to the upload points. 
-</li>
-<li><b>Platinum:</b> Implement a one-player version with a computer opponent. 
-<ul class="org-ul">
-<li>The computer should randomly choose to play either a 1, 2 or 3. 
-</li>
-<li>If you can do this, see if you can implement a strategy that means the computer will always win when it goes first.
-</li>
-</ul>
+<li><b>Platinum:</b>  Create some variables for some new colours and use them when creating shapes.
 </li>
 </ul>
 </div>
