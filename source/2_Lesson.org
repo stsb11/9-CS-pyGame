@@ -1,0 +1,229 @@
+#+STARTUP:indent
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+#+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
+#+HTML_HEAD_EXTRA: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+#+HTML_HEAD_EXTRA: <script src="js/navbar.js" type="text/javascript"></script>
+#+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil toc:nil html-style:nil
+
+#+TITLE: Nice but NIM
+#+AUTHOR: Paul Dougall
+
+#+BEGIN_HTML
+  <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+    </div>
+  </div>
+<div id="stickyribbon">
+    <ul>
+      <li><a href="1_Lesson.html">Week1</a></li>
+      <li><a href="2_Lesson.html">Week2</a></li>
+      <li><a href="3_Lesson.html">Week3</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li> 
+      <li><a href="5_Lesson.html">Week5</a></li>     
+      <li><a href="assessment.html">Assessment</a></li>
+    </ul>
+  </div>
+#+END_HTML
+* COMMENT Use as a template
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+
+** Research It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: research
+:END:
+
+** Design It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: design
+:END:
+
+** Build It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: build
+:END:
+
+** Test It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: test
+:END:
+
+** Run It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: run
+:END:
+
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+
+** Program It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: program
+:END:
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+
+** Badge It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+
+** Save It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: save
+:END:
+
+* Introduction
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+- Watch the video...
+
+#+BEGIN_HTML 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7yDmGnA8Hw0" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
+
+- Write an algorithm to solve the bridge riddle. You need to get everyone, in pairs, across in 17 minutes before the zombies get you.
+
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+
+- Recap - "Nim" is a two-player game played with sticks or stones. The objects are divided into piles. 
+- The players alternate turns. On each player's turn they may remove any number of sticks from one of the piles, up to the number of sticks remaining in that pile; but they can only take from a single pile on a given turn. 
+- The goal is to take the last stick. Whoever takes the last stick wins. 
+- So the goal is to make the other person clear out all but one pile, so  you can take all the sticks in that last pile. Etc.
+
+- Let's play a game starting from the game state 1, 4, 7. You can go first. 
+
+- How many sticks are you going to take and from which pile?
+
+ 1. XX      (1 sticks)
+ 2. XXXX    (4 sticks)
+ 3. XXXXXXX (7 sticks)
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- Click on the link to play the game http://www.transum.org/Software/Nim/
+- How did you win this time? 
+- Is it the same algorithm to win?
+
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+- Save your certificate/s to show how many levels you passed on the NIM game in *5 minutes*.
+** Learn It: Strategy
+:PROPERTIES:
+
+:HTML_CONTAINER_CLASS: learn
+:END:
+- There is a known winning strategy to playing 'Advanced NIM'. Let's use a simple example to illustrate how to use this strategy.
+- Let's say you have three piles with 1, 4 and 7 stones:
+   - X
+   - XXXX
+   - XXXXXXX
+  
+
+- To find out the optimal move, we first express the count of each pile as a binary number, using this table:
+ 
+| Decimal | Binary |
+|---------+--------|
+|       0 |   0000 |
+|       1 |   0001 |
+|       2 |   0010 |
+|       3 |   0011 |
+|       4 |   0100 |
+|       5 |   0101 |
+|       6 |   0110 |
+|       7 |   0111 |
+
+
+-Next we add up these binary numbers, vertically, in a special way:
+
+| Sticks  | Binary |
+|---------+--------|
+|   X     | 0001   |
+| XXXX    | 0100   |
+|XXXXXXX  | 0111   |
+| TOTAL   | 1010   |
+
+  
+- For any column with an even number of 1's, we put down a zero. For an odd number, we put down a one. This is called the "Exclusive Or".
+- Check the totals above to see if the total is correct. Now to win, we want to get this sum to total 0000. 
+- Looking over the numbers above, it looks like if we took this sum away from the third pile -- changing a 7 (0111 in binary) to a 5 (0101 in binary) -- then the special sum would become 0000. 
+- You continue this operation until you win the game. Of course, if your opponent has left you with a special sum of 0000, then you will lose, assuming perfect play on their part. So, 0 XOR 0 = 0, 1 XOR 0 = 1, 0 XOR 1 = 1, and 1 XOR 1 = 0. Or, more simply, the result of the XOR operation is 0 if both arguments are the same and 1 if the arguments are different.
+
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Using Python lets make a binary converter and XOR calculator so that we can *always* win!
+
+- Pseudocode for this program will involve several functions. We need a function to convert the denary number into binary. This will need to ask for the three numbers and convert them in turn. The second part will need to add them using the XOR function. Finally it needs to advise us what to do. OK that's a general plan lets be more specific.
+
+- Part 1. Make a function to convert denary to binary. We are in luck Python has a built-in function, once we import math. 
+
+- Open Python and add this code to your Python file.
+
+[[./img/scrnshot1a.png]]
+
+- Part 2. =XOR= function. Again Python has some built-in functions to help to add using =bin(a&b)=,use the or function using =bin(a|b)= and most importantly, for us, the XOR function using =bin(a^b)=. 
+
+- Add this extra code to your Python file.
+
+[[./img/scrnshot2a.png]]
+
+
+- Part 2. Finally lets us know which ones to remove and from what pile. Use you new helper program to tackle more NIM levels. 
+
+** Research It
+:PROPERTIES:
+
+- What is Exclusive Or? 
+- How do we use it in Computer Science?
+
+:HTML_CONTAINER_CLASS: research
+:END:
+- What is Exclusive Or? 
+- How do we use it in Computer Science?
+
+** Badge It Silver
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload your algorithm to solve the bridge puzzle and certificates of NIM levels. 
+** Badge It Gold
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload your code for the Gold badge and complete two more levels on the NIM game using your calculator.
+** Badge It Platinum
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- For platinum write a short report answering the above research questions giving lots of examples.
+

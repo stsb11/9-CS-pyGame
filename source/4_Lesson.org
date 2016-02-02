@@ -1,0 +1,217 @@
+#+STARTUP:indent
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+#+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
+#+HTML_HEAD_EXTRA: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+#+HTML_HEAD_EXTRA: <script src="js/navbar.js" type="text/javascript"></script>
+#+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil toc:nil html-style:nil
+
+#+TITLE: Ultimatum, Dictator and bargaining games
+#+AUTHOR: Paul Dougall
+
+#+BEGIN_HTML
+  <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+    </div>
+  </div>
+<div id="stickyribbon">
+    <ul>
+      <li><a href="1_Lesson.html">Week1</a></li>
+      <li><a href="2_Lesson.html">Week2</a></li>
+      <li><a href="3_Lesson.html">Week3</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li>
+      <li><a href="5_Lesson.html">Week5</a></li>
+      <li><a href="assessment.html">Assessment</a></li>
+    </ul>
+  </div>
+#+END_HTML
+* COMMENT Use as a template
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+
+** Research It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: research
+:END:
+
+** Design It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: design
+:END:
+
+** Build It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: build
+:END:
+
+** Test It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: test
+:END:
+
+** Run It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: run
+:END:
+
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+
+** Program It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: program
+:END:
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+
+** Badge It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+
+** Save It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: save
+:END:
+
+* Introduction: The Monty Hall problem
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+- Watch the video.
+
+#+BEGIN_HTML 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mhlc7peGlGg" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
+
+    Open a text editor and answer the following questions:
+
+- What is the problem?
+  
+- Should you swap, stick with your choice or does it make no difference?
+
+- What is the correct choice? Can you explain why?
+
+** Learn It: Ultimatum
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- Ultimatum is a single round game. 
+- One player offers a share of a specified amount of money and the second player can choose to accept or reject this offer. 
+- If the second player accepts both get the agreed share however if they choose to reject they both get nothing.
+- Let try to solve the ultimatum game, in which one side makes a take-it-or-leave-it (also called fait accompli or ultimatum) offer.
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Using Python lets make our own Ultimatum game.
+- Firstly lets think about the pseudocode
+
+[[./img/1_sshot.JPG]]
+
+- Now lets add the code which we will do in two stages.
+- Secondly open IDLE and get coding!
+
+
+- Part One 
+[[./img/2_sshot.JPG]]
+
+- Part Two
+
+[[./img/3_sshot.JPG]]
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- Using your code get other people in the room to play. Aim for 10 rounds of the game.
+- If everyone moves to the left.
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+- What pattern can you see?
+
+- If they were using 'backward induction' what offers should they accept?
+
+- Why do they sometimes reject?
+
+** Learn It: Dictator Game
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- In the dictator game, one student decides how to split a pot of money between herself and the other student. 
+- Once the decision has been made, the two students receive the specified split.
+- This game teaches students about the existence of altruists in the population, and when coupled with the ultimatum game can show students how to differentiate social norms from strategic responses.
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Adapt your first program to just accept the first proposal with no chance of rejection. Use the comment out instruction rather than deleting code - we will need it later.
+
+- Here is the pseudocode to help you:
+
+[[./img/4_sshot.JPG]]
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- Using your code get other people in the room to play. Aim for 10 rounds of the game.
+- If everyone moves to the left.
+- Ask 10 students to play your game.
+
+- What is your average score? Highest? Lowest?
+What has happened to the scores compared to the Ultimatum game?
+
+** Try It: Multiple rounds
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- The Bargaining(Nash) game is a simple 2 player game used to model other bargaining interactions. This time the second player is going to be able to make counteroffers. THere are 3 rounds and if there is no agreement at the end then no one gets any money.
+** Code It
+Lets expand our original game program to include the three rounds.
+
+Here is some pseudocode to help your challenge.
+
+[[./img/5_sshot.JPG]]
+
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+** Badge It Silver
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload your code for Ultimatum game the silver badge.
+** Badge It Gold
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload your code for Dictator game the Gold badge.
+** Badge It Platinum
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload your code for the mulitple round bargaining game for the platinum badge.
+
+

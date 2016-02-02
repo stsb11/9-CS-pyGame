@@ -1,0 +1,172 @@
+#+STARTUP:indent
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+#+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
+#+HTML_HEAD_EXTRA: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+#+HTML_HEAD_EXTRA: <script src="js/navbar.js" type="text/javascript"></script>
+#+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil toc:nil html-style:nil
+
+#+TITLE: Pirates and Birthdays
+#+AUTHOR: Paul Dougall
+
+#+BEGIN_HTML
+  <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+    </div>
+  </div>
+<div id="stickyribbon">
+    <ul>
+      <li><a href="1_Lesson.html">Week1</a></li>
+      <li><a href="2_Lesson.html">Week2</a></li>
+      <li><a href="3_Lesson.html">Week3</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li> 
+      <li><a href="5_Lesson.html">Week5</a></li> 
+      <li><a href="assessment.html">Assessment</a></li>
+    </ul>
+  </div>
+#+END_HTML
+* COMMENT Use as a template
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+
+** Research It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: research
+:END:
+
+** Design It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: design
+:END:
+
+** Build It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: build
+:END:
+
+** Test It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: test
+:END:
+
+** Run It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: run
+:END:
+
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+
+** Program It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: program
+:END:
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+
+** Badge It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+
+** Save It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: save
+:END:
+
+* Introduction: The Birthday Problem
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Document It: The Birthday Paradox
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+
+- In a group of 30 students what are the chances of two people sharing a birthday?
+
+- Open a text editor and write down your  answer with either a fraction or %.
+
+
+- Watch the video...
+
+#+BEGIN_HTML
+<iframe width="560" height="315" src="https://www.youtube.com/embed/a2ey9a70yY0" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
+
+- Were you correct?
+- What was the correct answer? 
+- Can you explain it?
+** Learn It: The Pirate Game
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+*The scenario*
+
+- There are 5 rational pirates, A, B, C, D and E. 
+- They find 100 gold coins. 
+- They must decide how to distribute them.
+- The pirates have a strict order of seniority: A is superior to B, who is superior to C, who is superior to D, who is superior to E.
+- The pirate world's rules of distribution are thus: that the most senior pirate should propose a distribution of coins. The pirates, including the proposer, then vote on whether to accept this distribution. If the proposed allocation is approved by a majority it happens. If not, the proposer is thrown overboard from the pirate ship and dies, and the next most senior pirate makes a new proposal to begin the system again. Each pirate would prefer to throw another overboard, if all other results would otherwise be equal.  Each pirate is very greedy but values his life the most. 
+- What would be the strategy proposed by A?
+
+*Hints*
+
+Work out the best results for pirate A using Backward induction and start with one pirate then two and keep going until you get a solution.
+
+** Badge It Silver
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:      
+- Make a presentation to show Pirate A what s/he should do.
+** Research It
+:PROPERTIES:
+
+- What is Exclusive Or? 
+- How do we use it in Computer Science?
+
+:HTML_CONTAINER_CLASS: research
+:END:
+- Here is a list of 10 'games':
+
+- Stag Hunt
+- Battle of the Sexes
+- The Centipede Game
+- The Beauty Contest
+- Chicken
+- Hawk/Dove game
+- Diner's dilemma
+- Rock, Paper, Scissors
+- Dollar Auction
+- Traveller's dilemma
+
+*Pick one of them to research for the badge task.* 
+** Badge It: Gold / Platinum
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+*You need to explain the game theory principles:*
+
+- number of players
+- payoffs
+- actions / decisions that are available to the player
+- strategy to 'win'
+
+- you may want to show a graphical version of the outcomes as either a matrix or a tree.
+
+The quality of your written answer will determine whether you are awarded Gold or Platinum.
