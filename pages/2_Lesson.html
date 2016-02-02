@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Nice but NIM</title>
+<title>PyGame</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -59,10 +59,10 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Nice but NIM</h1>
+<h1 class="title">PyGame</h1>
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-Pygame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -76,298 +76,101 @@ for the JavaScript code in this tag.
     </ul>
   </div>
 <div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1">Introduction</h2>
+<h2 id="sec-1">Getting our game face on</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 document">
-<h3 id="sec-1-1">Document It</h3>
+<div id="outline-container-sec-1-1" class="outline-3 try">
+<h3 id="sec-1-1">Try It</h3>
 <div class="outline-text-3" id="text-1-1">
-<ul class="org-ul">
-<li>Watch the video&#x2026;
-</li>
-</ul>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7yDmGnA8Hw0" frameborder="0" allowfullscreen></iframe>
-
-<ul class="org-ul">
-<li>Write an algorithm to solve the bridge riddle. You need to get everyone, in pairs, across in 17 minutes before the zombies get you.
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3 learn">
-<h3 id="sec-1-2">Learn It</h3>
-<div class="outline-text-3" id="text-1-2">
-
-<ul class="org-ul">
-<li>Recap - "Nim" is a two-player game played with sticks or stones. The objects are divided into piles. 
-</li>
-<li>The players alternate turns. On each player's turn they may remove any number of sticks from one of the piles, up to the number of sticks remaining in that pile; but they can only take from a single pile on a given turn. 
-</li>
-<li>The goal is to take the last stick. Whoever takes the last stick wins. 
-</li>
-<li>So the goal is to make the other person clear out all but one pile, so  you can take all the sticks in that last pile. Etc.
-</li>
-
-<li>Let's play a game starting from the game state 1, 4, 7. You can go first. 
-</li>
-
-<li>How many sticks are you going to take and from which pile?
-
-<ol class="org-ol">
-<li>XX      (1 sticks)
-</li>
-<li>XXXX    (4 sticks)
-</li>
-<li>XXXXXXX (7 sticks)
-</li>
-</ol>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-3" class="outline-3 try">
-<h3 id="sec-1-3">Try It</h3>
-<div class="outline-text-3" id="text-1-3">
-<ul class="org-ul">
-<li>Click on the link to play the game <a href="http://www.transum.org/Software/Nim/">http://www.transum.org/Software/Nim/</a>
-</li>
-<li>How did you win this time? 
-</li>
-<li>Is it the same algorithm to win?
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3 document">
-<h3 id="sec-1-4">Document It</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li>Save your certificate/s to show how many levels you passed on the NIM game in <b>5 minutes</b>.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-5" class="outline-3 learn">
-<h3 id="sec-1-5">Learn It: Strategy</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>There is a known winning strategy to playing 'Advanced NIM'. Let's use a simple example to illustrate how to use this strategy.
-</li>
-<li>Let's say you have three piles with 1, 4 and 7 stones:
-<ul class="org-ul">
-<li>X
-</li>
-<li>XXXX
-</li>
-<li>XXXXXXX
-</li>
-</ul>
-</li>
-</ul>
-
-
-<ul class="org-ul">
-<li>To find out the optimal move, we first express the count of each pile as a binary number, using this table:
-</li>
-</ul>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="right" />
-
-<col  class="right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="right">Decimal</th>
-<th scope="col" class="right">Binary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="right">0</td>
-<td class="right">0000</td>
-</tr>
-
-<tr>
-<td class="right">1</td>
-<td class="right">0001</td>
-</tr>
-
-<tr>
-<td class="right">2</td>
-<td class="right">0010</td>
-</tr>
-
-<tr>
-<td class="right">3</td>
-<td class="right">0011</td>
-</tr>
-
-<tr>
-<td class="right">4</td>
-<td class="right">0100</td>
-</tr>
-
-<tr>
-<td class="right">5</td>
-<td class="right">0101</td>
-</tr>
-
-<tr>
-<td class="right">6</td>
-<td class="right">0110</td>
-</tr>
-
-<tr>
-<td class="right">7</td>
-<td class="right">0111</td>
-</tr>
-</tbody>
-</table>
-
 
 <p>
--Next we add up these binary numbers, vertically, in a special way:
+We are going to create another shape but in a slightly different way and make it more around.
 </p>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="left">Sticks</th>
-<th scope="col" class="right">Binary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="left">X</td>
-<td class="right">0001</td>
-</tr>
-
-<tr>
-<td class="left">XXXX</td>
-<td class="right">0100</td>
-</tr>
-
-<tr>
-<td class="left">XXXXXXX</td>
-<td class="right">0111</td>
-</tr>
-
-<tr>
-<td class="left">TOTAL</td>
-<td class="right">1010</td>
-</tr>
-</tbody>
-</table>
-
-
-<ul class="org-ul">
-<li>For any column with an even number of 1's, we put down a zero. For an odd number, we put down a one. This is called the "Exclusive Or".
+<ol class="org-ol">
+<li>In the game setup create a variable player1X and assign it the value of 0
 </li>
-<li>Check the totals above to see if the total is correct. Now to win, we want to get this sum to total 0000. 
-</li>
-<li>Looking over the numbers above, it looks like if we took this sum away from the third pile &#x2013; changing a 7 (0111 in binary) to a 5 (0101 in binary) &#x2013; then the special sum would become 0000. 
-</li>
-<li>You continue this operation until you win the game. Of course, if your opponent has left you with a special sum of 0000, then you will lose, assuming perfect play on their part. So, 0 XOR 0 = 0, 1 XOR 0 = 1, 0 XOR 1 = 1, and 1 XOR 1 = 0. Or, more simply, the result of the XOR operation is 0 if both arguments are the same and 1 if the arguments are different.
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-6" class="outline-3 code">
-<h3 id="sec-1-6">Code It</h3>
-<div class="outline-text-3" id="text-1-6">
-<ul class="org-ul">
-<li>Using Python lets make a binary converter and XOR calculator so that we can <b>always</b> win!
-</li>
-
-<li>Pseudocode for this program will involve several functions. We need a function to convert the denary number into binary. This will need to ask for the three numbers and convert them in turn. The second part will need to add them using the XOR function. Finally it needs to advise us what to do. OK that's a general plan lets be more specific.
-</li>
-
-<li>Part 1. Make a function to convert denary to binary. We are in luck Python has a built-in function, once we import math. 
-</li>
-
-<li>Open Python and add this code to your Python file.
-</li>
-</ul>
+</ol>
 
 
 <div class="figure">
-<p><img src="./img/scrnshot1a.png" alt="scrnshot1a.png" />
+<p><img src="./img/eight.png" alt="eight.png" />
 </p>
 </div>
 
-<ul class="org-ul">
-<li>Part 2. <code>XOR</code> function. Again Python has some built-in functions to help to add using <code>bin(a&amp;b)</code>,use the or function using <code>bin(a|b)</code> and most importantly, for us, the XOR function using <code>bin(a^b)</code>. 
+<ol class="org-ol">
+<li>Draw player1 in the game loop and increment the X position by 2 pixels every time the game loop runs.
 </li>
-
-<li>Add this extra code to your Python file.
-</li>
-</ul>
+</ol>
 
 
 <div class="figure">
-<p><img src="./img/scrnshot2a.png" alt="scrnshot2a.png" />
+<p><img src="./img/nine.png" alt="nine.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3 document">
+<h3 id="sec-1-2">Document It</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Did this work as expected? Discuss what has happened.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3 learn">
+<h3 id="sec-1-3">Learn It:</h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<div class="figure">
+<p><img src="./img/ten.png" alt="ten.png" />
 </p>
 </div>
 
+<p>
+Fill the whole screen with a colour, this removes any previous drawings.
+</p>
+
+<p>
+:HTML<sub>CONTAINER</sub><sub>CLASS</sub>: c
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3 badge">
+<h3 id="sec-1-4">Badge It</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+<b>Silver</b>
+</p>
+<ul class="org-ul">
+<li>Add comments to your code and upload it.
+</li>
+</ul>
+<p>
+<b>Gold</b>
+</p>
+<ul class="org-ul">
+<li>Add another shape and make it move top to bottom
+</li>
+</ul>
+<p>
+<b>Platinum</b>
+</p>
+<ul class="org-ul">
+<li>Add another shape and make it move diagonally
+</li>
+</ul>
+
+<p>
+<b>Extension task</b>
+</p>
 
 <ul class="org-ul">
-<li>Part 2. Finally lets us know which ones to remove and from what pile. Use you new helper program to tackle more NIM levels. 
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-7" class="outline-3 research">
-<h3 id="sec-1-7">Research It</h3>
-<div class="outline-text-3" id="text-1-7">
-<ul class="org-ul">
-<li>What is Exclusive Or? 
-</li>
-<li>How do we use it in Computer Science?
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-8" class="outline-3 badge">
-<h3 id="sec-1-8">Badge It Silver</h3>
-<div class="outline-text-3" id="text-1-8">
-<ul class="org-ul">
-<li>Upload your algorithm to solve the bridge puzzle and certificates of NIM levels. 
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-9" class="outline-3 badge">
-<h3 id="sec-1-9">Badge It Gold</h3>
-<div class="outline-text-3" id="text-1-9">
-<ul class="org-ul">
-<li>Upload your code for the Gold badge and complete two more levels on the NIM game using your calculator.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-10" class="outline-3 badge">
-<h3 id="sec-1-10">Badge It Platinum</h3>
-<div class="outline-text-3" id="text-1-10">
-<ul class="org-ul">
-<li>For platinum write a short report answering the above research questions giving lots of examples.
+<li>Try the arc and polygon shapes 
 </li>
 </ul>
 </div>
