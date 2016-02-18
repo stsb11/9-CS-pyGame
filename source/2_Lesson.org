@@ -93,35 +93,34 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-[[./doc/pygameDevTemplate.py][Right click and save as - for a fresh templete]]
+** Download It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Start by picking up the template for this lesson:
+- [[./doc/pygameDevTemplate.py][Right click and Save As - for a fresh template]]
 ** Try It
+DEADLINE: <2016-02-18 Thu>
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-
-We are going to create another shape but in a slightly different way and make it more around.
-
-1.	In the game setup create a variable player1X and assign it the value of 0
-
-[[./img/2-1.png]]
-
-2.	Draw player1 in the game loop and increment the X position by 2 pixels every time the game loop runs.
-
-[[./img/2-2.png]]
-
+- We are going to create another shape but in a slightly different way and make it more around.
+   
+   - In the game setup create a variable =player1X= and assign it the value of 0.
+   [[./img/2-1.PNG]]
+   - Draw =player1= in the game loop and increment the =X= position by 2 pixels every time the game loop runs.
+   [[./img/2-2.PNG]]
 ** Document It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: document
 :END:
 - Did this work as expected? Discuss what has happened.
-
 ** Learn It:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-
-[[./img/2-3.png]]
-
+- Look at the screenshot below.
+[[./img/2-3.PNG]]
 - Fill the whole screen with a colour, this removes any previous drawings.
 * Selection
 :PROPERTIES:
@@ -133,28 +132,27 @@ We are going to create another shape but in a slightly different way and make it
 :END:
 - Selection one of the three basic logic structures in computer programming. The other two logic structures are sequence and iteration. In a selection structure, a question is asked, and depending on the answer, the program takes one of two courses of action, after which the program moves on to the next event
 - How we see it...
-[[./img/2-4.png]]
+[[./img/2-4.PNG]]
 - How the computer see it...
-[[./img/2-5.png]]
-- We are going to use value the player1X variable to determine if player1 has moved off the screen.
-[[./img/2-6.png]]
+[[./img/2-5.PNG]]
+- We are going to use value of the =player1X= variable to determine if =player1= has moved off the screen.
+[[./img/2-6.PNG]]
 ** Code It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-
 - Instead of making the player reappear lets make him bounce.
 - We will need to create a variable to hold the speed and direction of the player – this must be done before the game loop
-[[./img/2-7.png]]
-- We will also need to change the if statement
-[[./img/2-8.png]]
+[[./img/2-7.PNG]]
+- We will also need to change the =if= statement
+[[./img/2-8.PNG]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Add comments to all your code
+- *Silver:* Add comments to all of your code.
 - *Gold:* Create a circle that:
   - appears at  x= 100, y = 100
   - moves to x = 100, y = 700
   - reappears at 100, 100
-- *Platinum:* Make the player move diagonally and bounce of all side of the screen
+- *Platinum:* Make the player move diagonally and bounce of all sides of the screen.

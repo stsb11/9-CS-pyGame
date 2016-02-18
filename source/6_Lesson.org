@@ -99,7 +99,6 @@
 :HTML_CONTAINER_CLASS: learn
 :END:
 - We are going to make it into a simple game
-
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
@@ -112,7 +111,7 @@
 [[./img/6-2.png]]
 - Printing hit is not very exciting so we will change the code so the target disappears and reappears at a random x y position when touched by the player sprite
  - In order to use the random module we must import it
-[[./img/6-3.png]]
+[[./img/6-3.PNG]]
  - Then use the random.randint function to create a random numbers for the x and y postions of the target
 [[./img/6-4.png]]
 
@@ -127,11 +126,11 @@
  - This is slightly more complex to fix
 -  We need to create a variable to prevent the player from firing again until until the fire button is released.
  1. Create the fireLock variable and set to 0 at the start of the game, so the player can fire
- [[./img/6-6.png]]
+ [[./img/6-6.PNG]]
  2. Set fireLock to 1 when the mouse button is pressed
- [[./img/6-7.png]]
+ [[./img/6-7.PNG]]
  3. Reset fireLock to one when the mouse button is released
-[[./img/6-8.png]]
+[[./img/6-8.PNG]]
 
 ** Badge It
 :PROPERTIES:

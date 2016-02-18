@@ -93,7 +93,12 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-[[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
+** Download It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Staryt by picking up a template to use in this lesson: 
+- [[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
@@ -103,7 +108,7 @@
 - When a specific event is head by the Event Lister
 - An action is then performed by the Event Handler code.
   - If we look carefully at the template you will see that the event of the user closing the window is already handled.
-[[./img/3-1.png]]
+[[./img/3-1.PNG]]
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
@@ -111,37 +116,38 @@
 - Add the print(event) statement to your code
 - Take a look at the interpreter window while moving the mouse and pressing keys.
 - Try pressing the ALT key, the returned events are mod:
--  =<Event(2-KeyDown {'mod': 0, 'unicode': '', 'scancode': 56, 'key': 308})>=
--  =<Event(3-KeyUp {'mod': 0, 'key': 308, 'scancode': 56})>=
-   - =NOTE - key up and key down are different events=
+#+begin_src python
+<Event(2-KeyDown {'mod': 0, 'unicode': '', 'scancode': 56, 'key': 308})>
+<Event(3-KeyUp {'mod': 0, 'key': 308, 'scancode': 56})>
+#+end_src
+
+- *NOTE:* key up and key down are different events
 * Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
 - *Silver:* Add comments to the bottom the your python code that are the events returned for the following:
-- Right mouse button
-- Mouse wheel press
-- Mouse wheel spin
-- Left mouse button
-- Pressing the X to close the window
-- The up arrow is pressed
-
+   - Right mouse button
+   - Mouse wheel press
+   - Mouse wheel spin
+   - Left mouse button
+   - Pressing the X to close the window
+   - The up arrow is pressed
 ** Code It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
 
 - We will make player1 follow the mouse
-[[./img/3-2.png]]
+[[./img/3-2.PNG]]
 - Look at the python terminal window and move the mouse, this is the data we will use to position player1
-[[./img/3-3.png]]
+[[./img/3-3.PNG]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
 - *Gold* The player is not in the center of the mouse pointer, fix this bug and add comments to your code
 
-- *Platinum:* Ok that's mouse movement but what about button press events?
-[[./img/3-4.png]]
-- Modify this code so a different shape is drawn on the 3 mouse button pressed events
-
+- *Platinum:* You've now covered mouse movement but what about button press events?
+[[./img/3-4.PNG]]
+- Modify this code so a different shape is drawn on the 3 mouse button pressed events.

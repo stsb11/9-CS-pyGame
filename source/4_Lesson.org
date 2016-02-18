@@ -99,27 +99,25 @@
 :END:
 - As we are making a game for the PC platform the keyboard is a very important input tool.
 - We are going to control the moment of a player on the screen with the arrow keys
-[[./img/4-0.png]]
+[[./img/4-0.PNG]]
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
 - First we need to create 2 variable to hold the player1 x and y positions
-[[./img/4-1.png]]
+[[./img/4-1.PNG]]
 - Add the player and event listeners to the game loop
-[[./img/4-2.png]]
+[[./img/4-2.PNG]]
 - You will find the player moves each time the key is press. This is good for some games but other it is desirable to keep the player moving until another key is pressed. Currently the Event Listener and the Event Handler are in the same block of code.
 - We will separate the two:
- - We will need 2 new variable outside of the game loop to hold the players speed and direction
-[[./img/4-3.png]]
- - The modify the event listener and all and event handler
-[[./img/4-4.png]]
-
-
+   - We will need 2 new variable outside of the game loop to hold the players speed and direction
+[[./img/4-3.PNG]]
+    - The modify the event listener and all and event handler
+[[./img/4-4.PNG]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Add the ability to move player1 up and down then add comments to your code
-- *Gold:* Add the functionality to increase and decrease player1Speed with the Q and W keys
-- *Platinum*: Add a feature to make player1 invisible when the space bar is pressed
+- *Silver:* Add the ability to move =player1= up and down then add comments to your code
+- *Gold:* Add the functionality to increase and decrease =player1Speed= with the Q and W keys
+- *Platinum*: Add a feature to make =player1= invisible when the space bar is pressed.

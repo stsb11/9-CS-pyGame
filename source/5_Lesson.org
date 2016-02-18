@@ -93,12 +93,11 @@
  :PROPERTIES:
  :HTML_CONTAINER_CLASS: activity
  :END:
-
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- Basic shapes are ok but images are much more fun
+- Basic shapes is a good starting point, but images are much more fun
 - Using images as sprites is very simple in pygame
 ** Try It
 :PROPERTIES:
@@ -107,27 +106,26 @@
 - First we must load the image ready for later use
  - Then create a variable to hold player1's x and y position
  - don’t do this in the game loop, loading the image 60 times a second will not lead to good game performance 
-[[./img/5-1.png]]
+[[./img/5-1.PNG]]
 - Then display / "blit" the image to the screen
-[[./img/5-2.png]]
+[[./img/5-2.PNG]]
 - We are now going to make the sprite follow the mouse – we’ve done this before but we are going to improve our method.
-[[./img/5-3.png]]
+[[./img/5-3.PNG]]
 - Bug list
  - Mouse curser not centred on image
  - Mouse curser visible – looks ugly
  - Cannot change image size
 - First we will set size we want for the image and then use the pygame.image.transform function to resize the image
-[[./img/5-4.png]]
+[[./img/5-4.PNG]]
 - It is very useful to know the size of the image, we will use it to correct the mouse point position
-[[./img/5-5.png]]
-
+[[./img/5-5.PNG]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
 - *Silver:* Add comments to your code and discribe how using image size is useful in correcting the mouse pointer position
-- *Gold:* Use the image below as your sprite, remember it has a different aspect ration
+- *Gold:* Use the image below as your sprite, remember it has a different aspect ratio.
 [[./doc/bird1.png]]
-- *Platinum:* Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer
+- *Platinum:* Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer.
 [[./doc/birdSprites.png]]
 [[./doc/marioSprites.png]]
