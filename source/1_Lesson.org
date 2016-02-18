@@ -11,7 +11,7 @@
 #+BEGIN_HTML
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stpd11/9-CS-pyGame.git">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-pyGame.git">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -98,16 +98,12 @@
 :HTML_CONTAINER_CLASS: learn
 :END:
 - Pygame is a cross-platform set of Python modules designed for creating 2D games. The modules are designed to be simple, easy to use, and fun—a key part of Pygame's ideology.
-
          http://www.pygame.org/
 
 - Pygame was first released in 2000 and has a large community of developers. Have a look at the [[http://www.pygame.org/hifi.html][Awesome]] section of the web site.  
 
-*Video here*
-
 - Pygame requires several line of code to get things up and running, this has been provided for you in the form of a template to use of all your pygame projects.
-
-[[./img/one.png]]
+[[./img/1-1.png]]
 
 ** Code It: Template
 :PROPERTIES:
@@ -115,18 +111,16 @@
 :END:
 - Create a folder called =pygameIntro=.
 - Create a new project using pycharm called =pygameCode= in the =pygameIntro= folder.
-- Download the template *pygame* to your =pygameIntro= folder
+- Download the template *pygame* to your =pygameIntro= folder as =basicShapes.py=
+[[./doc/pygameDevTemplate.py][Click here for the template]] 
 
-- Please download the template and save a copy of it as:
-
-[[./doc/pygameDevTemplate_2.py][Click here for the template]] 
 
 The template has two main sections:
 
 - Game Setup – runs once when the game loads
 
 - Game loop – runs again and again (loops) 60 times a second
-
+  
 ** Run It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: run
@@ -140,25 +134,24 @@ Run the template it should create a new window that is black, 1000 * 800 pixels 
 - Screen geometry
 - Unlike Scratch, Pygame and most professional game engines have the origin x = 0, y = 0 at the top left hand corner. 
 
-[[./img/two.png]]
-
+[[./img/1-2.png]]
 ** Program It
 :PROPERTIES:
 
 
 :HTML_CONTAINER_CLASS: program
 :END:
-
 - Pygame has several build in shapes:
+[[./img/1-rect.png]]
+[[./img/1-circle.png]]
+[[./img/1-line.png]]
+- Try a filled and an unfilled rectangle first
+[[./img/1-3.png]]
+- Now a filled and an unfilled circle
+[[./img/1-4.png]]
+- And a line
+[[./img/1-5.png]]
 
-- Try a rectangle first.
-
-[[./img/three.png]]
-
-
-- Now try creating a few different shapes by inserting the code above into your game loop.
-
-[[./img/four.png]]
 
 ** Badge It
 :PROPERTIES:
@@ -166,5 +159,5 @@ Run the template it should create a new window that is black, 1000 * 800 pixels 
 :END:
 - *Silver:* Draw and filled and unfilled example of the 3 basic shapes of different colours and in different locations.
 - http://www.rapidtables.com/web/color/RGB_Color.htm
-- *Gold:* 	Add comments below your code explaining, in your own words, how RGB colours work.
-- *Platinum:* 	Create some variables for some new colours and use them when creating shapes.
+- *Gold:* Add comments below your code explaining, in your own words, how RGB colours work.
+- *Platinum:* Create some variables for some new colours and use them when creating shapes. Pygame also has the shapes arc, ellipse and polygon, draw an example of each.

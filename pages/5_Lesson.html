@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Pirates and Paradoxes</title>
+<title>Pygame</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -59,10 +59,10 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Pirates and Paradoxes</h1>
+<h1 class="title">Pygame</h1>
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -70,197 +70,115 @@ for the JavaScript code in this tag.
       <li><a href="1_Lesson.html">Week1</a></li>
       <li><a href="2_Lesson.html">Week2</a></li>
       <li><a href="3_Lesson.html">Week3</a></li>
-      <li><a href="4_Lesson.html">Week4</a></li> 
-      <li><a href="5_Lesson.html">Week5</a></li> 
+      <li><a href="4_Lesson.html">Week4</a></li>
+      <li><a href="5_Lesson.html">Week5</a></li>
       <li><a href="assessment.html">Assessment</a></li>
     </ul>
   </div>
 <div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1">Introduction: The Birthday Problem</h2>
+<h2 id="sec-1">Images</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 document">
-<h3 id="sec-1-1">Document It: The Birthday Paradox</h3>
+
+<div id="outline-container-sec-1-1" class="outline-3 learn">
+<h3 id="sec-1-1">Learn It</h3>
 <div class="outline-text-3" id="text-1-1">
-
 <ul class="org-ul">
-<li>In a group of 30 students what are the chances of two people sharing a birthday?
+<li>Basic shapes are ok but images are much more fun
 </li>
-
-<li>Open a text editor and write down your  answer with either a fraction or %.
-</li>
-</ul>
-
-
-<ul class="org-ul">
-<li>Watch the video&#x2026;
-</li>
-</ul>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/a2ey9a70yY0" frameborder="0" allowfullscreen></iframe>
-
-<ul class="org-ul">
-<li>Were you correct?
-</li>
-<li>What was the correct answer? 
-</li>
-<li>Can you explain it?
+<li>Using images as sprites is very simple in pygame
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3 learn">
-<h3 id="sec-1-2">Learn It: The Pirate Game</h3>
+<div id="outline-container-sec-1-2" class="outline-3 try">
+<h3 id="sec-1-2">Try It</h3>
 <div class="outline-text-3" id="text-1-2">
-<p>
-<b>The scenario</b>
-</p>
-
 <ul class="org-ul">
-<li>There are 5 rational pirates, A, B, C, D and E. 
+<li>First we must load the image ready for later use
+<ul class="org-ul">
+<li>Then create a variable to hold player1's x and y position
 </li>
-<li>They find 100 gold coins. 
+<li>don’t do this in the game loop, loading the image 60 times a second will not lead to good game performance 
 </li>
-<li>They must decide how to distribute them.
-</li>
-<li>The pirates have a strict order of seniority: A is superior to B, who is superior to C, who is superior to D, who is superior to E.
-</li>
-<li>The pirate world's rules of distribution are thus: that the most senior pirate should propose a distribution of coins. The pirates, including the proposer, then vote on whether to accept this distribution. If the proposed allocation is approved by a majority it happens. If not, the proposer is thrown overboard from the pirate ship and dies, and the next most senior pirate makes a new proposal to begin the system again. Each pirate would prefer to throw another overboard, if all other results would otherwise be equal.  Each pirate is very greedy but values his life the most. 
-</li>
-<li>What would be the strategy proposed by A?
+</ul>
 </li>
 </ul>
 
-<p>
-<b>Hints</b>
+<div class="figure">
+<p><img src="./img/5-1.png" alt="5-1.png" />
 </p>
+</div>
+<ul class="org-ul">
+<li>Then display / "blit" the image to the screen
+</li>
+</ul>
 
-<p>
-Work out the best results for pirate A using Backward induction and start with one pirate then two and keep going until you get a solution.
+<div class="figure">
+<p><img src="./img/5-2.png" alt="5-2.png" />
 </p>
+</div>
+<ul class="org-ul">
+<li>We are now going to make the sprite follow the mouse – we’ve done this before but we are going to improve our method.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/5-3.png" alt="5-3.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Bug list
+<ul class="org-ul">
+<li>Mouse curser not centred on image
+</li>
+<li>Mouse curser visible – looks ugly
+</li>
+<li>Cannot change image size
+</li>
+</ul>
+</li>
+<li>First we will set size we want for the image and then use the pygame.image.transform function to resize the image
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/5-4.png" alt="5-4.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>It is very useful to know the size of the image, we will use it to correct the mouse point position
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/5-5.png" alt="5-5.png" />
+</p>
+</div>
 </div>
 </div>
 
 <div id="outline-container-sec-1-3" class="outline-3 badge">
-<h3 id="sec-1-3">Badge It Silver</h3>
+<h3 id="sec-1-3">Badge It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>Make a presentation to show Pirate A what s/he should do.
+<li><b>Silver:</b> Add comments to your code and discribe how using image size is useful in correcting the mouse pointer position
+</li>
+<li><b>Gold:</b> Use the image below as your sprite, remember it has a different aspect ration
 </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-sec-1-4" class="outline-3 learn">
-<h3 id="sec-1-4">Learn It: Matrix</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li>A good way to represent Game Theory examples is to use a matrix. 
-</li>
-<li>This is sometimes called the <b>normal form</b>.
-</li>
-<li>Here is one we used for the Prisoner's dilemma:
-</li>
-</ul>
-
 
 <div class="figure">
-<p><img src="./img/prisoners.JPG" alt="prisoners.JPG" />
+<p><img src="./doc/bird1.png" alt="bird1.png" />
 </p>
 </div>
-
 <ul class="org-ul">
-<li>Basically the players and their possible actions are on the outside of the table. The outcomes are added in the inside of the table.
+<li><b>Platinum:</b> Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer
 </li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-5" class="outline-3 learn">
-<h3 id="sec-1-5">Learn It: Trees</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>Another good way to represent Game Theory examples is to use a tree. 
-</li>
-<li>This is sometimes called the <b>extensive form</b>.
-</li>
-<li>Here is one we could have used for the Prisoner's dilemma:
-</li>
-</ul>
-
-
-<div class="figure">
-<p><img src="./img/monty.PNG" alt="monty.PNG" />
-</p>
-</div>
-
 <p>
-<i><i>image courtesy of retroworks.blogspot.co.uk</i></i>
-</p>
-
-<ul class="org-ul">
-<li>Basically everytime there is a decision you make a branch. 
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-6" class="outline-3 research">
-<h3 id="sec-1-6">Research It</h3>
-<div class="outline-text-3" id="text-1-6">
-<ul class="org-ul">
-<li>Here is a list of 10 'games':
-</li>
-
-<li>Stag Hunt
-</li>
-<li>Battle of the Sexes
-</li>
-<li>The Centipede Game
-</li>
-<li>The Beauty Contest
-</li>
-<li>Chicken
-</li>
-<li>Hawk/Dove game
-</li>
-<li>Diner's dilemma
-</li>
-<li>Rock, Paper, Scissors
-</li>
-<li>Dollar Auction
-</li>
-<li>Traveller's dilemma
-</li>
-</ul>
-
-<p>
-<b>Pick one of them to research for the badge task.</b> 
-</p>
-</div>
-</div>
-<div id="outline-container-sec-1-7" class="outline-3 badge">
-<h3 id="sec-1-7">Badge It: Gold / Platinum</h3>
-<div class="outline-text-3" id="text-1-7">
-<p>
-<b>You need to explain the game theory principles:</b>
-</p>
-
-<ul class="org-ul">
-<li>number of players
-</li>
-<li>payoffs
-</li>
-<li>actions / decisions that are available to the player
-</li>
-<li>strategy to 'win'
-</li>
-
-<li>you may want to show a graphical version of the outcomes as either a matrix or a tree.
-</li>
-</ul>
-
-<p>
-The quality of your written answer will determine whether you are awarded Gold or Platinum.
+<img src="./doc/birdSprites.png" alt="birdSprites.png" />
+<img src="./doc/marioSprites.png" alt="marioSprites.png" />
 </p>
 </div>
 </div>

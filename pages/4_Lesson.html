@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Ultimatum, Dictator and bargaining games</title>
+<title>Pygame</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -59,10 +59,10 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Ultimatum, Dictator and bargaining games</h1>
+<h1 class="title">Pygame</h1>
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -76,227 +76,83 @@ for the JavaScript code in this tag.
     </ul>
   </div>
 <div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1">Introduction: The Monty Hall problem</h2>
+<h2 id="sec-1">Keyboard events</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 document">
-<h3 id="sec-1-1">Document It</h3>
+<div id="outline-container-sec-1-1" class="outline-3 learn">
+<h3 id="sec-1-1">Learn It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Watch the video.
+<li>As we are making a game for the PC platform the keyboard is a very important input tool.
+</li>
+<li>We are going to control the moment of a player on the screen with the arrow keys
 </li>
 </ul>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mhlc7peGlGg" frameborder="0" allowfullscreen></iframe>
-
-<p>
-Open a text editor and answer the following questions:
+<div class="figure">
+<p><img src="./img/4-0.png" alt="4-0.png" />
 </p>
-
-<ul class="org-ul">
-<li>What is the problem?
-</li>
-
-<li>Should you swap, stick with your choice or does it make no difference?
-</li>
-
-<li>What is the correct choice? Can you explain why?
-</li>
-</ul>
 </div>
 </div>
-
-<div id="outline-container-sec-1-2" class="outline-3 learn">
-<h3 id="sec-1-2">Learn It: Ultimatum</h3>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3 try">
+<h3 id="sec-1-2">Try It</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>Ultimatum is a single round game. 
-</li>
-<li>One player offers a share of a specified amount of money and the second player can choose to accept or reject this offer. 
-</li>
-<li>If the second player accepts both get the agreed share however if they choose to reject they both get nothing.
-</li>
-<li>Let try to solve the ultimatum game, in which one side makes a take-it-or-leave-it (also called fait accompli or ultimatum) offer.
+<li>First we need to create 2 variable to hold the player1 x and y positions
 </li>
 </ul>
+
+<div class="figure">
+<p><img src="./img/4-1.png" alt="4-1.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Add the player and event listeners to the game loop
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-2.png" alt="4-2.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>You will find the player moves each time the key is press. This is good for some games but other it is desirable to keep the player moving until another key is pressed. Currently the Event Listener and the Event Handler are in the same block of code.
+</li>
+<li>We will separate the two:
+<ul class="org-ul">
+<li>We will need 2 new variable outside of the game loop to hold the players speed and direction
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-3.png" alt="4-3.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>The modify the event listener and all and event handler
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-4.png" alt="4-4.png" />
+</p>
 </div>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3 code">
-<h3 id="sec-1-3">Code It</h3>
+</div>
+
+
+<div id="outline-container-sec-1-3" class="outline-3 badge">
+<h3 id="sec-1-3">Badge It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>Using Python lets make our own Ultimatum game.
+<li><b>Silver:</b> Add the ability to move player1 up and down then add comments to your code
 </li>
-<li>Firstly lets think about the pseudocode
+<li><b>Gold:</b> Add the functionality to increase and decrease player1Speed with the Q and W keys
 </li>
-</ul>
-
-
-<div class="figure">
-<p><img src="./img/1_sshot.JPG" alt="1_sshot.JPG" />
-</p>
-</div>
-
-<ul class="org-ul">
-<li>Now lets add the code which we will do in two stages.
-</li>
-<li>Secondly open IDLE and get coding!
-</li>
-</ul>
-
-
-<ul class="org-ul">
-<li>Part One 
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/2_sshot.JPG" alt="2_sshot.JPG" />
-</p>
-</div>
-
-<ul class="org-ul">
-<li>Part Two
-</li>
-</ul>
-
-
-<div class="figure">
-<p><img src="./img/3_sshot.JPG" alt="3_sshot.JPG" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3 try">
-<h3 id="sec-1-4">Try It</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li>Using your code get other people in the room to play. Aim for 10 rounds of the game.
-</li>
-<li>If everyone moves to the left.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-5" class="outline-3 document">
-<h3 id="sec-1-5">Document It</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>What pattern can you see?
-</li>
-
-<li>If they were using 'backward induction' what offers should they accept?
-</li>
-
-<li>Why do they sometimes reject?
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1-6" class="outline-3 learn">
-<h3 id="sec-1-6">Learn It: Dictator Game</h3>
-<div class="outline-text-3" id="text-1-6">
-<ul class="org-ul">
-<li>In the dictator game, one student decides how to split a pot of money between herself and the other student. 
-</li>
-<li>Once the decision has been made, the two students receive the specified split.
-</li>
-<li>This game teaches students about the existence of altruists in the population, and when coupled with the ultimatum game can show students how to differentiate social norms from strategic responses.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-7" class="outline-3 code">
-<h3 id="sec-1-7">Code It</h3>
-<div class="outline-text-3" id="text-1-7">
-<ul class="org-ul">
-<li>Adapt your first program to just accept the first proposal with no chance of rejection. Use the comment out instruction rather than deleting code - we will need it later.
-</li>
-
-<li>Here is the pseudocode to help you:
-</li>
-</ul>
-
-
-<div class="figure">
-<p><img src="./img/4_sshot.JPG" alt="4_sshot.JPG" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-8" class="outline-3 try">
-<h3 id="sec-1-8">Try It</h3>
-<div class="outline-text-3" id="text-1-8">
-<ul class="org-ul">
-<li>Using your code get other people in the room to play. Aim for 10 rounds of the game.
-</li>
-<li>If everyone moves to the left.
-</li>
-<li>Ask 10 students to play your game.
-</li>
-
-<li>What is your average score? Highest? Lowest?
-</li>
-</ul>
-<p>
-What has happened to the scores compared to the Ultimatum game?
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-9" class="outline-3 try">
-<h3 id="sec-1-9">Try It: Multiple rounds</h3>
-<div class="outline-text-3" id="text-1-9">
-<ul class="org-ul">
-<li>The Bargaining(Nash) game is a simple 2 player game used to model other bargaining interactions. This time the second player is going to be able to make counteroffers. THere are 3 rounds and if there is no agreement at the end then no one gets any money.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-10" class="outline-3 badge">
-<h3 id="sec-1-10">Code It</h3>
-<div class="outline-text-3" id="text-1-10">
-<p>
-Lets expand our original game program to include the three rounds.
-</p>
-
-<p>
-Here is some pseudocode to help your challenge.
-</p>
-
-
-<div class="figure">
-<p><img src="./img/5_sshot.JPG" alt="5_sshot.JPG" />
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-1-11" class="outline-3 badge">
-<h3 id="sec-1-11">Badge It Silver</h3>
-<div class="outline-text-3" id="text-1-11">
-<ul class="org-ul">
-<li>Upload your code for Ultimatum game the silver badge.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-12" class="outline-3 badge">
-<h3 id="sec-1-12">Badge It Gold</h3>
-<div class="outline-text-3" id="text-1-12">
-<ul class="org-ul">
-<li>Upload your code for Dictator game the Gold badge.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-13" class="outline-3 badge">
-<h3 id="sec-1-13">Badge It Platinum</h3>
-<div class="outline-text-3" id="text-1-13">
-<ul class="org-ul">
-<li>Upload your code for the mulitple round bargaining game for the platinum badge.
+<li><b>Platinum</b>: Add a feature to make player1 invisible when the space bar is pressed
 </li>
 </ul>
 </div>

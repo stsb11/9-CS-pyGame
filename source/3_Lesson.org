@@ -5,13 +5,13 @@
 #+HTML_HEAD_EXTRA: <script src="js/navbar.js" type="text/javascript"></script>
 #+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil toc:nil html-style:nil
 
-#+TITLE: The Prisoner's Dilemma
-#+AUTHOR: Stephen Brown
+#+TITLE: Pygame
+#+AUTHOR: Oliver Drayton
 
 #+BEGIN_HTML
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -89,69 +89,59 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Introduction
+* Events
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
+[[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- Game theory is the study of how and why people make decisions.
-- It is used extensively in the study of economics, and can often show surprising insights into how people behave. 
-- We'll look at some of these in this unit, and code some different games along the way in both Scratch and Python. 
+- All games have interaction with the user, in computing these are known as Interrupt Events.
+- The code that checks if the user has done something is called an Event Listener
+- When a specific event is head by the Event Lister
+- An action is then performed by the Event Handler code.
+  - If we look carefully at the template you will see that the event of the user closing the window is already handled.
+[[./img/3-1.png]]
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- The Prisoner's Dilemma is probably the most popular example of game theory in action. It demonstrates that people don't always act in their own best interests. 
-
-#+BEGIN_HTML
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t9Lo2fgxWHw" frameborder="0" allowfullscreen></iframe>
-#+END_HTML
-
-- Imagine that two people have been arrested for a crime, and the police are uncertain which person committed the crime and which person helped carry it out. 
-- Each prisoner is put into a different room and given a choice: 
-     - Remain silent
-     - Betray your parter
-- If both stay silent, they will both be sent to prison for *1 year*.
-- If they both betray one another, they can both be sent away for *3 years*.
-- If one betrays the other, the betrayer goes *free*, and the other is imprisoned for *5 years*.
-
-- The lowest total amount of prison time somes from both parties cooperating, /but/ there's always the risk that the other person might not be as kind of you. 
-- This becomes more interesting if we play the game once, then immediately play it again. Each player will now have a knowledge of how the other person behaved last time, and this will influence their decision making process. 
-- If we assign points (based on minimizing time in jail), we can develop different game strategies to minimize the time the human player stays in jail over multiple games. 
-** Learn It
+- Add the print(event) statement to your code
+- Take a look at the interpreter window while moving the mouse and pressing keys.
+- Try pressing the ALT key, the returned events are mod:
+-  =<Event(2-KeyDown {'mod': 0, 'unicode': '', 'scancode': 56, 'key': 308})>=
+-  =<Event(3-KeyUp {'mod': 0, 'key': 308, 'scancode': 56})>=
+   - =NOTE - key up and key down are different events=
+* Badge It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: learn
+:HTML_CONTAINER_CLASS: activity
 :END:
-- The same idea can be seen in different places in human society. 
-- Imagine a pair of competing fizzy drinks manufacturers. They both have two options when considering the sales of their products:
-    - *Option 1:* Don't spend money on advertising. People know your product already, and are currently buying it at a steady rate. 
-    - *Option 2:* Spend money on advertising. It'll cost money, but sales will increase.
-- If both companies cooperate (option 1), they'll both enjoy steady profits and won't have to spend thousands of pounds on advertising.
-- If one advertises and the other doesn't, one company will see their sales increase as the other company's sales (and profits) drop. 
-- If both companies advertise, the effects of them both advertising will cancel each other out, and both companies will see their overall profits drop because of the money they're spending on advertising. 
-- In real life, competing companies tend to advertise aggressively. 
+- *Silver:* Add comments to the bottom the your python code that are the events returned for the following:
+- Right mouse button
+- Mouse wheel press
+- Mouse wheel spin
+- Left mouse button
+- Pressing the X to close the window
+- The up arrow is pressed
+
 ** Code It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-- In a new browser tab, open [[https://scratch.mit.edu/projects/84074310/#editor][this link]] to see a prisoner's dilemma simulator
-- If you've a Scratch account, you can sign in to save the work you'll do here.
-- If you've not got one, you can always click 'File -> Download to your computer' when you're finished to ensure your work is saved.
-- Unfortunately, it looks like the developer didn't have time to finish the code, and there are some blanks. 
-- Based on the rules set out above, can you complete the code and make the game work?
+
+- We will make player1 follow the mouse
+[[./img/3-2.png]]
+- Look at the python terminal window and move the mouse, this is the data we will use to position player1
+[[./img/3-3.png]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-*** Silver
-- Complete the code for the game.
-*** Gold
-- Modify the cat's strategy to be an 'angel'. It always stays silent, and never betrays the human player. 
-- Develop a new 'Unpredictable puss' strategy for the cat, so that it betrays or stays silent at random. 
-*** Platinum
-- Modify the cat's strategy so that it holds a grudge...
-- It will remain silent every time the game is played, until the human player betrays, then...
-- It will then always betray the human player until the game is reset.
+- *Gold* The player is not in the center of the mouse pointer, fix this bug and add comments to your code
+
+- *Platinum:* Ok that's mouse movement but what about button press events?
+[[./img/3-4.png]]
+- Modify this code so a different shape is drawn on the 3 mouse button pressed events
+

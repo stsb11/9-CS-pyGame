@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>The Prisoner's Dilemma</title>
+<title>Pygame</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -59,10 +59,10 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">The Prisoner's Dilemma</h1>
+<h1 class="title">Pygame</h1>
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-gameTheory">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -76,143 +76,128 @@ for the JavaScript code in this tag.
     </ul>
   </div>
 <div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1">Introduction</h2>
+<h2 id="sec-1">Events</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+<a href="./doc/pygameDevTemplate.py">Right click and save as - for a fresh template</a>
+</p>
 </div>
 <div id="outline-container-sec-1-1" class="outline-3 learn">
 <h3 id="sec-1-1">Learn It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Game theory is the study of how and why people make decisions.
+<li>All games have interaction with the user, in computing these are known as Interrupt Events.
 </li>
-<li>It is used extensively in the study of economics, and can often show surprising insights into how people behave. 
+<li>The code that checks if the user has done something is called an Event Listener
 </li>
-<li>We'll look at some of these in this unit, and code some different games along the way in both Scratch and Python. 
+<li>When a specific event is head by the Event Lister
+</li>
+<li>An action is then performed by the Event Handler code.
+<ul class="org-ul">
+<li>If we look carefully at the template you will see that the event of the user closing the window is already handled.
 </li>
 </ul>
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/3-1.png" alt="3-1.png" />
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-sec-1-2" class="outline-3 try">
 <h3 id="sec-1-2">Try It</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>The Prisoner's Dilemma is probably the most popular example of game theory in action. It demonstrates that people don't always act in their own best interests. 
+<li>Add the print(event) statement to your code
+</li>
+<li>Take a look at the interpreter window while moving the mouse and pressing keys.
+</li>
+<li>Try pressing the ALT key, the returned events are mod:
+</li>
+<li><code>&lt;Event(2-KeyDown {'mod': 0, 'unicode': '', 'scancode': 56, 'key': 308})&gt;</code>
+</li>
+<li><code>&lt;Event(3-KeyUp {'mod': 0, 'key': 308, 'scancode': 56})&gt;</code>
+<ul class="org-ul">
+<li><code>NOTE - key up and key down are different events</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2 activity">
+<h2 id="sec-2">Badge It</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><b>Silver:</b> Add comments to the bottom the your python code that are the events returned for the following:
+</li>
+<li>Right mouse button
+</li>
+<li>Mouse wheel press
+</li>
+<li>Mouse wheel spin
+</li>
+<li>Left mouse button
+</li>
+<li>Pressing the X to close the window
+</li>
+<li>The up arrow is pressed
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3 code">
+<h3 id="sec-2-1">Code It</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<ul class="org-ul">
+<li>We will make player1 follow the mouse
 </li>
 </ul>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t9Lo2fgxWHw" frameborder="0" allowfullscreen></iframe>
+<div class="figure">
+<p><img src="./img/3-2.png" alt="3-2.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Look at the python terminal window and move the mouse, this is the data we will use to position player1
+</li>
+</ul>
 
+<div class="figure">
+<p><img src="./img/3-3.png" alt="3-3.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3 badge">
+<h3 id="sec-2-2">Badge It</h3>
+<div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
-<li>Imagine that two people have been arrested for a crime, and the police are uncertain which person committed the crime and which person helped carry it out. 
-</li>
-<li>Each prisoner is put into a different room and given a choice: 
-<ul class="org-ul">
-<li>Remain silent
-</li>
-<li>Betray your parter
-</li>
-</ul>
-</li>
-<li>If both stay silent, they will both be sent to prison for <b>1 year</b>.
-</li>
-<li>If they both betray one another, they can both be sent away for <b>3 years</b>.
-</li>
-<li>If one betrays the other, the betrayer goes <b>free</b>, and the other is imprisoned for <b>5 years</b>.
+<li><b>Gold</b> The player is not in the center of the mouse pointer, fix this bug and add comments to your code
 </li>
 
-<li>The lowest total amount of prison time somes from both parties cooperating, <i>but</i> there's always the risk that the other person might not be as kind of you. 
-</li>
-<li>This becomes more interesting if we play the game once, then immediately play it again. Each player will now have a knowledge of how the other person behaved last time, and this will influence their decision making process. 
-</li>
-<li>If we assign points (based on minimizing time in jail), we can develop different game strategies to minimize the time the human player stays in jail over multiple games. 
+<li><b>Platinum:</b> Ok that's mouse movement but what about button press events?
 </li>
 </ul>
+
+<div class="figure">
+<p><img src="./img/3-4.png" alt="3-4.png" />
+</p>
 </div>
-</div>
-<div id="outline-container-sec-1-3" class="outline-3 learn">
-<h3 id="sec-1-3">Learn It</h3>
-<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>The same idea can be seen in different places in human society. 
-</li>
-<li>Imagine a pair of competing fizzy drinks manufacturers. They both have two options when considering the sales of their products:
-<ul class="org-ul">
-<li><b>Option 1:</b> Don't spend money on advertising. People know your product already, and are currently buying it at a steady rate. 
-</li>
-<li><b>Option 2:</b> Spend money on advertising. It'll cost money, but sales will increase.
+<li>Modify this code so a different shape is drawn on the 3 mouse button pressed events
 </li>
 </ul>
-</li>
-<li>If both companies cooperate (option 1), they'll both enjoy steady profits and won't have to spend thousands of pounds on advertising.
-</li>
-<li>If one advertises and the other doesn't, one company will see their sales increase as the other company's sales (and profits) drop. 
-</li>
-<li>If both companies advertise, the effects of them both advertising will cancel each other out, and both companies will see their overall profits drop because of the money they're spending on advertising. 
-</li>
-<li>In real life, competing companies tend to advertise aggressively. 
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-4" class="outline-3 code">
-<h3 id="sec-1-4">Code It</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li>In a new browser tab, open <a href="https://scratch.mit.edu/projects/84074310/#editor">this link</a> to see a prisoner's dilemma simulator
-</li>
-<li>If you've a Scratch account, you can sign in to save the work you'll do here.
-</li>
-<li>If you've not got one, you can always click 'File -&gt; Download to your computer' when you're finished to ensure your work is saved.
-</li>
-<li>Unfortunately, it looks like the developer didn't have time to finish the code, and there are some blanks. 
-</li>
-<li>Based on the rules set out above, can you complete the code and make the game work?
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-5" class="outline-3 badge">
-<h3 id="sec-1-5">Badge It</h3>
-<div class="outline-text-3" id="text-1-5">
-</div>
-<div id="outline-container-sec-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1">Silver</h4>
-<div class="outline-text-4" id="text-1-5-1">
-<ul class="org-ul">
-<li>Complete the code for the game.
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2">Gold</h4>
-<div class="outline-text-4" id="text-1-5-2">
-<ul class="org-ul">
-<li>Modify the cat's strategy to be an 'angel'. It always stays silent, and never betrays the human player. 
-</li>
-<li>Develop a new 'Unpredictable puss' strategy for the cat, so that it betrays or stays silent at random. 
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3">Platinum</h4>
-<div class="outline-text-4" id="text-1-5-3">
-<ul class="org-ul">
-<li>Modify the cat's strategy so that it holds a grudge&#x2026;
-</li>
-<li>It will remain silent every time the game is played, until the human player betrays, then&#x2026;
-</li>
-<li>It will then always betray the human player until the game is reset.
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="validation"></p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

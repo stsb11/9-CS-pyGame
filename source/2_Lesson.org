@@ -5,7 +5,7 @@
 #+HTML_HEAD_EXTRA: <script src="js/navbar.js" type="text/javascript"></script>
 #+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil toc:nil html-style:nil
 
-#+TITLE: PyGame
+#+TITLE: Pygame
 #+AUTHOR: Oliver Drayton
 
 #+BEGIN_HTML
@@ -89,10 +89,11 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Getting our game face on
+* Move it!
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
+[[./doc/pygameDevTemplate.py][Right click and save as - for a fresh templete]]
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
@@ -102,11 +103,11 @@ We are going to create another shape but in a slightly different way and make it
 
 1.	In the game setup create a variable player1X and assign it the value of 0
 
-[[./img/eight.png]]
+[[./img/2-1.png]]
 
 2.	Draw player1 in the game loop and increment the X position by 2 pixels every time the game loop runs.
 
-[[./img/nine.png]]
+[[./img/2-2.png]]
 
 ** Document It
 :PROPERTIES:
@@ -116,26 +117,44 @@ We are going to create another shape but in a slightly different way and make it
 
 ** Learn It:
 :PROPERTIES:
-
 :HTML_CONTAINER_CLASS: learn
 :END:
 
-[[./img/ten.png]]
+[[./img/2-3.png]]
 
-Fill the whole screen with a colour, this removes any previous drawings.
+- Fill the whole screen with a colour, this removes any previous drawings.
+* Selection
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- Selection one of the three basic logic structures in computer programming. The other two logic structures are sequence and iteration. In a selection structure, a question is asked, and depending on the answer, the program takes one of two courses of action, after which the program moves on to the next event
+- How we see it...
+[[./img/2-4.png]]
+- How the computer see it...
+[[./img/2-5.png]]
+- We are going to use value the player1X variable to determine if player1 has moved off the screen.
+[[./img/2-6.png]]
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
 
-:HTML_CONTAINER_CLASS:
+- Instead of making the player reappear lets make him bounce.
+- We will need to create a variable to hold the speed and direction of the player – this must be done before the game loop
+[[./img/2-7.png]]
+- We will also need to change the if statement
+[[./img/2-8.png]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-*Silver*
-- Add comments to your code and upload it.
-*Gold*
-- Add another shape and make it move top to bottom
-*Platinum*
-- Add another shape and make it move diagonally
-
-*Extension task*
-
-- Try the arc and polygon shapes 
+- *Silver:* Add comments to all your code
+- *Gold:* Create a circle that:
+  - appears at  x= 100, y = 100
+  - moves to x = 100, y = 700
+  - reappears at 100, 100
+- *Platinum:* Make the player move diagonally and bounce of all side of the screen
