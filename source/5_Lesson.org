@@ -108,9 +108,9 @@
  - don’t do this in the game loop, loading the image 60 times a second will not lead to good game performance 
 [[./img/5-1.PNG]]
 - Then display / "blit" the image to the screen
-[[./img/5-2.PNG]]
+[[./img/5-2.png]]
 - We are now going to make the sprite follow the mouse – we’ve done this before but we are going to improve our method.
-[[./img/5-3.PNG]]
+[[./img/5-3.png]]
 - Bug list
  - Mouse curser not centred on image
  - Mouse curser visible – looks ugly
@@ -128,4 +128,4 @@
 [[./doc/bird1.png]]
 - *Platinum:* Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer.
 [[./doc/birdSprites.png]]
-[[./doc/marioSprites.png]]
+[[./doc/MarioSprites.png]]

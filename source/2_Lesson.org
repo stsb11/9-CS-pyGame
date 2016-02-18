@@ -132,9 +132,9 @@ DEADLINE: <2016-02-18 Thu>
 :END:
 - Selection one of the three basic logic structures in computer programming. The other two logic structures are sequence and iteration. In a selection structure, a question is asked, and depending on the answer, the program takes one of two courses of action, after which the program moves on to the next event
 - How we see it...
-[[./img/2-4.PNG]]
-- How the computer see it...
-[[./img/2-5.PNG]]
+[[./img/2-4.png]]
+- How the computer sees it...
+[[./img/2-5.png]]
 - We are going to use value of the =player1X= variable to determine if =player1= has moved off the screen.
 [[./img/2-6.PNG]]
 ** Code It
