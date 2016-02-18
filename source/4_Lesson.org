@@ -105,15 +105,15 @@
 :HTML_CONTAINER_CLASS: try
 :END:
 - First we need to create 2 variable to hold the player1 x and y positions
-[[./img/4-1.PNG]]
+[[./img/4-1.png]]
 - Add the player and event listeners to the game loop
 [[./img/4-2.PNG]]
 - You will find the player moves each time the key is press. This is good for some games but other it is desirable to keep the player moving until another key is pressed. Currently the Event Listener and the Event Handler are in the same block of code.
 - We will separate the two:
    - We will need 2 new variable outside of the game loop to hold the players speed and direction
-[[./img/4-3.PNG]]
+[[./img/4-3.png]]
     - The modify the event listener and all and event handler
-[[./img/4-4.PNG]]
+[[./img/4-4.png]]
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
