@@ -90,57 +90,103 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3 try">
-<h3 id="sec-1-2">Try It</h3>
+<div id="outline-container-sec-1-2" class="outline-3 learn">
+<h3 id="sec-1-2">Learn It</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>We are going to create another shape but in a slightly different way and make it more around.
-
+<li>Previously, we looked at drawing simple elemental shapes. 
+</li>
+<li>In this lesson, we are going to look at ways to draw shapes, then animate them.
+</li>
+<li>We will will need to perform the following steps:
 <ul class="org-ul">
-<li>In the game setup create a variable <code>player1X</code> and assign it the value of 0.
+<li>Set up variables to store <code>x</code> and <code>y</code> coordinates for our graphic.
+</li>
+<li>Draw the a shape over at <code>player1X</code>, <code>player1Y</code>
+</li>
+<li>Change the variables a bit
+</li>
+<li>Repeat the draw/change process repeatedly.
 </li>
 </ul>
+</li>
+</ul>
+</div>
+</div>
 
-<div class="figure">
-<p><img src="./img/2-1.PNG" alt="2-1.PNG" />
-</p>
-</div>
-<ul class="org-ul">
-<li>Draw <code>player1</code> in the game loop and increment the <code>X</code> position by 2 pixels every time the game loop runs.
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/2-2.PNG" alt="2-2.PNG" />
-</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-1-3" class="outline-3 document">
-<h3 id="sec-1-3">Document It</h3>
+<div id="outline-container-sec-1-3" class="outline-3 try">
+<h3 id="sec-1-3">Try It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>Did this work as expected? Discuss what has happened.
+<li>At the end of the 'game setup' area of the code, underneath the <b>gameState = running</b> line, create a variable <code>player1X</code> and assign it the value of 0.
+</li>
+<li>This line of code will happen once when the program first starts up. 
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1X</span> = 0
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Next, we'll need to add some code to the main game loop. Expressed as pseudocode, we'll be doing:
+</li>
+</ul>
+<pre class="example">
+START REPEAT
+    Draw a small square at coordinates: player1X, 200.
+    Add 4 to the value of player1X
+END REPEAT
+</pre>
+
+<ul class="org-ul">
+<li>Add the following lines of code to draw our player in the game loop and increment the <code>X</code> position by 4 pixels every time the game loop runs.
+</li>
+<li>Place the following lines of code immediately under the <code>#your code starts here</code> line. 
+</li>
+<li><b>NOTE:</b> You must ensure you use the <code>tab</code> key to indent these lines of code, otherwise it won't run.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+<span style="color: #268bd2;">player1X</span> = player1X + 4
+</pre>
 </div>
 </div>
-<div id="outline-container-sec-1-4" class="outline-3 learn">
-<h3 id="sec-1-4">Learn It:</h3>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3 document">
+<h3 id="sec-1-4">Document It</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
-<li>Look at the screenshot below.
+<li>Did this work as expected? Discuss what you think has happened.
 </li>
 </ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3 try">
+<h3 id="sec-1-5">Try It:</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Perhaps this line can help - it fills the whole screen with solid colour, which would cover any previous images we've drawn. 
+</li>
+</ul>
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="./img/2-3.PNG" alt="2-3.PNG" />
-</p>
+<pre class="src src-python">screen.fill(black)
+</pre>
 </div>
 <ul class="org-ul">
-<li>Fill the whole screen with a colour, this removes any previous drawings.
+<li>See if you can add this in the right place in our game loop to create a green square that drifts across the screen. 
+</li>
+<li>Can you make it move more slowly? Faster? Render as a different colour? 
+</li>
+<li>Could you change the code to make it move down instead of up? 
+</li>
+<li>What about to move diagonally down and right across the screen?
+</li>
+<li>What about making it start in the bottom-left corner and making it travel up and to the right?
 </li>
 </ul>
 </div>
@@ -156,7 +202,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>Selection one of the three basic logic structures in computer programming. The other two logic structures are sequence and iteration. In a selection structure, a question is asked, and depending on the answer, the program takes one of two courses of action, after which the program moves on to the next event
 </li>
-<li>How we see it&#x2026;
+<li>Humans might see selection like this
 </li>
 </ul>
 
@@ -165,7 +211,7 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>How the computer sees it&#x2026;
+<li>Computers see things like this&#x2026;
 </li>
 </ul>
 
@@ -177,55 +223,124 @@ for the JavaScript code in this tag.
 <li>We are going to use value of the <code>player1X</code> variable to determine if <code>player1</code> has moved off the screen.
 </li>
 </ul>
-
-<div class="figure">
-<p><img src="./img/2-6.PNG" alt="2-6.PNG" />
-</p>
 </div>
 </div>
-</div>
-<div id="outline-container-sec-2-2" class="outline-3 code">
-<h3 id="sec-2-2">Code It</h3>
+<div id="outline-container-sec-2-2" class="outline-3 try">
+<h3 id="sec-2-2">Try It</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
-<li>Instead of making the player reappear lets make him bounce.
-</li>
-<li>We will need to create a variable to hold the speed and direction of the player – this must be done before the game loop
+<li>Modify your code in the game loop to say this:
 </li>
 </ul>
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="./img/2-7.PNG" alt="2-7.PNG" />
-</p>
+<pre class="src src-python">screen.fill(black)
+<span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+<span style="color: #268bd2;">player1X</span> = player1X + 4
+
+<span style="color: #859900; font-weight: bold;">if</span> player1X &gt; SCREENWIDTH:
+    <span style="color: #268bd2;">player1X</span> = 0
+</pre>
 </div>
+
 <ul class="org-ul">
-<li>We will also need to change the <code>if</code> statement
+<li>Run your code. What do the new lines do? 
+</li>
+<li>Could you make the square move right to left instead?
+</li>
+<li>How about repeatedly moving in diagonal lines?
 </li>
 </ul>
-
-<div class="figure">
-<p><img src="./img/2-8.PNG" alt="2-8.PNG" />
-</p>
 </div>
 </div>
-</div>
-<div id="outline-container-sec-2-3" class="outline-3 badge">
-<h3 id="sec-2-3">Badge It</h3>
+<div id="outline-container-sec-2-3" class="outline-3 code">
+<h3 id="sec-2-3">Code It</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
-<li><b>Silver:</b> Add comments to all of your code.
+<li>Using conditionals (IF statements) will allow us to make far better graphics. 
 </li>
-<li><b>Gold:</b> Create a circle that:
+<li>For instance instead of making the player reappear repeatedly on the same edge, lets make him bounce from edge to edge.
+</li>
+<li>We will need to create a variable to hold the speed and direction of the player – this must be done before at the loop, in the 'game setup' section of the page at the top of the program. Put it directly underneath where you initially wrote the <b>player1X = 0</b> line at the start of this page. You should end up with&#x2026;
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1X</span> = 0
+<span style="color: #268bd2;">player1XSpeed</span> = 4
+</pre>
+</div>
+
 <ul class="org-ul">
-<li>appears at  x= 100, y = 100
+<li>We will also need to change the <b>player1X = player1X + 4</b> line and <b>if</b> statement slightly in the game loop:
 </li>
-<li>moves to x = 100, y = 700
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-python">screen.fill(black)
+<span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+<span style="color: #268bd2;">player1X</span> = player1X + 4
+
+<span style="color: #859900; font-weight: bold;">if</span> player1X &gt; SCREENWIDTH:
+    <span style="color: #268bd2;">player1X</span> = 0
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>&#x2026;needs to be changed to say&#x2026;
 </li>
-<li>reappears at 100, 100
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">screen.fill(black)
+<span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+<span style="color: #268bd2;">player1X</span> = player1X + player1XSpeed
+
+<span style="color: #859900; font-weight: bold;">if</span> player1X &gt; SCREENWIDTH:
+    <span style="color: #268bd2;">player1XSpeed</span>  = player1XSpeed * -1
+</pre>
+</div>
+<ul class="org-ul">
+<li>Which two lines have changed? Why?
+</li>
+<li>What is needed to make the shape bounce off the left-hand edge of the window too?
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Can you change the size of the window? 
+</li>
+<li>Can you make the square travel only half-way accross the screen before reversing direction?
+</li>
+<li>Can you make the square bounce up and down?
+</li>
+<li>Does it have to be a square?
+</li>
+<li>Could it be green travelling one way, but red travelling the other?
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-4" class="outline-3 badge">
+<h3 id="sec-2-4">Badge It</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><b>Silver:</b> Add comments to all of your code, and upload for marking. 
+</li>
+<li><b>Gold:</b> Make a piece of animation. Create a circle that:
+<ul class="org-ul">
+<li>Appears at  x = 100, y = 100
+</li>
+<li>Moves to x = 100, y = 700
+</li>
+<li>Re-appears at x = 100, y = 100
 </li>
 </ul>
 </li>
-<li><b>Platinum:</b> Make the player move diagonally and bounce of all sides of the screen.
+<li><b>Platinum:</b> Make a shape move diagonally and bounce off all the sides of the screen.
 </li>
 </ul>
 </div>

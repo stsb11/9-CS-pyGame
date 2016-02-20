@@ -89,24 +89,53 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Introduction: Images
+* pyGame at home
  :PROPERTIES:
  :HTML_CONTAINER_CLASS: activity
  :END:
-
-** Learn It
+** Code It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: learn
+:HTML_CONTAINER_CLASS: code
 :END:
+- You may wish to try making your own games at home.
+- *Windows*
+  - Step 1: Install [[https://www.python.org/ftp/python/3.2/python-3.2.msi][32-bit Python 3.2]].
+  - Step 2: Install [[http://pygame.org/ftp/pygame-1.9.2a0.win32-py3.2.msi][pyGame 1.9.2]].
 
-** Try It
+
+- *MacOS*
+  - Follow the steps [[http://florian-berger.de/en/articles/installing-pygame-for-python-3-on-os-x/][here]]
+
+
+- *Ubuntu Linux*
+  - Open a terminal, and copy/paste these commands one at a time:
+
+  - Change in to your home directory
+#+begin_src python
+cd ~
+#+end_src
+
+  - Pick up the pyGame source code
+#+begin_src python
+sudo apt-get install mercurial
+hg clone https://bitbucket.org/pygame/pygame
+cd pygame
+#+end_src
+
+  - Pick up some additional dependencies we'll need
+#+begin_src python
+sudo apt-get install python3-dev python3-numpy libsdl-dev libsdl-image1.2-dev \
+  libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libportmidi-dev \
+  libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
+#+end_src
+
+  - Build and install
+#+begin_src python
+python3 setup.py build
+sudo python3 setup.py install
+#+end_src
+** Test It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: try
+:HTML_CONTAINER_CLASS: test
 :END:
-
-
-** Badge It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: badge
-:END:
-
+- To test your installation works, load IDLE, type =import pygame= in the console and hit enter. If you don't see any errors, you're ready to go.

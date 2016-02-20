@@ -99,29 +99,61 @@
 :END:
 - Start by picking up the template for this lesson:
 - [[./doc/pygameDevTemplate.py][Right click and Save As - for a fresh template]]
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- Previously, we looked at drawing simple elemental shapes. 
+- In this lesson, we are going to look at ways to draw shapes, then animate them.
+- We will will need to perform the following steps:
+  - Set up variables to store =x= and =y= coordinates for our graphic.
+  - Draw the a shape over at =player1X=, =player1Y=
+  - Change the variables a bit
+  - Repeat the draw/change process repeatedly.
+
 ** Try It
-DEADLINE: <2016-02-18 Thu>
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- We are going to create another shape but in a slightly different way and make it more around.
-   
-   - In the game setup create a variable =player1X= and assign it the value of 0.
-   [[./img/2-1.PNG]]
-   - Draw =player1= in the game loop and increment the =X= position by 2 pixels every time the game loop runs.
-   [[./img/2-2.PNG]]
+- At the end of the 'game setup' area of the code, underneath the *gameState = running* line, create a variable =player1X= and assign it the value of 0.
+- This line of code will happen once when the program first starts up. 
+#+begin_src python
+player1X = 0
+#+end_src
+
+- Next, we'll need to add some code to the main game loop. Expressed as pseudocode, we'll be doing:
+#+begin_src
+START REPEAT
+    Draw a small square at coordinates: player1X, 200.
+    Add 4 to the value of player1X
+END REPEAT
+#+end_src
+
+- Add the following lines of code to draw our player in the game loop and increment the =X= position by 4 pixels every time the game loop runs.
+- Place the following lines of code immediately under the =#your code starts here= line. 
+- *NOTE:* You must ensure you use the =tab= key to indent these lines of code, otherwise it won't run.
+#+begin_src python
+player1 = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+player1X = player1X + 4
+#+end_src
 ** Document It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: document
 :END:
-- Did this work as expected? Discuss what has happened.
-** Learn It:
+- Did this work as expected? Discuss what you think has happened.
+** Try It:
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: learn
+:HTML_CONTAINER_CLASS: try
 :END:
-- Look at the screenshot below.
-[[./img/2-3.PNG]]
-- Fill the whole screen with a colour, this removes any previous drawings.
+- Perhaps this line can help - it fills the whole screen with solid colour, which would cover any previous images we've drawn. 
+#+begin_src python
+screen.fill(black)
+#+end_src
+- See if you can add this in the right place in our game loop to create a green square that drifts across the screen. 
+- Can you make it move more slowly? Faster? Render as a different colour? 
+- Could you change the code to make it move down instead of up? 
+- What about to move diagonally down and right across the screen?
+- What about making it start in the bottom-left corner and making it travel up and to the right?
 * Selection
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
@@ -131,28 +163,77 @@ DEADLINE: <2016-02-18 Thu>
 :HTML_CONTAINER_CLASS: learn
 :END:
 - Selection one of the three basic logic structures in computer programming. The other two logic structures are sequence and iteration. In a selection structure, a question is asked, and depending on the answer, the program takes one of two courses of action, after which the program moves on to the next event
-- How we see it...
+- Humans might see selection like this
 [[./img/2-4.png]]
-- How the computer sees it...
+- Computers see things like this...
 [[./img/2-5.png]]
 - We are going to use value of the =player1X= variable to determine if =player1= has moved off the screen.
-[[./img/2-6.PNG]]
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- Modify your code in the game loop to say this:
+#+begin_src python
+screen.fill(black)
+player1 = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+player1X = player1X + 4
+
+if player1X > SCREENWIDTH:
+    player1X = 0
+#+end_src
+
+- Run your code. What do the new lines do? 
+- Could you make the square move right to left instead?
+- How about repeatedly moving in diagonal lines?
 ** Code It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-- Instead of making the player reappear lets make him bounce.
-- We will need to create a variable to hold the speed and direction of the player – this must be done before the game loop
-[[./img/2-7.PNG]]
-- We will also need to change the =if= statement
-[[./img/2-8.PNG]]
+- Using conditionals (IF statements) will allow us to make far better graphics. 
+- For instance instead of making the player reappear repeatedly on the same edge, lets make him bounce from edge to edge.
+- We will need to create a variable to hold the speed and direction of the player – this must be done before at the loop, in the 'game setup' section of the page at the top of the program. Put it directly underneath where you initially wrote the *player1X = 0* line at the start of this page. You should end up with...
+
+#+begin_src python
+player1X = 0
+player1XSpeed = 4
+#+end_src
+
+- We will also need to change the *player1X = player1X + 4* line and *if* statement slightly in the game loop:
+
+#+begin_src python
+screen.fill(black)
+player1 = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+player1X = player1X + 4
+
+if player1X > SCREENWIDTH:
+    player1X = 0
+#+end_src
+
+- ...needs to be changed to say...
+#+begin_src python
+screen.fill(black)
+player1 = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
+player1X = player1X + player1XSpeed
+
+if player1X > SCREENWIDTH:
+    player1XSpeed  = player1XSpeed * -1 
+#+end_src
+- Which two lines have changed? Why?
+- What is needed to make the shape bounce off the left-hand edge of the window too?
+
+
+- Can you change the size of the window? 
+- Can you make the square travel only half-way accross the screen before reversing direction?
+- Can you make the square bounce up and down?
+- Does it have to be a square?
+- Could it be green travelling one way, but red travelling the other?
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Add comments to all of your code.
-- *Gold:* Create a circle that:
-  - appears at  x= 100, y = 100
-  - moves to x = 100, y = 700
-  - reappears at 100, 100
-- *Platinum:* Make the player move diagonally and bounce of all sides of the screen.
+- *Silver:* Add comments to all of your code, and upload for marking. 
+- *Gold:* Make a piece of animation. Create a circle that:
+  - Appears at  x = 100, y = 100
+  - Moves to x = 100, y = 700
+  - Re-appears at x = 100, y = 100
+- *Platinum:* Make a shape move diagonally and bounce off all the sides of the screen.

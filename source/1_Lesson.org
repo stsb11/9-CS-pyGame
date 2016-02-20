@@ -89,7 +89,7 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Introdction
+* Introduction
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
@@ -98,13 +98,10 @@
 :HTML_CONTAINER_CLASS: learn
 :END:
 - Pygame is a cross-platform set of Python modules designed for creating 2D games. The modules are designed to be simple, easy to use, and fun—a key part of Pygame's ideology.
-         http://www.pygame.org/
-
+- You can read more over at http://www.pygame.org/
 - Pygame was first released in 2000 and has a large community of developers. Have a look at the [[http://www.pygame.org/hifi.html][Awesome]] section of the web site.  
-
 - Pygame requires several line of code to get things up and running, this has been provided for you in the form of a template to use of all your pygame projects.
 [[./img/1-1.png]]
-
 ** Code It: Template
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
@@ -114,48 +111,74 @@
 - Download the template *pygame* to your =pygameIntro= folder as =basicShapes.py=
 [[./doc/pygameDevTemplate.py][Click here for the template]] 
 
-
-The template has two main sections:
-
-- Game Setup – runs once when the game loads
-
-- Game loop – runs again and again (loops) 60 times a second
-  
+- The template has two main sections:
+  - Game Setup: runs once when the game loads
+  - Game loop: runs again and again (loops) 60 times a second
+- We'll start by making some changes to the game loop, to get to grips with drawing basic graphics. Once we're happy with doing this, we can start to animate them.
 ** Run It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: run
 :END:
-Run the template it should create a new window that is black, 1000 * 800 pixels and closes when you click on the new windows X – that means it’s working!
-
-** Learn It
+- With the template loaded in pyCharm, we need to test that everything is working. 
+- Run the template file by either using =Shift-F10= or clicking the gree 'play' icon in the top right-hand corner.
+- After a few seconds, you should see the computer create a new window that is black, 1000 * 800 pixels and closes when you tell it to. 
+** Learn It: Screen Geometry
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:      
-- Screen geometry
-- Unlike Scratch, Pygame and most professional game engines have the origin x = 0, y = 0 at the top left hand corner. 
-
+- Unlike Scratch, Pygame and most professional game engines have the origin =x = 0=, =y = 0= at the top left hand corner.
 [[./img/1-2.png]]
+- In the image above, a pixel has been placed at x=30, y=40.
 ** Program It
 :PROPERTIES:
-
-
 :HTML_CONTAINER_CLASS: program
 :END:
-- Pygame has several build in shapes:
-[[./img/1-rect.png]]
+- Pygame has several built-in shapes that you can draw using simple commands.
+- The =.draw.rect()= command lets you draw a rectangle on the display. It needs a few pieces of information to be able to do this first, which are placed in brackets. We call these *parameters*. 
+   - In theory you could have lots of graphics windows open. We've only got one, which we've called =screen=. We need to tell pyGame that this is where the shape is to be drawn.
+   - We can draw lines and shapes in any of 16.7 million colours. Our code has a few set up for convenient access. In the example below, we're using a colour we've called =green=. 
+- Next, there are four numbers. Let's look at that a little bit
+   - We need to state exactly where on the =screen= windows we'd like to start drawing the rectangle from. The first two digits (50,200) tell pyGame that we want to start drawing 50 pixels from the left edge, and 200px from the top of the screen. 
+   - To draw a rectangle, we also need to state the width (40px in this case) and the height (20px) that we want our shape to be. 
+[[./img/1-rect.png
+]]- We can draw several other basic shapes too, such as circles. 
+- The idea is much the same, as you can see below.
 [[./img/1-circle.png]]
+- Lines are also possible...
 [[./img/1-line.png]]
-- Try a filled and an unfilled rectangle first
-[[./img/1-3.PNG]]
-- Now a filled and an unfilled circle
-[[./img/1-4.PNG]]
-- And a line
-[[./img/1-5.PNG]]
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- In your pyCharm code, scroll down to line that says, =your code starts here=, located about two thirds of the way down the page. 
+- Copy and paste the line below underneath this line
+#+begin_src python
+pygame.draw.rect(screen, green, (50, 200, 40, 20))
+pygame.draw.rect(screen, yellow, (50, 400, 40, 20), 4)
+#+end_src
+- Run the code with =Shift-F10=
+- What does the extra 4 at the end do?
+
+
+- Let's try something else. Remove the lines you wrote previously, and replace them with these and run the program. 
+#+begin_src python
+pygame.draw.circle(screen, white, (300, 600), 20)
+pygame.draw.circle(screen, red, (400, 700), 20, 4)
+#+end_src
+
+- Let's try one more. Replace your circle code with these lines.
+- Run them - what do you think the different parameters are doing?
+#+begin_src python
+pygame.draw.line(screen, green, (0, 0), (200, 200))
+pygame.draw.line(screen, green, (0, 0), (800, 200), 4)
+#+end_src
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Draw and filled and unfilled example of the 3 basic shapes of different colours and in different locations.
-- http://www.rapidtables.com/web/color/RGB_Color.htm
-- *Gold:* Add comments below your code explaining, in your own words, how RGB colours work.
-- *Platinum:* Create some variables for some new colours and use them when creating shapes. Pygame also has the shapes arc, ellipse and polygon, draw an example of each.
+- For these tasks, upload screenshots of your work as well as your .py code files to collect the badges.
+- *Silver:* Draw a car or house using code. An example is shown below, made from two rectangles, two circles and a 4-pixel thick line. 
+[[./img/1_car.png]]
+- *Gold:* Add comments below your code from the silver task, explaining in your own words how [[http://www.rapidtables.com/web/color/RGB_Color.htm][RGB colours]] work.
+- *Platinum:* Create some variables for *two* new colours. Pygame also has the shapes =ellipse= and =polygon=. Research online how to use these, then draw an example of them both using your new colours.
