@@ -38,6 +38,10 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: link-heading
 :END:  
+* [[file:pages/6_Lesson.html][Week 7 - Text me]]
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: link-heading
+:END:  
 * [[file:pages/0_Lesson.html][Installing pyGame at home]]
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: link-heading
