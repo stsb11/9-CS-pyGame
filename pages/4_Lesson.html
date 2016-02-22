@@ -79,78 +79,197 @@ for the JavaScript code in this tag.
 <h2 id="sec-1">Keyboard events</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 learn">
-<h3 id="sec-1-1">Learn It</h3>
+<div id="outline-container-sec-1-1" class="outline-3 code">
+<h3 id="sec-1-1">Download It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>As we are making a game for the PC platform the keyboard is a very important input tool.
+<li>Start by picking up a template to use in this lesson: 
 </li>
-<li>We are going to control the moment of a player on the screen with the arrow keys
+<li><a href="./doc/pygameDevTemplate.py">Right click and save as - for a fresh template</a>
 </li>
 </ul>
-
-<div class="figure">
-<p><img src="./img/4-0.PNG" alt="4-0.PNG" />
-</p>
 </div>
 </div>
-</div>
-<div id="outline-container-sec-1-2" class="outline-3 try">
-<h3 id="sec-1-2">Try It</h3>
+<div id="outline-container-sec-1-2" class="outline-3 learn">
+<h3 id="sec-1-2">Learn It</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>First we need to create 2 variable to hold the player1 x and y positions
+<li>As we are making a game for the PC platform, the keyboard is a very important input tool.
+</li>
+<li>We are going to control the moment of a player on the screen with the arrow keys. Add these lines of code inside the game loop, inside your <code>for</code> loop. 
+</li>
+<li>Put the code immediately underneath the gameState = "exit" line.
+</li>
+<li><b>Note:</b> As always, you'll need to ensure the code is indented for it to work.
 </li>
 </ul>
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="./img/4-1.png" alt="4-1.png" />
-</p>
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">if</span> event.<span style="color: #657b83; font-weight: bold;">type</span> == pygame.KEYDOWN:
+    <span style="color: #859900; font-weight: bold;">if</span> event.key == pygame.K_LEFT:
+        <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Left"</span>)
+    <span style="color: #859900; font-weight: bold;">if</span> event.key == pygame.K_RIGHT:
+        <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Right"</span>)
+</pre>
 </div>
 <ul class="org-ul">
-<li>Add the player and event listeners to the game loop
+<li>If you run this code and look in the interpreter window, you'll be able to see the program letting you know when you press left and right. You might be able to add up and down for yourself too.
 </li>
 </ul>
-
-<div class="figure">
-<p><img src="./img/4-2.PNG" alt="4-2.PNG" />
-</p>
-</div>
-<ul class="org-ul">
-<li>You will find the player moves each time the key is press. This is good for some games but other it is desirable to keep the player moving until another key is pressed. Currently the Event Listener and the Event Handler are in the same block of code.
-</li>
-<li>We will separate the two:
-<ul class="org-ul">
-<li>We will need 2 new variable outside of the game loop to hold the players speed and direction
-</li>
-</ul>
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/4-3.png" alt="4-3.png" />
-</p>
-</div>
-<ul class="org-ul">
-<li>The modify the event listener and all and event handler
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/4-4.png" alt="4-4.png" />
-</p>
 </div>
 </div>
-</div>
-<div id="outline-container-sec-1-3" class="outline-3 badge">
-<h3 id="sec-1-3">Badge It</h3>
+<div id="outline-container-sec-1-3" class="outline-3 learn">
+<h3 id="sec-1-3">Learn It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li><b>Silver:</b> Add the ability to move <code>player1</code> up and down then add comments to your code
+<li>Let's now get the shape moving around on the screen when left/right keys are pressed. 
 </li>
-<li><b>Gold:</b> Add the functionality to increase and decrease <code>player1Speed</code> with the Q and W keys
+<li>Our pseudocode for this will be&#x2026;
 </li>
-<li><b>Platinum</b>: Add a feature to make <code>player1</code> invisible when the space bar is pressed.
+</ul>
+<pre class="example">
+Set up variables: XPos=100 and YPos=100 for the player's position.
+
+BEGIN LOOP
+    IF player presses the left arrow THEN
+        player1XPos = player1XPos - 5
+    ELSE IF player presses the right arrow THEN
+        player1XPos = player1XPos + 5
+    END IF
+
+    Re-draw the sprite at player1XPos, player1YPos.
+END LOOP
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3 try">
+<h3 id="sec-1-4">Try It</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>We'll start by adding our variables. 
+</li>
+<li>Add these lines of code directly below the gameState="running" line.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1XPos</span> = 100
+<span style="color: #268bd2;">player1YPos</span> = 100
+</pre>
+</div>
+<ul class="org-ul">
+<li>We then create event listeners in the game loop. 
+</li>
+<li>To do this, change the lines that say <code>print("left")</code> and <code>print("right")</code> to say&#x2026;
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">if</span> event.<span style="color: #657b83; font-weight: bold;">type</span> == pygame.KEYDOWN:
+    <span style="color: #859900; font-weight: bold;">if</span> event.key == pygame.K_LEFT:
+        <span style="color: #268bd2;">player1XPos</span> -= 5
+    <span style="color: #859900; font-weight: bold;">elif</span> event.key == pygame.K_RIGHT:
+        <span style="color: #268bd2;">player1XPos</span> += 5
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Run the program. You will find the player moves each time the key is pressed. 
+</li>
+<li>This is good for some games but other times it is desirable to keep the player moving until another key is pressed (like in snake-type games). Currently the Event Listener and the Event Handler are in the same block of code.
+</li>
+<li>We will separate the two out for continous movement
+</li>
+<li>We will need 2 new variables outside of the game loop to hold the player's speed and direction. 
+</li>
+<li>The pseudocode for our new movement program is:
+</li>
+</ul>
+<pre class="example">
+Set up variables:
+   player1Direction = "nothing"
+   player1Speed = 5
+   player1XPos = 100
+   player1YPos = 100
+
+BEGIN LOOP
+    Has the player used the mouse or keyboard?
+       YES: Has the player pushed the left arrow?
+               YES: player1Direction is left
+            Has the player pushed the right arrow?
+               YES: player1Direction is right
+
+    Is the player1Direction left?
+        YES: Decrease the player1XPos variable by 5.
+    Is the player1Direction right?
+        YES: Increase the player1XPos variable by 5.
+
+    Clear the screen, and draw the player1 shape at player1XPos, player1YPos. 
+END LOOP
+</pre>
+
+<ul class="org-ul">
+<li>Let's implement this in code. 
+</li>
+<li>Add these variables underneath the <b>player1YPos = 100</b> line:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1Direction</span> = <span style="color: #2aa198;">"nothing"</span>
+<span style="color: #268bd2;">player1Speed</span> = 5
+</pre>
+</div>
+<ul class="org-ul">
+<li>Next, we'll change the game loop to modify the event listener and all and event handler.
+</li>
+<li>Replace your game loop code with this code. Ensure you keep all the indents where they should be. You may find you need to tweak the indents with the tab key once you've pasted the code. 
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">while</span> gameState != <span style="color: #2aa198;">"exit"</span>:  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">game loop - note: everything in the mainloop is indented one tab</span>
+    <span style="color: #859900; font-weight: bold;">for</span> event <span style="color: #859900; font-weight: bold;">in</span> pygame.event.get():  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">get user interaction events</span>
+        <span style="color: #859900; font-weight: bold;">if</span> event.<span style="color: #657b83; font-weight: bold;">type</span> == pygame.QUIT:  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">tests if window's X (close) has been clicked</span>
+            <span style="color: #268bd2;">gameState</span> = <span style="color: #2aa198;">"exit"</span>  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">causes exit of game loop</span>
+        <span style="color: #859900; font-weight: bold;">if</span> event.<span style="color: #657b83; font-weight: bold;">type</span> == pygame.KEYDOWN:
+            <span style="color: #859900; font-weight: bold;">if</span> event.key == pygame.K_LEFT:
+                <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">player1XPos -= 5</span>
+                <span style="color: #268bd2;">player1Direction</span> = <span style="color: #2aa198;">"left"</span>
+            <span style="color: #859900; font-weight: bold;">elif</span> event.key == pygame.K_RIGHT:
+                <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">player1XPos += 5</span>
+                <span style="color: #268bd2;">player1Direction</span> = <span style="color: #2aa198;">"right"</span>
+
+    <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">Player 1 Event handler code now...</span>
+    <span style="color: #859900; font-weight: bold;">if</span> player1Direction == <span style="color: #2aa198;">"left"</span>:
+        <span style="color: #268bd2;">player1XPos</span> -= player1Speed
+    <span style="color: #859900; font-weight: bold;">elif</span> player1Direction == <span style="color: #2aa198;">"right"</span>:
+        <span style="color: #268bd2;">player1XPos</span> += player1Speed
+
+    screen.fill(black)
+    <span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1XPos, player1YPos, 20, 20))
+</pre>
+</div>
+<ul class="org-ul">
+<li>Run the program with <code>Shift-F10</code>, and steer the square with the left/right cursor keys. 
+</li>
+<li>What's different between this code and the previous version?
+</li>
+<li>Comment the lines of code to explain what they do. 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3 badge">
+<h3 id="sec-1-5">Badge It</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><b>Silver:</b> Add the ability to move <code>player1</code> up and down <b>or</b> add comments to your code to explain how it works.
+</li>
+<li><b>Gold:</b> Add the functionality to increase and decrease <code>player1Speed</code> with the <b>Q</b> and <b>W</b> keys.
+</li>
+<li><b>Platinum</b>: Add a feature to make <code>player1</code> visible/invisible when the space bar is pressed, <b>or</b> stop the square from travelling beyond the edge of the window. 
 </li>
 </ul>
 </div>

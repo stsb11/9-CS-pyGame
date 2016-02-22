@@ -17,18 +17,19 @@ green = (0, 255, 0)
 
 gameState = "running"  # controls which state the games is in
 # game loop #################### runs 60 times a second!
-while gameState != "exit":  # game loop - note:  everything in the mainloop is indented one tab
+while gameState != "exit":  # game loop - note: everything in the mainloop is indented one tab
 
-    for event in pygame.event.get():  # get user interaction events
-        if event.type == pygame.QUIT:  # tests if window's X (close) has been clicked
-            gameState = "exit"  # causes exit of game loop
-    # your code starts here ##############################
+	for event in pygame.event.get():  # get user interaction events
+		if event.type == pygame.QUIT:  # tests if window's X (close) has been clicked
+			gameState = "exit"  # causes exit of game loop
+	# your code starts here ##############################
 
 
 
-    # your code ends here ###############################
-    pygame.display.flip()  # transfers build screen to human visable screen
-    clock.tick(FPS)  # limits game to frame per second, FPS value
+
+	# your code ends here ###############################
+	pygame.display.flip()  # transfers build screen to human visable screen
+	clock.tick(FPS)  # limits game to frame per second, FPS value
 
 # out of game loop ###############
 print("The game has closed")  # notifies user the game has ended

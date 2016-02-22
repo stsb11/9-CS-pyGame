@@ -76,14 +76,14 @@ for the JavaScript code in this tag.
     </ul>
   </div>
 <div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1">Events</h2>
+<h2 id="sec-1">Mouse Events</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 <div id="outline-container-sec-1-1" class="outline-3 code">
 <h3 id="sec-1-1">Download It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Staryt by picking up a template to use in this lesson: 
+<li>Start by picking up a template to use in this lesson: 
 </li>
 <li><a href="./doc/pygameDevTemplate.py">Right click and save as - for a fresh template</a>
 </li>
@@ -94,24 +94,17 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-2">Learn It</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>All games have interaction with the user, in computing these are known as Interrupt Events.
+<li>All games have interaction with the user, in computing these are known as <b>Interrupt Events</b>.
 </li>
-<li>The code that checks if the user has done something is called an Event Listener
+<li>The code that checks if the user has done something is called an <b>Event Listener</b>.
 </li>
-<li>When a specific event is head by the Event Lister
+<li>When a specific event is heard by the Event Lister, an action is then performed by the <b>Event Handler</b> code.
 </li>
-<li>An action is then performed by the Event Handler code.
-<ul class="org-ul">
 <li>If we look carefully at the template you will see that the event of the user closing the window is already handled.
 </li>
-</ul>
+<li>We'll add some more event handlers in this lesson, to make our game more interactive.
 </li>
 </ul>
-
-<div class="figure">
-<p><img src="./img/3-1.PNG" alt="3-1.PNG" />
-</p>
-</div>
 </div>
 </div>
 <div id="outline-container-sec-1-3" class="outline-3 try">
@@ -120,20 +113,27 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>Add the print(event) statement to your code
 </li>
-<li>Take a look at the interpreter window while moving the mouse and pressing keys.
+<li><img src="./img/3-1.PNG" alt="3-1.PNG" />
 </li>
-<li>Try pressing the ALT key, the returned events are mod:
+<li>Run your code with <code>Shift-F10</code>, then move the mouse around inside the pyGame window and press some keys on the keyboard.
+</li>
+<li>Look in the interpreter window, located in the bottom-left corner of the pyCharm window.
+</li>
+<li>You might see output like this:
 </li>
 </ul>
-<div class="org-src-container">
-
-<pre class="src src-python">&lt;Event(2-KeyDown {<span style="color: #2aa198;">'mod'</span>: 0, <span style="color: #2aa198;">'unicode'</span>: <span style="color: #2aa198;">''</span>, <span style="color: #2aa198;">'scancode'</span>: 56, <span style="color: #2aa198;">'key'</span>: 308})&gt;
-&lt;Event(3-KeyUp {<span style="color: #2aa198;">'mod'</span>: 0, <span style="color: #2aa198;">'key'</span>: 308, <span style="color: #2aa198;">'scancode'</span>: 56})&gt;
+<pre class="example">
+&lt;Event(2-KeyDown {'mod': 0, 'unicode': '', 'scancode': 56, 'key': 308})&gt;
+&lt;Event(3-KeyUp {'mod': 0, 'key': 308, 'scancode': 56})&gt;
 </pre>
-</div>
+<ul class="org-ul">
+<li>Try holding the CTRL, ALT or SHIFT keys while pushing other keys. The interpreter window output will now change slightly to show that the keys have been 'modified'. 
+</li>
+</ul>
+
 
 <ul class="org-ul">
-<li><b>NOTE:</b> key up and key down are different events
+<li><b>NOTE:</b> <code>KeyUp</code> and <code>KeyDown</code> are different events. What's the difference?
 </li>
 </ul>
 </div>
@@ -164,46 +164,69 @@ for the JavaScript code in this tag.
 <div id="outline-container-sec-2-1" class="outline-3 code">
 <h3 id="sec-2-1">Code It</h3>
 <div class="outline-text-3" id="text-2-1">
-
 <ul class="org-ul">
-<li>We will make player1 follow the mouse
+<li>We will make a sprite called <code>player1</code> follow the mouse. Add these lines of code to your game loop.
+</li>
+<li><b>Note:</b> Make sure you use tab todouble- indent the code so that it sits inside the <code>for</code> loop. 
 </li>
 </ul>
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="./img/3-2.PNG" alt="3-2.PNG" />
-</p>
+<pre class="src src-python">screen.fill(black)
+<span style="color: #268bd2;">mousePosition</span> = pygame.mouse.get_pos()
+<span style="color: #859900; font-weight: bold;">print</span>(mousePosition)
+</pre>
 </div>
 <ul class="org-ul">
-<li>Look at the python terminal window and move the mouse, this is the data we will use to position player1
+<li>Look at the Python terminal window and move the mouse. 
+</li>
+<li>This is the data we will use to position the <code>player1</code> sprite.
+</li>
+<li>Modify your game loop to the following&#x2026;
 </li>
 </ul>
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="./img/3-3.PNG" alt="3-3.PNG" />
-</p>
+<pre class="src src-python">screen.fill(black)
+<span style="color: #268bd2;">mousePosition</span> = pygame.mouse.get_pos()
+<span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">print(mousePosition)   &lt;&lt;&lt; UMCOMMENT THIS TO SEE POSITION DATA.</span>
+<span style="color: #268bd2;">player1X</span> = mousePosition[0]
+<span style="color: #268bd2;">player1Y</span> = mousePosition[1]
+<span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, red, (player1X, player1Y, 40, 40))
+</pre>
 </div>
+<ul class="org-ul">
+<li>Run the program with <code>Shift-F10</code>. What happens?
+</li>
+</ul>
 </div>
 </div>
 <div id="outline-container-sec-2-2" class="outline-3 badge">
 <h3 id="sec-2-2">Badge It</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
-<li><b>Gold</b> The player is not in the center of the mouse pointer, fix this bug and add comments to your code
+<li><b>Gold</b> The <code>player1</code> sprite isn't in the centre of the mouse pointer. Fix this bug and comment each line of your code to explain what it does.
 </li>
-
-<li><b>Platinum:</b> You've now covered mouse movement but what about button press events?
+<li><b>Platinum:</b> You've now covered mouse movement. Modify your code so a different shape is drawn on left or right mouse button clicks.
 </li>
 </ul>
 
-<div class="figure">
-<p><img src="./img/3-4.PNG" alt="3-4.PNG" />
-</p>
-</div>
+
 <ul class="org-ul">
-<li>Modify this code so a different shape is drawn on the 3 mouse button pressed events.
+<li><i>Hint:</i> There's a few ways to do the platinum task. You can look online and find a way to do it, or these lines could perhaps be recycled into something more like you need.
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python">(lBtn, cBtn, rBtn) = pygame.mouse.get_pressed()
+<span style="color: #859900; font-weight: bold;">if</span> lBtn == 1: 
+    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"You clicked the left button"</span>)
+<span style="color: #859900; font-weight: bold;">elif</span> cBtn == 1: 
+    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Middle button clicked"</span>)
+<span style="color: #859900; font-weight: bold;">elif</span> rBtn == 1:
+    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Right button clicked"</span>)
+</pre>
+</div>
 </div>
 </div>
 </div>

@@ -93,31 +93,133 @@
  :PROPERTIES:
  :HTML_CONTAINER_CLASS: activity
  :END:
+** Download It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Start by picking up a template to use in this lesson: 
+- [[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- As we are making a game for the PC platform the keyboard is a very important input tool.
-- We are going to control the moment of a player on the screen with the arrow keys
-[[./img/4-0.PNG]]
+- As we are making a game for the PC platform, the keyboard is a very important input tool.
+- We are going to control the moment of a player on the screen with the arrow keys. Add these lines of code inside the game loop, inside your =for= loop. 
+- Put the code immediately underneath the gameState = "exit" line.
+- *Note:* As always, you'll need to ensure the code is indented for it to work.
+#+begin_src python
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT:
+            print("Left")
+        if event.key == pygame.K_RIGHT:
+            print("Right")
+#+end_src
+- If you run this code and look in the interpreter window, you'll be able to see the program letting you know when you press left and right. You might be able to add up and down for yourself too.
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- Let's now get the shape moving around on the screen when left/right keys are pressed. 
+- Our pseudocode for this will be...
+#+begin_src
+Set up variables: XPos=100 and YPos=100 for the player's position.
+
+BEGIN LOOP
+    IF player presses the left arrow THEN
+        player1XPos = player1XPos - 5
+    ELSE IF player presses the right arrow THEN
+        player1XPos = player1XPos + 5
+    END IF
+
+    Re-draw the sprite at player1XPos, player1YPos.
+END LOOP
+#+end_src
+
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- First we need to create 2 variable to hold the player1 x and y positions
-[[./img/4-1.png]]
-- Add the player and event listeners to the game loop
-[[./img/4-2.PNG]]
-- You will find the player moves each time the key is press. This is good for some games but other it is desirable to keep the player moving until another key is pressed. Currently the Event Listener and the Event Handler are in the same block of code.
-- We will separate the two:
-   - We will need 2 new variable outside of the game loop to hold the players speed and direction
-[[./img/4-3.png]]
-    - The modify the event listener and all and event handler
-[[./img/4-4.png]]
+- We'll start by adding our variables. 
+- Add these lines of code directly below the gameState="running" line.
+#+begin_src python
+player1XPos = 100
+player1YPos = 100
+#+end_src
+- We then create event listeners in the game loop. 
+- To do this, change the lines that say =print("left")= and =print("right")= to say...
+#+begin_src python
+if event.type == pygame.KEYDOWN:
+    if event.key == pygame.K_LEFT:
+        player1XPos -= 5
+    elif event.key == pygame.K_RIGHT:
+        player1XPos += 5
+#+end_src
+
+- Run the program. You will find the player moves each time the key is pressed. 
+- This is good for some games but other times it is desirable to keep the player moving until another key is pressed (like in snake-type games). Currently the Event Listener and the Event Handler are in the same block of code.
+- We will separate the two out for continous movement
+- We will need 2 new variables outside of the game loop to hold the player's speed and direction. 
+- The pseudocode for our new movement program is:
+#+begin_src
+Set up variables:
+   player1Direction = "nothing"
+   player1Speed = 5
+   player1XPos = 100
+   player1YPos = 100
+
+BEGIN LOOP
+    Has the player used the mouse or keyboard?
+       YES: Has the player pushed the left arrow?
+               YES: player1Direction is left
+            Has the player pushed the right arrow?
+               YES: player1Direction is right
+
+    Is the player1Direction left?
+        YES: Decrease the player1XPos variable by 5.
+    Is the player1Direction right?
+        YES: Increase the player1XPos variable by 5.
+
+    Clear the screen, and draw the player1 shape at player1XPos, player1YPos. 
+END LOOP
+#+end_src
+
+- Let's implement this in code. 
+- Add these variables underneath the *player1YPos = 100* line:
+#+begin_src python
+player1Direction = "nothing"
+player1Speed = 5
+#+end_src
+- Next, we'll change the game loop to modify the event listener and all and event handler.
+- Replace your game loop code with this code. Ensure you keep all the indents where they should be. You may find you need to tweak the indents with the tab key once you've pasted the code. 
+#+begin_src python
+while gameState != "exit":  # game loop - note: everything in the mainloop is indented one tab
+    for event in pygame.event.get():  # get user interaction events
+        if event.type == pygame.QUIT:  # tests if window's X (close) has been clicked
+            gameState = "exit"  # causes exit of game loop
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                # player1XPos -= 5
+                player1Direction = "left"
+            elif event.key == pygame.K_RIGHT:
+                # player1XPos += 5
+                player1Direction = "right"
+
+    # Player 1 Event handler code now...
+    if player1Direction == "left":
+        player1XPos -= player1Speed
+    elif player1Direction == "right":
+        player1XPos += player1Speed
+
+    screen.fill(black)
+    player1 = pygame.draw.rect(screen, green, (player1XPos, player1YPos, 20, 20))
+#+end_src
+- Run the program with =Shift-F10=, and steer the square with the left/right cursor keys. 
+- What's different between this code and the previous version?
+- Comment the lines of code to explain what they do. 
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Add the ability to move =player1= up and down then add comments to your code
-- *Gold:* Add the functionality to increase and decrease =player1Speed= with the Q and W keys
-- *Platinum*: Add a feature to make =player1= invisible when the space bar is pressed.
+- *Silver:* Add the ability to move =player1= up and down *or* add comments to your code to explain how it works.
+- *Gold:* Add the functionality to increase and decrease =player1Speed= with the *Q* and *W* keys.
+- *Platinum*: Add a feature to make =player1= visible/invisible when the space bar is pressed, *or* stop the square from travelling beyond the edge of the window. 

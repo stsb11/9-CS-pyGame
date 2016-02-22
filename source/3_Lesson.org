@@ -89,7 +89,7 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Events
+* Mouse Events
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
@@ -97,31 +97,34 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-- Staryt by picking up a template to use in this lesson: 
+- Start by picking up a template to use in this lesson: 
 - [[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- All games have interaction with the user, in computing these are known as Interrupt Events.
-- The code that checks if the user has done something is called an Event Listener
-- When a specific event is head by the Event Lister
-- An action is then performed by the Event Handler code.
-  - If we look carefully at the template you will see that the event of the user closing the window is already handled.
-[[./img/3-1.PNG]]
+- All games have interaction with the user, in computing these are known as *Interrupt Events*.
+- The code that checks if the user has done something is called an *Event Listener*.
+- When a specific event is heard by the Event Lister, an action is then performed by the *Event Handler* code.
+- If we look carefully at the template you will see that the event of the user closing the window is already handled.
+- We'll add some more event handlers in this lesson, to make our game more interactive.
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
 - Add the print(event) statement to your code
-- Take a look at the interpreter window while moving the mouse and pressing keys.
-- Try pressing the ALT key, the returned events are mod:
-#+begin_src python
+- [[./img/3-1.PNG]]
+- Run your code with =Shift-F10=, then move the mouse around inside the pyGame window and press some keys on the keyboard.
+- Look in the interpreter window, located in the bottom-left corner of the pyCharm window.
+- You might see output like this:
+#+begin_src
 <Event(2-KeyDown {'mod': 0, 'unicode': '', 'scancode': 56, 'key': 308})>
 <Event(3-KeyUp {'mod': 0, 'key': 308, 'scancode': 56})>
 #+end_src
+- Try holding the CTRL, ALT or SHIFT keys while pushing other keys. The interpreter window output will now change slightly to show that the keys have been 'modified'. 
 
-- *NOTE:* key up and key down are different events
+
+- *NOTE:* =KeyUp= and =KeyDown= are different events. What's the difference?
 * Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
@@ -137,17 +140,40 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-
-- We will make player1 follow the mouse
-[[./img/3-2.PNG]]
-- Look at the python terminal window and move the mouse, this is the data we will use to position player1
-[[./img/3-3.PNG]]
+- We will make a sprite called =player1= follow the mouse. Add these lines of code to your game loop.
+- *Note:* Make sure you use tab todouble- indent the code so that it sits inside the =for= loop. 
+#+begin_src python
+screen.fill(black)
+mousePosition = pygame.mouse.get_pos()
+print(mousePosition)
+#+end_src
+- Look at the Python terminal window and move the mouse. 
+- This is the data we will use to position the =player1= sprite.
+- Modify your game loop to the following...
+#+begin_src python
+screen.fill(black)
+mousePosition = pygame.mouse.get_pos()
+# print(mousePosition)   <<< UMCOMMENT THIS TO SEE POSITION DATA.
+player1X = mousePosition[0]
+player1Y = mousePosition[1]
+player1 = pygame.draw.rect(screen, red, (player1X, player1Y, 40, 40))
+#+end_src
+- Run the program with =Shift-F10=. What happens?
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Gold* The player is not in the center of the mouse pointer, fix this bug and add comments to your code
+- *Gold* The =player1= sprite isn't in the centre of the mouse pointer. Fix this bug and comment each line of your code to explain what it does.
+- *Platinum:* You've now covered mouse movement. Modify your code so a different shape is drawn on left or right mouse button clicks.
 
-- *Platinum:* You've now covered mouse movement but what about button press events?
-[[./img/3-4.PNG]]
-- Modify this code so a different shape is drawn on the 3 mouse button pressed events.
+
+- /Hint:/ There's a few ways to do the platinum task. You can look online and find a way to do it, or these lines could perhaps be recycled into something more like you need.
+#+begin_src python
+(lBtn, cBtn, rBtn) = pygame.mouse.get_pressed()
+if lBtn == 1: 
+    print("You clicked the left button")
+elif cBtn == 1: 
+    print("Middle button clicked")
+elif rBtn == 1:
+    print("Right button clicked")
+#+end_src
