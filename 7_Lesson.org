@@ -1,0 +1,146 @@
+#+STARTUP:indent
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+#+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
+#+HTML_HEAD_EXTRA: <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+#+HTML_HEAD_EXTRA: <script src="js/navbar.js" type="text/javascript"></script>
+#+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil toc:nil html-style:nil
+
+#+TITLE: Pygame
+#+AUTHOR: Oliver Drayton
+
+#+BEGIN_HTML
+  <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/stsb11/9-CS-Pygame">Fork me on GitHub</a>
+    </div>
+  </div>
+<div id="stickyribbon">
+    <ul>
+      <li><a href="1_Lesson.html">Week1</a></li>
+      <li><a href="2_Lesson.html">Week2</a></li>
+      <li><a href="3_Lesson.html">Week3</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li> 
+      <li><a href="5_Lesson.html">Week5</a></li>     
+      <li><a href="assessment.html">Assessment</a></li>
+    </ul>
+  </div>
+#+END_HTML
+* COMMENT Use as a template
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+
+** Research It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: research
+:END:
+
+** Design It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: design
+:END:
+
+** Build It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: build
+:END:
+
+** Test It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: test
+:END:
+
+** Run It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: run
+:END:
+
+** Document It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: document
+:END:
+
+** Code It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+
+** Program It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: program
+:END:
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+
+** Badge It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+
+** Save It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: save
+:END:
+
+* Text me
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Download It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Start by picking up the template for this lesson:
+- [[./doc/pygameDevTemplate.py][Right click and Save As - for a fresh template]]
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- Almost all games require text to be displayed on the screen because of this it would be good to make something we can use again and again without writing the code again and again.
+- In computing this is called a function. It is an independent block of code that lives outside the main program and only runs when asked to do so by the main program.
+- Functions always sit at the top of the code after the import statements.
+
+
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- First we need to load a font from the PCs font collection and store it in a variable for later us
+[[./img/7-1.png]]
+- Build the function
+- At the top of your code under the import statements build you function
+[[./img/7-2.png]]
+- We now need to tell the function that we’d like it to run and what it should draw on the screen. We do this from the main body of your code.
+- This is called a =Function Call=
+[[./img/7-3.png]]
+
+** Program It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: program
+:END:
+- It would be much more useful if we could tell the textDraw function the X, Y coordinates we’d like the text to go.
+- To do this we must add anotherparameter to the function
+[[./img/7-4.png]]
+- Then modify your function call
+[[./img/7-5.png]]
+
+
+** Badge It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- *Silver:*
+ - Add 2 more function call to draw text at different points on the screen
+ - Add comments to your code
+- *Gold:* 
+ - Add another paramenter to your function to control the text size
+ - Modify you function call so the text moves across the screen
+- *Platinum:*
+ - Modify the program so it displays a mouse click counter 
