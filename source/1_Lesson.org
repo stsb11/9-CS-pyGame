@@ -120,7 +120,7 @@
 :HTML_CONTAINER_CLASS: run
 :END:
 - With the template loaded in pyCharm, we need to test that everything is working. 
-- Run the template file by either using =Shift-F10= or clicking the gree 'play' icon in the top right-hand corner.
+- Run the template file by either using =Shift-F10= or clicking the green 'play' icon in the top right-hand corner.
 - After a few seconds, you should see the computer create a new window that is black, 1000 * 800 pixels and closes when you tell it to. 
 ** Learn It: Screen Geometry
 :PROPERTIES:
