@@ -119,6 +119,10 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: run
 :END:
+- Firstly, you'll need to set up pyCharm to work on your computer. 
+#+BEGIN_HTML
+<iframe width="420" height="315" src="https://www.youtube.com/embed/Qj5PQbwy9tA" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
 - With the template loaded in pyCharm, we need to test that everything is working. 
 - Run the template file by either using =Shift-F10= or clicking the green 'play' icon in the top right-hand corner.
 - After a few seconds, you should see the computer create a new window that is black, 1000 * 800 pixels and closes when you tell it to. 
