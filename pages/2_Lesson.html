@@ -128,7 +128,15 @@ for the JavaScript code in this tag.
 <pre class="src src-python"><span style="color: #268bd2;">player1X</span> = 0
 </pre>
 </div>
+<ul class="org-ul">
+<li>It should look like this:
+</li>
+</ul>
 
+<div class="figure">
+<p><img src="./img/2-1.PNG" alt="2-1.PNG" />
+</p>
+</div>
 <ul class="org-ul">
 <li>Next, we'll need to add some code to the main game loop. Expressed as pseudocode, we'll be doing:
 </li>
@@ -139,7 +147,6 @@ START REPEAT
     Add 4 to the value of player1X
 END REPEAT
 </pre>
-
 <ul class="org-ul">
 <li>Add the following lines of code to draw our player in the game loop and increment the <code>X</code> position by 4 pixels every time the game loop runs.
 </li>
@@ -153,6 +160,15 @@ END REPEAT
 <pre class="src src-python"><span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
 <span style="color: #268bd2;">player1X</span> = player1X + 4
 </pre>
+</div>
+<ul class="org-ul">
+<li>When done, this will look like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/2-2.png" alt="2-2.png" />
+</p>
 </div>
 </div>
 </div>
@@ -178,6 +194,10 @@ END REPEAT
 </pre>
 </div>
 <ul class="org-ul">
+<li>You'll now have something like this:
+</li>
+<li><img src="./img/2-3.PNG" alt="2-3.PNG" />
+</li>
 <li>See if you can add this in the right place in our game loop to create a green square that drifts across the screen. 
 </li>
 <li>Can you make it move more slowly? Faster? Render as a different colour? 
@@ -242,7 +262,15 @@ END REPEAT
     <span style="color: #268bd2;">player1X</span> = 0
 </pre>
 </div>
+<ul class="org-ul">
+<li>Your code should look like this:
+</li>
+</ul>
 
+<div class="figure">
+<p><img src="./img/2-6.PNG" alt="2-6.PNG" />
+</p>
+</div>
 <ul class="org-ul">
 <li>Run your code. What do the new lines do? 
 </li>
@@ -271,7 +299,15 @@ END REPEAT
 <span style="color: #268bd2;">player1XSpeed</span> = 4
 </pre>
 </div>
+<ul class="org-ul">
+<li>Your code should look like this:
+</li>
+</ul>
 
+<div class="figure">
+<p><img src="./img/2-7.PNG" alt="2-7.PNG" />
+</p>
+</div>
 <ul class="org-ul">
 <li>We will also need to change the <b>player1X = player1X + 4</b> line and <b>if</b> statement slightly in the game loop:
 </li>
@@ -301,6 +337,15 @@ END REPEAT
 <span style="color: #859900; font-weight: bold;">if</span> player1X &gt; SCREENWIDTH:
     <span style="color: #268bd2;">player1XSpeed</span>  = player1XSpeed * -1
 </pre>
+</div>
+<ul class="org-ul">
+<li>It'll look like this: 
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/2-8.PNG" alt="2-8.PNG" />
+</p>
 </div>
 <ul class="org-ul">
 <li>Which two lines have changed? Why?

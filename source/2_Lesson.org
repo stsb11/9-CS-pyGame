@@ -120,7 +120,8 @@
 #+begin_src python
 player1X = 0
 #+end_src
-
+- It should look like this:
+[[./img/2-1.PNG]]
 - Next, we'll need to add some code to the main game loop. Expressed as pseudocode, we'll be doing:
 #+begin_src
 START REPEAT
@@ -128,7 +129,6 @@ START REPEAT
     Add 4 to the value of player1X
 END REPEAT
 #+end_src
-
 - Add the following lines of code to draw our player in the game loop and increment the =X= position by 4 pixels every time the game loop runs.
 - Place the following lines of code immediately under the =#your code starts here= line. 
 - *NOTE:* You must ensure you use the =tab= key to indent these lines of code, otherwise it won't run.
@@ -136,6 +136,8 @@ END REPEAT
 player1 = pygame.draw.rect(screen, green, (player1X, 200, 20, 20))
 player1X = player1X + 4
 #+end_src
+- When done, this will look like this:
+[[./img/2-2.png]]
 ** Document It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: document
@@ -149,6 +151,8 @@ player1X = player1X + 4
 #+begin_src python
 screen.fill(black)
 #+end_src
+- You'll now have something like this:
+- [[./img/2-3.PNG]]
 - See if you can add this in the right place in our game loop to create a green square that drifts across the screen. 
 - Can you make it move more slowly? Faster? Render as a different colour? 
 - Could you change the code to make it move down instead of up? 
@@ -181,7 +185,8 @@ player1X = player1X + 4
 if player1X > SCREENWIDTH:
     player1X = 0
 #+end_src
-
+- Your code should look like this:
+[[./img/2-6.PNG]]
 - Run your code. What do the new lines do? 
 - Could you make the square move right to left instead?
 - How about repeatedly moving in diagonal lines?
@@ -197,7 +202,8 @@ if player1X > SCREENWIDTH:
 player1X = 0
 player1XSpeed = 4
 #+end_src
-
+- Your code should look like this:
+[[./img/2-7.PNG]]
 - We will also need to change the *player1X = player1X + 4* line and *if* statement slightly in the game loop:
 
 #+begin_src python
@@ -218,6 +224,8 @@ player1X = player1X + player1XSpeed
 if player1X > SCREENWIDTH:
     player1XSpeed  = player1XSpeed * -1 
 #+end_src
+- It'll look like this: 
+[[./img/2-8.PNG]]
 - Which two lines have changed? Why?
 - What is needed to make the shape bounce off the left-hand edge of the window too?
 
