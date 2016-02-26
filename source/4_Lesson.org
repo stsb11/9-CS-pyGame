@@ -114,6 +114,8 @@
         if event.key == pygame.K_RIGHT:
             print("Right")
 #+end_src
+- The code will look like this:
+[[./img/4-0.PNG]]
 - If you run this code and look in the interpreter window, you'll be able to see the program letting you know when you press left and right. You might be able to add up and down for yourself too.
 ** Learn It
 :PROPERTIES:
@@ -145,6 +147,8 @@ END LOOP
 player1XPos = 100
 player1YPos = 100
 #+end_src
+- The code will look like this:
+[[./img/4-1.PNG]]
 - We then create event listeners in the game loop. 
 - To do this, change the lines that say =print("left")= and =print("right")= to say...
 #+begin_src python
@@ -154,7 +158,8 @@ if event.type == pygame.KEYDOWN:
     elif event.key == pygame.K_RIGHT:
         player1XPos += 5
 #+end_src
-
+- Your code should look like this:
+[[./img/4-2.PNG]]
 - Run the program. You will find the player moves each time the key is pressed. 
 - This is good for some games but other times it is desirable to keep the player moving until another key is pressed (like in snake-type games). Currently the Event Listener and the Event Handler are in the same block of code.
 - We will separate the two out for continous movement
@@ -186,9 +191,11 @@ END LOOP
 - Let's implement this in code. 
 - Add these variables underneath the *player1YPos = 100* line:
 #+begin_src python
-player1Direction = "nothing"
+player1Direction = ""
 player1Speed = 5
 #+end_src
+- This should look like this:
+[[./img/4-3.PNG]]
 - Next, we'll change the game loop to modify the event listener and all and event handler.
 - Replace your game loop code with this code. Ensure you keep all the indents where they should be. You may find you need to tweak the indents with the tab key once you've pasted the code. 
 #+begin_src python
@@ -213,6 +220,8 @@ while gameState != "exit":  # game loop - note: everything in the mainloop is in
     screen.fill(black)
     player1 = pygame.draw.rect(screen, green, (player1XPos, player1YPos, 20, 20))
 #+end_src
+- This will look like this:
+[[./img/4-4.PNG]]
 - Run the program with =Shift-F10=, and steer the square with the left/right cursor keys. 
 - What's different between this code and the previous version?
 - Comment the lines of code to explain what they do. 

@@ -147,6 +147,8 @@ screen.fill(black)
 mousePosition = pygame.mouse.get_pos()
 print(mousePosition)
 #+end_src
+- The code will look like this:
+[[./img/3-2.PNG]]
 - Look at the Python terminal window and move the mouse. 
 - This is the data we will use to position the =player1= sprite.
 - Modify your game loop to the following...
@@ -158,6 +160,8 @@ player1X = mousePosition[0]
 player1Y = mousePosition[1]
 player1 = pygame.draw.rect(screen, red, (player1X, player1Y, 40, 40))
 #+end_src
+- The code will look like this:
+[[./img/3-3.PNG]]
 - Run the program with =Shift-F10=. What happens?
 ** Badge It
 :PROPERTIES:
@@ -167,13 +171,10 @@ player1 = pygame.draw.rect(screen, red, (player1X, player1Y, 40, 40))
 - *Platinum:* You've now covered mouse movement. Modify your code so a different shape is drawn on left or right mouse button clicks.
 
 
-- /Hint:/ There's a few ways to do the platinum task. You can look online and find a way to do it, or these lines could perhaps be recycled into something more like you need.
+- /Hint:/ There's a few ways to do the platinum task. You can look online and find a way to do it, or these lines could perhaps be recycled into something useful.
 #+begin_src python
-(lBtn, cBtn, rBtn) = pygame.mouse.get_pressed()
-if lBtn == 1: 
-    print("You clicked the left button")
-elif cBtn == 1: 
-    print("Middle button clicked")
-elif rBtn == 1:
-    print("Right button clicked")
+if pygame.mouse.get_pressed()[0] == True:
+    pygame.draw.rect(screen, green, (100, 100, 100, 100))
+elif pygame.mouse.get_pressed()[1] == True:
+    print("You clicked a different button")
 #+end_src

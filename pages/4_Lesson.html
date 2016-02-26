@@ -113,6 +113,15 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 <ul class="org-ul">
+<li>The code will look like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-0.PNG" alt="4-0.PNG" />
+</p>
+</div>
+<ul class="org-ul">
 <li>If you run this code and look in the interpreter window, you'll be able to see the program letting you know when you press left and right. You might be able to add up and down for yourself too.
 </li>
 </ul>
@@ -159,6 +168,15 @@ END LOOP
 </pre>
 </div>
 <ul class="org-ul">
+<li>The code will look like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-1.PNG" alt="4-1.PNG" />
+</p>
+</div>
+<ul class="org-ul">
 <li>We then create event listeners in the game loop. 
 </li>
 <li>To do this, change the lines that say <code>print("left")</code> and <code>print("right")</code> to say&#x2026;
@@ -173,7 +191,15 @@ END LOOP
         <span style="color: #268bd2;">player1XPos</span> += 5
 </pre>
 </div>
+<ul class="org-ul">
+<li>Your code should look like this:
+</li>
+</ul>
 
+<div class="figure">
+<p><img src="./img/4-2.PNG" alt="4-2.PNG" />
+</p>
+</div>
 <ul class="org-ul">
 <li>Run the program. You will find the player moves each time the key is pressed. 
 </li>
@@ -217,9 +243,18 @@ END LOOP
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #268bd2;">player1Direction</span> = <span style="color: #2aa198;">"nothing"</span>
+<pre class="src src-python"><span style="color: #268bd2;">player1Direction</span> = <span style="color: #2aa198;">""</span>
 <span style="color: #268bd2;">player1Speed</span> = 5
 </pre>
+</div>
+<ul class="org-ul">
+<li>This should look like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-3.PNG" alt="4-3.PNG" />
+</p>
 </div>
 <ul class="org-ul">
 <li>Next, we'll change the game loop to modify the event listener and all and event handler.
@@ -250,6 +285,15 @@ END LOOP
     screen.fill(black)
     <span style="color: #268bd2;">player1</span> = pygame.draw.rect(screen, green, (player1XPos, player1YPos, 20, 20))
 </pre>
+</div>
+<ul class="org-ul">
+<li>This will look like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/4-4.PNG" alt="4-4.PNG" />
+</p>
 </div>
 <ul class="org-ul">
 <li>Run the program with <code>Shift-F10</code>, and steer the square with the left/right cursor keys. 
