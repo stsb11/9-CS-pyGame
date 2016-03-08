@@ -163,6 +163,10 @@ player1 = pygame.draw.rect(screen, red, (player1X, player1Y, 40, 40))
 - The code will look like this:
 [[./img/3-3.PNG]]
 - Run the program with =Shift-F10=. What happens?
+- If you're struggling with the tasks, you can go through the notes above using this video tutorial:
+#+BEGIN_HTML
+<iframe width="650" height="393" src="https://www.youtube.com/embed/jkM4VFE98Vo" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
