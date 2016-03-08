@@ -129,19 +129,19 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-- *Silver:* Add comments to the bottom the your python code that are the events returned for the following:
-   - Right mouse button
-   - Mouse wheel press
-   - Mouse wheel spin
-   - Left mouse button
+- *Silver:* Copy and paste lines from the Python console in the bottom-left corner which show the events returned for the following:
+   - Right mouse button clicked/released
+   - Mouse wheel clicked/released
+   - Mouse wheel spin up/down
+   - Left mouse button pressed/released
    - Pressing the X to close the window
-   - The up arrow is pressed
+   - Up arrow press
 ** Code It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
 - We will make a sprite called =player1= follow the mouse. Add these lines of code to your game loop.
-- *Note:* Make sure you use tab todouble- indent the code so that it sits inside the =for= loop. 
+- *Note:* Make sure you use tab to double-indent the code so that it sits inside the =for= loop. 
 #+begin_src python
 screen.fill(black)
 mousePosition = pygame.mouse.get_pos()
