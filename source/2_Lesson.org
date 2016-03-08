@@ -110,7 +110,10 @@
   - Draw the a shape over at =player1X=, =player1Y=
   - Change the variables a bit
   - Repeat the draw/change process repeatedly.
-
+- If you get stuck today, a walk-through of the steps described below can be seen here:
+#+BEGIN_HTML
+<iframe width="650" height="393" src="https://www.youtube.com/embed/TfdHz3yRTy8" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
