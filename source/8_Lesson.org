@@ -11,7 +11,7 @@
 #+BEGIN_HTML
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-Pygame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -19,8 +19,8 @@
       <li><a href="1_Lesson.html">Week1</a></li>
       <li><a href="2_Lesson.html">Week2</a></li>
       <li><a href="3_Lesson.html">Week3</a></li>
-      <li><a href="4_Lesson.html">Week4</a></li>
-      <li><a href="5_Lesson.html">Week5</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li> 
+      <li><a href="5_Lesson.html">Week5</a></li>     
       <li><a href="assessment.html">Assessment</a></li>
     </ul>
   </div>
@@ -89,52 +89,60 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Images
- :PROPERTIES:
- :HTML_CONTAINER_CLASS: activity
- :END:
+* Pythagoras
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
 ** Download It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-- Start by picking up a template to use in this lesson: 
-- [[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
-- Create a folder called Images in your pygame folder
-- Right click on the image below and save it in your Images folder
-[[./img/gimp2.png]]
+- Start by picking up the template for this lesson:
+- [[./doc/pygameDevTemplate.py][Right click and Save As - for a fresh template]]
+** Design It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: design
+:END:
+[[./img/finishedGame.mp4]]
+
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- Basic shapes is a good starting point, but images are much more fun
-- Using images as sprites is very simple in pygame
-** Try It
+- Pythagoras invented his theorem in ancient Greek times so we could make video games.
+- You may remember this from your math class:
+[[./img/8-1.png]]
+- Given the lengths of a and b we are able to calculate the length of c using the equation above.
+** Code It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: try
+:HTML_CONTAINER_CLASS: code
 :END:
-- First we must load the image ready for later use
- - Then create a variable to hold player1's x and y position
- - don’t do this in the game loop, loading the image 60 times a second will not lead to good game performance 
-[[./img/5-1.PNG]]
-- Then display / "blit" the image to the screen
-[[./img/5-2.png]]
-- We are now going to make the sprite follow the mouse – we’ve done this before but we are going to improve our method.
-[[./img/5-3.png]]
-- Bug list
- - Mouse curser not centred on image
- - Mouse curser visible – looks ugly
- - Cannot change image size
-- First we will set size we want for the image and then use the pygame.image.transform function to resize the image
-[[./img/5-4.PNG]]
-- It is very useful to know the size of the image, we will use it to correct the mouse point position
-[[./img/5-5.PNG]]
+- First we need to load a player and target image they =must= be saved in a folder called  =img=
+[[./img/bird1.png]]
+[[./img/crossHair.png]] 
+- Then set the targets starting X and Y position
+[[./img/8-2.png]]
+The player will follow the mouse curser
+[[./img/8-3.png]]
+
+** Build It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: build
+:END:
+- Yes we’ve done this in Maths but how does it help us make games?
+[[./img/8-4.png]]
+
+- In order to keep the game loop as tidy as possible we will create a function to calculate c. 
+- The function will need to use the math module square root method – so the math module must be imported.
+[[./img/8-5.png]]
+- And finally we must call the function and send it the player and target X and Y position.
+[[./img/8-6.png]]
+
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Add comments to your code and discribe how using image size is useful in correcting the mouse pointer position
-- *Gold:* Use the image below as your sprite, remember it has a different aspect ratio.
-[[./doc/bird1.png]]
-- *Platinum:* Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer.
-[[./doc/birdSprites.png]]
-[[./doc/MarioSprites.png]]
+- *Silver:* Upload your code =with comments=
+- *Gold:* Use the function from the text me lesson to display the distance on the screen
+- *Platinum:* Use Pygame.draw.line to draw the 3 sides of the triangle
+[[./img/8-pythanFinished.png]] 
