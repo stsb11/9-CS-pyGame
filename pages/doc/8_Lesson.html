@@ -62,7 +62,7 @@ for the JavaScript code in this tag.
 <h1 class="title">Pygame</h1>
   <div class="github-fork-ribbon-wrapper left">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
+      <a href="https://github.com/stsb11/9-CS-Pygame">Fork me on GitHub</a>
     </div>
   </div>
 <div id="stickyribbon">
@@ -70,134 +70,121 @@ for the JavaScript code in this tag.
       <li><a href="1_Lesson.html">Week1</a></li>
       <li><a href="2_Lesson.html">Week2</a></li>
       <li><a href="3_Lesson.html">Week3</a></li>
-      <li><a href="4_Lesson.html">Week4</a></li>
-      <li><a href="5_Lesson.html">Week5</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li> 
+      <li><a href="5_Lesson.html">Week5</a></li>     
       <li><a href="assessment.html">Assessment</a></li>
     </ul>
   </div>
 <div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1">Images</h2>
+<h2 id="sec-1">Pythagoras</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 <div id="outline-container-sec-1-1" class="outline-3 code">
 <h3 id="sec-1-1">Download It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Start by picking up a template to use in this lesson: 
+<li>Start by picking up the template for this lesson:
 </li>
-<li><a href="./doc/pygameDevTemplate.py">Right click and save as - for a fresh template</a>
-</li>
-<li>Create a folder called Images in your pygame folder
-</li>
-<li>Right click on the image below and save it in your Images folder
+<li><a href="./doc/pygameDevTemplate.py">Right click and Save As - for a fresh template</a>
 </li>
 </ul>
-
-<div class="figure">
-<p><img src="./img/gimp2.png" alt="gimp2.png" />
-</p>
-</div>
 </div>
 </div>
 <div id="outline-container-sec-1-2" class="outline-3 learn">
 <h3 id="sec-1-2">Learn It</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>Basic shapes is a good starting point, but images are much more fun
+<li>Pythagoras invented his theorem in ancient Greek times so we could make video games.
 </li>
-<li>Using images as sprites is very simple in pygame
+<li>You may remember this from your math class:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/8-1.png" alt="8-1.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Given the lengths of a and b we are able to calculate the length of c using the equation above.
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3 try">
-<h3 id="sec-1-3">Try It</h3>
+<div id="outline-container-sec-1-3" class="outline-3 code">
+<h3 id="sec-1-3">Code It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>First we must load the image ready for later use
-<ul class="org-ul">
-<li>Then create a variable to hold player1's x and y position
-</li>
-<li>don’t do this in the game loop, loading the image 60 times a second will not lead to good game performance 
-</li>
-</ul>
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/5-1.PNG" alt="5-1.PNG" />
-</p>
-</div>
-<ul class="org-ul">
-<li>Then display / "blit" the image to the screen
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/5-2.png" alt="5-2.png" />
-</p>
-</div>
-<ul class="org-ul">
-<li>We are now going to make the sprite follow the mouse – we’ve done this before but we are going to improve our method.
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/5-3.png" alt="5-3.png" />
-</p>
-</div>
-<ul class="org-ul">
-<li>Bug list
-<ul class="org-ul">
-<li>Mouse curser not centred on image
-</li>
-<li>Mouse curser visible – looks ugly
-</li>
-<li>Cannot change image size
-</li>
-</ul>
-</li>
-<li>First we will set size we want for the image and then use the pygame.image.transform function to resize the image
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/5-4.PNG" alt="5-4.PNG" />
-</p>
-</div>
-<ul class="org-ul">
-<li>It is very useful to know the size of the image, we will use it to correct the mouse point position
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./img/5-5.PNG" alt="5-5.PNG" />
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-1-4" class="outline-3 badge">
-<h3 id="sec-1-4">Badge It</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li><b>Silver:</b> Add comments to your code and discribe how using image size is useful in correcting the mouse pointer position
-</li>
-<li><b>Gold:</b> Use the image below as your sprite, remember it has a different aspect ratio.
-</li>
-</ul>
-
-<div class="figure">
-<p><img src="./doc/bird1.png" alt="bird1.png" />
-</p>
-</div>
-<ul class="org-ul">
-<li><b>Platinum:</b> Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer.
+<li>First we need to load a player and target image they <code>must</code> be saved in a folder called  <code>img</code>
 </li>
 </ul>
 <p>
-<img src="./doc/birdSprites.png" alt="birdSprites.png" />
-<img src="./doc/MarioSprites.png" alt="MarioSprites.png" />
+<img src="./img/bird1.png" alt="bird1.png" />
+<img src="./img/crossHair.png" alt="crossHair.png" /> 
 </p>
+<ul class="org-ul">
+<li>Then set the targets starting X and Y position
+</li>
+</ul>
+<p>
+<img src="./img/8-2.png" alt="8-2.png" />
+The player will follow the mouse curser
+<img src="./img/8-3.png" alt="8-3.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3 build">
+<h3 id="sec-1-4">Build It</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Yes we’ve done this in Maths but how does it help us make games?
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/8-4.png" alt="8-4.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>In order to keep the game loop as tidy as possible we will create a function to calculate c. 
+</li>
+<li>The function will need to use the math module square root method – so the math module must be imported.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/8-5.png" alt="8-5.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>And finally we must call the function and send it the player and target X and Y position.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/8-6.png" alt="8-6.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3 badge">
+<h3 id="sec-1-5">Badge It</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><b>Silver:</b> Upload your code <code>with comments</code>
+</li>
+<li><b>Gold:</b> Use the function from the text me lesson to display the distance on the screen
+</li>
+<li><b>Platinum:</b> Use Pygame.draw.line to draw the 3 sides of the triangle
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/8-pythanFinished.png" alt="8-pythanFinished.png" /> 
+</p>
+</div>
 </div>
 </div>
 </div>
