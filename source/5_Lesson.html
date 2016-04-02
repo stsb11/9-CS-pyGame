@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Pygame</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="js/navbar.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Pygame</h1>
+  <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/stsb11/9-CS-pyGame">Fork me on GitHub</a>
+    </div>
+  </div>
+<div id="stickyribbon">
+    <ul>
+      <li><a href="1_Lesson.html">Week1</a></li>
+      <li><a href="2_Lesson.html">Week2</a></li>
+      <li><a href="3_Lesson.html">Week3</a></li>
+      <li><a href="4_Lesson.html">Week4</a></li>
+      <li><a href="5_Lesson.html">Week5</a></li>
+      <li><a href="assessment.html">Assessment</a></li>
+    </ul>
+  </div>
+<div id="outline-container-sec-1" class="outline-2 activity">
+<h2 id="sec-1">Images</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-sec-1-1" class="outline-3 code">
+<h3 id="sec-1-1">Download It</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Start by picking up a fresh copy of the pyGame template file to use in this lesson, and save it in the directory you've been using for this topic: 
+</li>
+<li><a href="./doc/pygameDevTemplate.py">Right click and save as - for a fresh template</a>
+</li>
+<li>Create a folder called <b>Images</b> in your pygame folder.
+</li>
+<li>Right click on the image below and save it in your new <b>Images</b> folder
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/gimp2.png" alt="gimp2.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3 learn">
+<h3 id="sec-1-2">Learn It</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Basic shapes is a good starting point, but images are much more fun.
+</li>
+<li>Using images as <a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)">sprites</a> is very simple in pyGame.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3 try">
+<h3 id="sec-1-3">Try It</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>The process for using an image in pyGame is as follows:
+</li>
+</ul>
+<pre class="example">
+Load the image into memory
+Create a variable to hold the sprite's X and Y position on the screen
+
+BEGIN GAME LOOP
+    Set new X and Y coordinates for the image
+    Display the image on the screen
+</pre>
+
+<ul class="org-ul">
+<li>The graphic(s) we wish to load only need to be loaded into the computer's memory once. 
+</li>
+<li>If we loaded the file from the computer's hard drive 60 times a second, we would get very poor game performance.
+</li>
+<li>The process of painting the screen with our loaded image(s) is called <i>bit blitting</i>, or just '<a href="https://en.wikipedia.org/wiki/Bit_blit">blit</a>' for short. 
+</li>
+<li>Start by adding this code just under line 16.
+</li>
+<li><b>NOTE:</b> you can make line numbers appear next to your code by right-clicking the tall, thin grey empty area that sits just to the left of your code in pyCharm, then clicking 'Show line numbers':
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1Image</span> = pygame.image.load(<span style="color: #2aa198;">"gimp2.png"</span>)
+<span style="color: #268bd2;">player1XY</span> = [100, 100]
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Then add these lines under <code>line 27</code> to display (blit) the image on the screen:
+</li>
+<li><b>NOTE:</b> Make sure these lines are indented, otherwise they won't work.
+<div class="org-src-container">
+
+<pre class="src src-python">screen.fill(black)
+<span style="color: #268bd2;">player1</span> = screen.blit(player1Image, player1XY)
+</pre>
+</div>
+</li>
+<li>We now have a static image. To make it a little more interactive, let's  make the sprite follow the mouse. We’ve done this before but we are going to improve our method. 
+</li>
+<li>Add these two line underneath the <code>screen.fill(black)</code> command on line 28 (don't forget to indent!):
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">mousePosition</span> = pygame.mouse.get_pos()
+<span style="color: #268bd2;">player1XY</span> = mousePosition[0], mousePosition[1]
+</pre>
+</div>
+<ul class="org-ul">
+<li>What do you think this is doing?
+</li>
+<li>Your code will now look something like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/5-3.png" alt="5-3.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3 try">
+<h3 id="sec-1-4">Try It</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Our app is coming along, but we've a few improvements that are needed to make this better.
+<ul class="org-ul">
+<li>The mouse cursor isn't centred on the image,
+</li>
+<li>The mouse cursor is visible, which looks unsightly,
+</li>
+<li>The image is a little large. 
+</li>
+</ul>
+</li>
+<li>Let's deal with the re-sizing of the image first. We can handle this at the top of our program, before we start our game loop. Our method will be:
+</li>
+</ul>
+<pre class="example">
+Store the size we want for the image in a variable 
+Use pygame.image.transform to resize the image.
+</pre>
+<ul class="org-ul">
+<li>Add these lines of code to the top of your program, under <code>player1XY = [100, 100]</code> over at line 18 (these lines don't need to be indented):
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">player1ImageSizeXY</span> = [80, 60]
+<span style="color: #268bd2;">player1Image</span> = pygame.transform.scale(player1Image, player1ImageSizeXY)
+</pre>
+</div>
+<ul class="org-ul">
+<li>The code will read something like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/5-4.PNG" alt="5-4.PNG" />
+</p>
+</div>
+<ul class="org-ul">
+<li>As we know the size of the image, we can use this to correct the mouse point position from our bug list.
+</li>
+<li>Our algorithm will be:
+</li>
+</ul>
+<pre class="example">
+</pre>
+<p>
+<i>
+./img/5-5.PNG</i>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3 badge">
+<h3 id="sec-1-5">Badge It</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><b>Silver:</b> Add comments to your code and discribe how using image size is useful in correcting the mouse pointer position
+</li>
+<li><b>Gold:</b> Use the image below as your sprite, remember it has a different aspect ratio.
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./doc/bird1.png" alt="bird1.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li><b>Platinum:</b> Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer.
+</li>
+</ul>
+<p>
+<img src="./doc/birdSprites.png" alt="birdSprites.png" />
+<img src="./doc/MarioSprites.png" alt="MarioSprites.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -97,36 +97,81 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-- Start by picking up a template to use in this lesson: 
+- Start by picking up a fresh copy of the pyGame template file to use in this lesson, and save it in the directory you've been using for this topic: 
 - [[./doc/pygameDevTemplate.py][Right click and save as - for a fresh template]]
-- Create a folder called Images in your pygame folder
-- Right click on the image below and save it in your Images folder
+- Create a folder called *Images* in your pygame folder.
+- Right click on the image below and save it in your new *Images* folder
 [[./img/gimp2.png]]
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- Basic shapes is a good starting point, but images are much more fun
-- Using images as sprites is very simple in pygame
+- Basic shapes is a good starting point, but images are much more fun.
+- Using images as [[https://en.wikipedia.org/wiki/Sprite_(computer_graphics)][sprites]] is very simple in pyGame.
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- First we must load the image ready for later use
- - Then create a variable to hold player1's x and y position
- - don’t do this in the game loop, loading the image 60 times a second will not lead to good game performance 
-[[./img/5-1.PNG]]
-- Then display / "blit" the image to the screen
-[[./img/5-2.png]]
-- We are now going to make the sprite follow the mouse – we’ve done this before but we are going to improve our method.
+- The process for using an image in pyGame is as follows:
+#+begin_src
+Load the image into memory
+Create a variable to hold the sprite's X and Y position on the screen
+
+BEGIN GAME LOOP
+    Set new X and Y coordinates for the image
+    Display the image on the screen
+#+end_src
+
+- The graphic(s) we wish to load only need to be loaded into the computer's memory once. 
+- If we loaded the file from the computer's hard drive 60 times a second, we would get very poor game performance.
+- The process of painting the screen with our loaded image(s) is called /bit blitting/, or just '[[https://en.wikipedia.org/wiki/Bit_blit][blit]]' for short. 
+- Start by adding this code just under line 16.
+- *NOTE:* you can make line numbers appear next to your code by right-clicking the tall, thin grey empty area that sits just to the left of your code in pyCharm, then clicking 'Show line numbers':
+#+begin_src python
+player1Image = pygame.image.load("gimp2.png")
+player1XY = [100, 100]
+#+end_src
+
+- Then add these lines under =line 27= to display (blit) the image on the screen:
+- *NOTE:* Make sure these lines are indented, otherwise they won't work.
+ #+begin_src python
+    screen.fill(black)
+    player1 = screen.blit(player1Image, player1XY)
+#+end_src
+- We now have a static image. To make it a little more interactive, let's  make the sprite follow the mouse. We’ve done this before but we are going to improve our method. 
+- Add these two line underneath the =screen.fill(black)= command on line 28 (don't forget to indent!):
+#+begin_src python
+    mousePosition = pygame.mouse.get_pos()
+    player1XY = mousePosition[0], mousePosition[1] 
+#+end_src
+- What do you think this is doing?
+- Your code will now look something like this:
 [[./img/5-3.png]]
-- Bug list
- - Mouse curser not centred on image
- - Mouse curser visible – looks ugly
- - Cannot change image size
-- First we will set size we want for the image and then use the pygame.image.transform function to resize the image
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- Our app is coming along, but we've a few improvements that are needed to make this better.
+  - The mouse cursor isn't centred on the image,
+  - The mouse cursor is visible, which looks unsightly,
+  - The image is a little large. 
+- Let's deal with the re-sizing of the image first. We can handle this at the top of our program, before we start our game loop. Our method will be:
+#+begin_src
+Store the size we want for the image in a variable 
+Use pygame.image.transform to resize the image.
+#+end_src
+- Add these lines of code to the top of your program, under =player1XY = [100, 100]= over at line 18 (these lines don't need to be indented):
+#+begin_src python
+player1ImageSizeXY = [80, 60]
+player1Image = pygame.transform.scale(player1Image, player1ImageSizeXY)
+#+end_src
+- The code will read something like this:
 [[./img/5-4.PNG]]
-- It is very useful to know the size of the image, we will use it to correct the mouse point position
+- As we know the size of the image, we can use this to correct the mouse point position from our bug list.
+- Our algorithm will be:
+#+begin_src
+
+#+end_src
 [[./img/5-5.PNG]]
 ** Badge It
 :PROPERTIES:
