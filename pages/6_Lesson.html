@@ -79,7 +79,7 @@ for the JavaScript code in this tag.
 <h2 id="sec-1">Collision!</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>Open your .py file from lesson 5
+<li>Open your .py file from lesson 5 in pyCharm. It should be in your home drive, neatly stored in a folder. 
 </li>
 </ul>
 </div>
@@ -87,7 +87,7 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-1">Learn It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>We are going to make it into a simple game
+<li>We are going to make it into a simple game, to learn to use collisions. 
 </li>
 </ul>
 </div>
@@ -95,13 +95,22 @@ for the JavaScript code in this tag.
 <div id="outline-container-sec-1-2" class="outline-3 try">
 <h3 id="sec-1-2">Try It</h3>
 <div class="outline-text-3" id="text-1-2">
-
 <ul class="org-ul">
-<li>We will create another sprite using a basic shape called target. Then detect if player1 has collided with the target
-<ul class="org-ul">
-<li>First we need a variable to hold the x and y position of the target
+<li>In addition to the one we made in the previous lesson, we will create another sprite using a basic shape called <code>target</code>. We will then detect if <code>player1</code> has collided with the <code>target</code>.
+</li>
+<li>First we need a variable to hold the x and y position of the target.
+</li>
+<li>Add these lines at the bottom of the lines of the game setup section, directly underneath the line that says <code>player1Image = pygame.transform.scale(player1Image, player1ImageSizeXY)</code> which you wrote in the last lesson. It'll be around line 20ish. 
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pygame.mouse.set_visible(<span style="color: #268bd2; font-weight: bold;">False</span>)
+<span style="color: #268bd2;">targetXY</span> = [500, 500]
+</pre>
+</div>
+<ul class="org-ul">
+<li>Your code will look a little like this now:
 </li>
 </ul>
 
@@ -110,7 +119,22 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>Then add the target sprite
+<li>Now, we'll draw the target sprite onto the screen.
+</li>
+<li>Add these lines of code in your game loop, directly underneath the line that says <code>player1XY = newXPosition, newYPosition</code> 
+</li>
+<li><b>NOTE:</b> You'll need to indent each of these lines twice, to that they're part of the <code>for</code> event loop.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">target</span> = pygame.draw.circle(screen, red, (300, 600), 20)
+<span style="color: #859900; font-weight: bold;">if</span> player1.colliderect(target):
+    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"Hit!"</span>)
+</pre>
+</div>
+<ul class="org-ul">
+<li>The code should look like this:
 </li>
 </ul>
 
@@ -119,20 +143,54 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>Printing hit is not very exciting so we will change the code so the target disappears and reappears at a random x y position when touched by the player sprite
-<ul class="org-ul">
-<li>In order to use the random module we must import it
+<li>Run the code, and see what happens. 
+</li>
+<li>Printing 'hit' in the console is not very exciting. Let's change the code so the target disappears and reappears at a random <code>x</code> and <code>y</code> position when touched by the player sprite.
+</li>
+<li>In order to use the random numbers, we need to <code>import</code> some extra code to allow it.
+</li>
+<li>Add this line at the very top of your program:
 </li>
 </ul>
-</li>
-</ul>
+<div class="org-src-container">
 
-<div class="figure">
-<p><img src="./img/6-3.PNG" alt="6-3.PNG" />
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">import</span> random
+</pre>
+</div>
+<p>
+It'll look like this&#x2026;
+<img src="./img/6-3.PNG" alt="6-3.PNG" />
 </p>
+<ul class="org-ul">
+<li>Now, we can use a new function called <code>random.randint()</code>  to create random numbers for the <code>x</code> and <code>y</code> postions of the target. Comment out the <code>print("hit")</code> line you wrote previously by placing a hash symbol (#) in front of it, then add these lines underneath. Don't forget that they're part of the <code>IF</code> block, so will need to be indented with the tab key three times.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">targetXY</span>[0] = random.randint(0, SCREENWIDTH)
+<span style="color: #268bd2;">targetXY</span>[1] = random.randint(0, SCREENHEIGHT)
+</pre>
 </div>
 <ul class="org-ul">
-<li>Then use the random.randint function to create a random numbers for the x and y postions of the target
+<li>We will also need to stop hard-coding the coordinates of our target, and start using the new randomly chosen coordinates. A few lines above where you made these changes, find the line that says:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">target</span> = pygame.draw.circle(screen, red, (300, 600), 20)
+</pre>
+</div>
+<ul class="org-ul">
+<li>&#x2026;and change it to say:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">target</span> = pygame.draw.circle(screen, red, targetXY, 20)
+</pre>
+</div>
+<ul class="org-ul">
+<li>The code should look a little like this (the line numbers won't be exact, but will be in this area of the program):
 </li>
 </ul>
 
@@ -142,16 +200,30 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-
 <div id="outline-container-sec-1-3" class="outline-3 test">
 <h3 id="sec-1-3">Test It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>There are a number of improvement we can make
-<ul class="org-ul">
-<li>It would be better if the user had to collide with the target <b>and</b> click click the mouse
+<li>Run the program to test it. 
+</li>
+<li>There are a number of improvements we can make.
+</li>
+<li>It would be better if the user had to collide with the target <b>and</b> click the mouse to score a point. We could add this by changing our collision code slightly. 
+</li>
+<li>Add another <code>IF</code> statement inside the game loop to force the user to click on the target. <b>NOTE:</b> Only the first of the lines below is to be added; the others are shown to help you see where to place the code, and help ensure it is indented correctly. 
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">if</span> pygame.mouse.get_pressed()[0] == 1:
+    <span style="color: #859900; font-weight: bold;">if</span> player1.colliderect(target):
+        <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">print("Hit!")</span>
+        <span style="color: #268bd2;">targetXY</span>[0] = random.randint(0, SCREENWIDTH)
+        <span style="color: #268bd2;">targetXY</span>[1] = random.randint(0, SCREENHEIGHT)
+</pre>
+</div>
+<ul class="org-ul">
+<li>The code should look something like this. <b>NOTE:</b> The lines of code under the new <code>IF</code> statement will all need to be intended.
 </li>
 </ul>
 
@@ -160,35 +232,73 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>The game has a bug - if you hold down the mosue button the player just has to touch the target
+<li>This feature also introduces a bug; the player can hold down the mouse button constantly so that the they just have to touch the target.
+</li>
+<li>This is slightly more complex to fix. We'll need to create a variable to prevent the player from 'firing' again until until the mouse button is released.
 <ul class="org-ul">
-<li>This is slightly more complex to fix
+<li>Create the <code>fireLock</code> variable and set to <code>0</code> at the start of the game, so the player can fire. Add this line of code just before your game loop:
 </li>
 </ul>
 </li>
-<li>We need to create a variable to prevent the player from firing again until until the fire button is released.
-<ol class="org-ol">
-<li>Create the fireLock variable and set to 0 at the start of the game, so the player can fire
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">fireLock</span> = 0
+</pre>
+</div>
+<ul class="org-ul">
+<li>&#x2026;so it looks like this:
 </li>
-</ol>
+</ul>
 
 <div class="figure">
 <p><img src="./img/6-6.PNG" alt="6-6.PNG" />
 </p>
 </div>
-<ol class="org-ol">
-<li>Set fireLock to 1 when the mouse button is pressed
+<ul class="org-ul">
+<li>Next, we'll need to set <code>fireLock</code> to <code>1</code> when the mouse button is pushed, by modifying our <code>IF</code> statement from before a little bit. 
 </li>
-</ol>
+<li>Find the line that says:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">if</span> pygame.mouse.get_pressed()[0] == 1:
+</pre>
+</div>
+<ul class="org-ul">
+<li>and change it to:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">if</span> pygame.mouse.get_pressed()[0] == 1 <span style="color: #859900; font-weight: bold;">and</span> fireLock == 0:
+    <span style="color: #268bd2;">fireLock</span> = 1
+</pre>
+</div>
+<ul class="org-ul">
+<li>The code should now look something like this:
+</li>
+</ul>
 
 <div class="figure">
 <p><img src="./img/6-7.PNG" alt="6-7.PNG" />
 </p>
 </div>
-<ol class="org-ol">
-<li>Reset fireLock to one when the mouse button is released
+<ul class="org-ul">
+<li>Finally, we'll need to make it so that we only reset <code>fireLock</code> to <code>0</code> when the mouse button is released. We do this by adding another event listener to our event loop.
 </li>
-</ol>
+<li>Add this <code>IF</code> statement inside the gameState = "exit" line in your game loop.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">if</span> event.<span style="color: #657b83; font-weight: bold;">type</span> == pygame.MOUSEBUTTONUP:
+    <span style="color: #268bd2;">fireLock</span> = 0
+</pre>
+</div>
+<ul class="org-ul">
+<li>It should look like this when done:
 </li>
 </ul>
 
@@ -196,18 +306,21 @@ for the JavaScript code in this tag.
 <p><img src="./img/6-8.PNG" alt="6-8.PNG" />
 </p>
 </div>
+<ul class="org-ul">
+<li>If you find yourself unsure of how to complete this lesson, this video tutorial may help:
+</li>
+</ul>
 </div>
 </div>
-
 <div id="outline-container-sec-1-4" class="outline-3 badge">
 <h3 id="sec-1-4">Badge It</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
-<li><b>Silver:</b> Add comments to your code and in comments below your code explain what is a module in python and how to use one
+<li><b>Silver:</b> Add comments to your code and in comments below your code.
 </li>
-<li><b>Gold:</b>  The target is drawn over the player - fix this bug
+<li><b>Gold:</b> The target is currently drawn over the top of the player - fix this bug so that it appears behind. 
 </li>
-<li><b>Platinum:</b> Change the target to an image
+<li><b>Platinum:</b> Change the target circle to an image of your choice instead.
 </li>
 </ul>
 </div>

@@ -93,49 +93,112 @@
  :PROPERTIES:
  :HTML_CONTAINER_CLASS: activity
  :END:
-- Open your .py file from lesson 5
+- Open your .py file from lesson 5 in pyCharm. It should be in your home drive, neatly stored in a folder. 
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- We are going to make it into a simple game
+- We are going to make it into a simple game, to learn to use collisions. 
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-
-- We will create another sprite using a basic shape called target. Then detect if player1 has collided with the target
- - First we need a variable to hold the x and y position of the target
+- In addition to the one we made in the previous lesson, we will create another sprite using a basic shape called =target=. We will then detect if =player1= has collided with the =target=.
+- First we need a variable to hold the x and y position of the target.
+- Add these lines at the bottom of the lines of the game setup section, directly underneath the line that says =player1Image = pygame.transform.scale(player1Image, player1ImageSizeXY)= which you wrote in the last lesson. It'll be around line 20ish. 
+#+begin_src python
+pygame.mouse.set_visible(False)
+targetXY = [500, 500]
+#+end_src
+- Your code will look a little like this now:
 [[./img/6-1.png]]
-- Then add the target sprite
+- Now, we'll draw the target sprite onto the screen.
+- Add these lines of code in your game loop, directly underneath the line that says =player1XY = newXPosition, newYPosition= 
+- *NOTE:* You'll need to indent each of these lines twice, to that they're part of the =for= event loop.
+#+begin_src python
+target = pygame.draw.circle(screen, red, (300, 600), 20)
+if player1.colliderect(target):
+    print("Hit!")
+#+end_src
+- The code should look like this:
 [[./img/6-2.png]]
-- Printing hit is not very exciting so we will change the code so the target disappears and reappears at a random x y position when touched by the player sprite
- - In order to use the random module we must import it
+- Run the code, and see what happens. 
+- Printing 'hit' in the console is not very exciting. Let's change the code so the target disappears and reappears at a random =x= and =y= position when touched by the player sprite.
+- In order to use the random numbers, we need to =import= some extra code to allow it.
+- Add this line at the very top of your program:
+#+begin_src python
+import random
+#+end_src
+It'll look like this...
 [[./img/6-3.PNG]]
- - Then use the random.randint function to create a random numbers for the x and y postions of the target
+ - Now, we can use a new function called =random.randint()=  to create random numbers for the =x= and =y= postions of the target. Comment out the =print("hit")= line you wrote previously by placing a hash symbol (#) in front of it, then add these lines underneath. Don't forget that they're part of the =IF= block, so will need to be indented with the tab key three times.
+#+begin_src python
+targetXY[0] = random.randint(0, SCREENWIDTH)
+targetXY[1] = random.randint(0, SCREENHEIGHT)
+#+end_src
+- We will also need to stop hard-coding the coordinates of our target, and start using the new randomly chosen coordinates. A few lines above where you made these changes, find the line that says:
+#+begin_src python
+target = pygame.draw.circle(screen, red, (300, 600), 20)
+#+end_src
+- ...and change it to say:
+#+begin_src python
+target = pygame.draw.circle(screen, red, targetXY, 20)
+#+end_src
+- The code should look a little like this (the line numbers won't be exact, but will be in this area of the program):
 [[./img/6-4.png]]
-
 ** Test It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: test
 :END:
-- There are a number of improvement we can make
- - It would be better if the user had to collide with the target *and* click click the mouse
+- Run the program to test it. 
+- There are a number of improvements we can make.
+- It would be better if the user had to collide with the target *and* click the mouse to score a point. We could add this by changing our collision code slightly. 
+- Add another =IF= statement inside the game loop to force the user to click on the target. *NOTE:* Only the first of the lines below is to be added; the others are shown to help you see where to place the code, and help ensure it is indented correctly. 
+#+begin_src python
+if pygame.mouse.get_pressed()[0] == 1:
+    if player1.colliderect(target):
+        # print("Hit!")
+        targetXY[0] = random.randint(0, SCREENWIDTH)
+        targetXY[1] = random.randint(0, SCREENHEIGHT)
+#+end_src
+- The code should look something like this. *NOTE:* The lines of code under the new =IF= statement will all need to be intended.
 [[./img/6-5.png]]
-- The game has a bug - if you hold down the mosue button the player just has to touch the target
- - This is slightly more complex to fix
--  We need to create a variable to prevent the player from firing again until until the fire button is released.
- 1. Create the fireLock variable and set to 0 at the start of the game, so the player can fire
+- This feature also introduces a bug; the player can hold down the mouse button constantly so that the they just have to touch the target.
+- This is slightly more complex to fix. We'll need to create a variable to prevent the player from 'firing' again until until the mouse button is released.
+  - Create the =fireLock= variable and set to =0= at the start of the game, so the player can fire. Add this line of code just before your game loop:
+#+begin_src python
+fireLock = 0
+#+end_src
+  - ...so it looks like this:
  [[./img/6-6.PNG]]
- 2. Set fireLock to 1 when the mouse button is pressed
+  - Next, we'll need to set =fireLock= to =1= when the mouse button is pushed, by modifying our =IF= statement from before a little bit. 
+  - Find the line that says:
+#+begin_src python
+if pygame.mouse.get_pressed()[0] == 1:
+#+end_src
+  - and change it to:
+#+begin_src python
+if pygame.mouse.get_pressed()[0] == 1 and fireLock == 0:
+    fireLock = 1
+#+end_src
+  - The code should now look something like this:
  [[./img/6-7.PNG]]
- 3. Reset fireLock to one when the mouse button is released
+  - Finally, we'll need to make it so that we only reset =fireLock= to =0= when the mouse button is released. We do this by adding another event listener to our event loop.
+  - Add this =IF= statement inside the gameState = "exit" line in your game loop.
+#+begin_src python
+if event.type == pygame.MOUSEBUTTONUP:
+    fireLock = 0
+#+end_src
+- It should look like this when done:
 [[./img/6-8.PNG]]
+- If you find yourself unsure of how to complete this lesson, this video tutorial may help:
+#+BEGIN_HTML
 
+#+END_HTML
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:      
-- *Silver:* Add comments to your code and in comments below your code explain what is a module in python and how to use one
-- *Gold:*  The target is drawn over the player - fix this bug
-- *Platinum:* Change the target to an image
+- *Silver:* Add comments to your code and in comments below your code.
+- *Gold:* The target is currently drawn over the top of the player - fix this bug so that it appears behind. 
+- *Platinum:* Change the target circle to an image of your choice instead.
