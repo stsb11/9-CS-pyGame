@@ -208,7 +208,9 @@ player1XY = newXPosition, newYPosition
 #+end_src
 - Run your code, and test that the image is now centred on the mouse pointer.
 - If you're unsure of any of the steps above, a video tutorial running through this lesson can be seen below. 
-
+#+BEGIN_HTML
+<iframe width="650" height="393" src="https://www.youtube.com/embed/GIH4srUh-7I" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
@@ -220,3 +222,6 @@ player1XY = newXPosition, newYPosition
 [[./doc/birdSprites.png]]
 [[./doc/MarioSprites.png]]
 - A video tutorial on using alpha in Gimp can be found below.
+#+BEGIN_HTML
+<iframe width="650" height="393" src="https://www.youtube.com/embed/lhKtGxxESKo" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
