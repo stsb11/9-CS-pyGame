@@ -167,19 +167,56 @@ player1Image = pygame.transform.scale(player1Image, player1ImageSizeXY)
 #+end_src
 - The code will read something like this:
 [[./img/5-4.PNG]]
-- As we know the size of the image, we can use this to correct the mouse point position from our bug list.
-- Our algorithm will be:
+- As we know the size of the image, we can use this to correct the mouse point position from our bug list. Consider the image below, which shows the current situation in our PyGame window, but with some dimensions drawn over the top of logo and the mouse pointer:
+[[./img/5-6.png]]
+- The image is currently being drawn on the screen starting at (120, 90) which is where the mouse pointer is. This is the top-left corner of the image. 
+- To get the image to centre up, we need to tell PyGame to draw the image a bit further to the left, and a bit further up. How much, though?
+- The width of our image (in pixels) is always stored in the variable called =player1ImageSizeXY[]=. When we want the X position, we use ==player1ImageSizeXY[0]= and when we want the Y position, we use =player1ImageSizeXY[1]=. 
+- Just thinking about the X position first, we need to draw the image at where the mouse currently is (on the X axis; 120 pixels across in this example), then...
+- Half the width of the image over to the left (50 pixels in this case). 
+- The same idea applies to the Y axis.
+- Our formula is:
 #+begin_src
-
+new X Position = Mouse X position - (width of the image / 2)
+new Y Position = Mouse Y position - (height of the image / 2)
 #+end_src
-[[./img/5-5.PNG]]
+- So in the example from the image, it'd be:
+#+begin_src
+new X Position = Mouse X position - (width of the image / 2)
+new X Position = 120 - (100 / 2) = 120-50 = 70
+
+new Y Position = Mouse Y position - (height of the image / 2)
+new Y Position = 90 - (100 / 2) = 90 - 50 = 40
+#+end_src
+- To deal with this for any mouse position, we'll need this algorithm, which uses the variables available in our program:
+#+begin_src
+newXPosition = mousePosition[0] - (player1ImageSizeXY[0] / 2)
+newYPosition = mousePosition[1] - (player1ImageSizeXY[1] / 2)
+player1XY = newXPosition, newYPosition
+
+DRAW PLAYER1 AT LOCATION player1XY
+#+end_src
+- Around line 32 in your program, you'll have a line of code saying:
+#+begin_src python 
+player1XY = mousePosition[0], mousePosition[1]
+#+end_src
+- Remove this line, and replace it with our improved version:
+#+begin_src python 
+newXPosition = mousePosition[0] - (player1ImageSizeXY[0] / 2)
+newYPosition = mousePosition[1] - (player1ImageSizeXY[1] / 2)
+player1XY = newXPosition, newYPosition
+#+end_src
+- Run your code, and test that the image is now centred on the mouse pointer.
+- If you're unsure of any of the steps above, a video tutorial running through this lesson can be seen below. 
+
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
-- *Silver:* Add comments to your code and discribe how using image size is useful in correcting the mouse pointer position
-- *Gold:* Use the image below as your sprite, remember it has a different aspect ratio.
+- *Silver:* Add comments to your code, describing how using image size is useful in correcting the mouse pointer position.
+- *Gold:* Replace the image below as your sprite, remembering that it has a different aspect ratio, so you'll need to adjust the size of the image to ensure it doesn't look squashed. Explain in a text file why is it better to store the image X and Y size in variables. 
 [[./doc/bird1.png]]
-- *Platinum:* Use gimp2 to cut out an image from either of the sprite sheets below and add an alpha layer.
+- *Platinum:* Use [[https://www.gimp.org/][gimp2]] to cut out an image from either of the sprite sheets below and add an [[https://en.wikipedia.org/wiki/Alpha_compositing][alpha]] layer. Use this as your player image instead.
 [[./doc/birdSprites.png]]
 [[./doc/MarioSprites.png]]
+- A video tutorial on using alpha in Gimp can be found below.
