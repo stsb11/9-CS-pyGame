@@ -103,44 +103,41 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- Almost all games require text to be displayed on the screen because of this it would be good to make something we can use again and again without writing the code again and again.
-- In computing this is called a function. It is an independent block of code that lives outside the main program and only runs when asked to do so by the main program.
+- Almost all games require text to be displayed on the screen.
+- It would be handy to  make something we can use again and again without writing the code repeatedly.
+- In computing this is called a /function/. It is an independent block of code that lives outside the main program and only runs when asked to do so by the main program.
 - Functions always sit at the top of the code after the import statements.
-
-
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- First we need to load a font from the PCs font collection and store it in a variable for later us
+- First we need to load a font from the PC's font collection and store it in a variable for later use.
 [[./img/7-1.png]]
-- Build the function
-- At the top of your code under the import statements build you function
+- Now, we can start to build our function.
+- At the top of your code, under the import statements add this code, which creates your function.
 [[./img/7-2.png]]
-- We now need to tell the function that we’d like it to run and what it should draw on the screen. We do this from the main body of your code.
+- The function won't run until it's instructed to do so. 
+- By 'calling' the function, we tell the function that we’d like it to run. We'll do this from the main body of our code.
 - This is called a =Function Call=
 [[./img/7-3.png]]
-
 ** Program It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: program
 :END:
-- It would be much more useful if we could tell the textDraw function the X, Y coordinates we’d like the text to go.
-- To do this we must add anotherparameter to the function
+- It would be even more useful if we could tell the =textDraw= function which X, Y coordinates we’d like the text to be shown at.
+- We can accomplish this by adding a =parameter= to the function.
 [[./img/7-4.png]]
-- Then modify your function call
+- We'll also need to modify the function call so that we send it the values we want to use in our program. 
 [[./img/7-5.png]]
-
-
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
 - *Silver:*
- - Add 2 more function call to draw text at different points on the screen
- - Add comments to your code
+ - Add 2 more function calls to draw text at different points on the screen.
+ - Add comments to your code, and upload it to [[https://www.bournetolearn.com][BourneToLearn.com]] 
 - *Gold:* 
- - Add another paramenter to your function to control the text size
- - Modify you function call so the text moves across the screen
+ - Add another paramenter to your function to control the text size.
 - *Platinum:*
- - Modify the program so it displays a mouse click counter 
+ - Modify the program so it displays a mouse click counter on the screen, *OR*
+ - Modify your function call so the text moves across the screen.
