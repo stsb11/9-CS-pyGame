@@ -193,7 +193,7 @@ if event.type == pygame.MOUSEBUTTONUP:
 [[./img/6-8.PNG]]
 - If you find yourself unsure of how to complete this lesson, this video tutorial may help:
 #+BEGIN_HTML
-
+<iframe width="650" height="393" src="https://www.youtube.com/embed/p095HXXKNLc" frameborder="0" allowfullscreen></iframe>
 #+END_HTML
 ** Badge It
 :PROPERTIES:
