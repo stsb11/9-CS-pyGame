@@ -93,12 +93,6 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-** Download It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: code
-:END:
-- Start by picking up the template for this lesson:
-- [[./doc/pygameDevTemplate.py][Right click and Save As - for a fresh template]]
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
@@ -106,38 +100,147 @@
 - Almost all games require text to be displayed on the screen.
 - It would be handy to  make something we can use again and again without writing the code repeatedly.
 - In computing this is called a /function/. It is an independent block of code that lives outside the main program and only runs when asked to do so by the main program.
-- Functions always sit at the top of the code after the import statements.
+- Functions definitions always sit at the top of the code after the import statements.
 ** Try It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- First we need to load a font from the PC's font collection and store it in a variable for later use.
+- Let's start by writing a simple program, and looking at how we can adapt it to to use functions. 
+- What if we wanted a program to multiply some numbers together?
+- Our pseudocode could be something like this:
+#+begin_src
+keepGoing = True
+WHILE keepGoing == True:
+   firstNumber = INPUT "What number would you like? "
+   secondNumber = INPUT "What number to multiply it by? "
+   result = firstNumber * secondNumber
+   print "The answer is " + result
+
+   yourAnswer = input "Again? "
+   IF yourAnswer = "no" THEN
+      keepGoing = False
+   ENDIF
+END WHILE
+#+end_src
+- In this program, the =WHILE= loop has a lot of lines of code in it. 
+- It'd be a lot easier to read the code if there were less of it. 
+- Let's make some functions to clean this up. Our code /could/ instead say:
+- *NOTE:* Line numbers are shown to make this easier to discuss.
+#+begin_src
+1 FUNCTION getNumbers()
+2    num1 = INPUT "What number would you like? "
+3    num2 = INPUT "What number to multiply it by? "
+4 RETURN num1, num2
+5
+6 FUNCTION doTheMaths(a, b)
+7    theAnswer = a * b
+8 RETURN theAnswer
+9 
+10 ''' THE ACTUAL PROGRAM STARTS HERE '''
+11 keepGoing = True
+12 WHILE keepGoing == True
+13    firstNumber, secondNumber = getNumbers()
+14    result = doTheMaths (firstNumber, secondNumber)
+15    print "The answer is " + result
+16
+17    yourAnswer = input "Again? "
+18    IF yourAnswer = "no" THEN
+19       keepGoing = False
+20    ENDIF
+21 END WHILE
+#+end_src
+- The the program runs, the two functions at the very top (lines 1-8) are read by the computer, but not used.
+- In effect, we are teaching the computer two new sets of code that we will eventually ask it to run when desired. The first line of code carried out is on line 11 (line 10 is a comment).
+- *Pro tip:* When you ask the computer to run a function, we use the term /calling/.
+- On line 13, the program calls the =getNumbers()= function. The program then runs the code on lines 1-4.
+- The result of running that function is two numbers entered by the user, and stored in variables called =num1= and =num2=. 
+= When line 4 of the code is run, the values entered by the user are =returned= to where we were in the program before the function was called (line 13). The values are stored in =firstNumber= and =secondNumber=. 
+- The same process is repeated on line 14, but this time the numbers to be calculated are sent along when the =doTheMaths()= function is called. 
+- Here's the Python code to accomplish this task:
+#+begin_src python
+def getNumbers()
+    num1 = input("What number would you like? ")
+    num2 = input("What number to multiply it by? ")
+    return num1, num2
+
+def doTheMaths(a, b)
+    theAnswer = a * b
+    return theAnswer
+
+ ''' THE ACTUAL PROGRAM STARTS HERE '''
+ keepGoing = True
+ while keepGoing == True:
+    firstNumber, secondNumber = getNumbers()
+    result = doTheMaths (firstNumber, secondNumber)
+    print("The answer is " + str(result))
+
+    yourAnswer = input("Again? ")
+    if yourAnswer = "no":
+        keepGoing = False
+#+end_src
+- Put the code into a new, empty Python file, save it and run it.
+- *Challenge:* Could you add a function to replace the last 3 lines of the program (seeing if the user wishes to play again) with 1 line?
+** Download It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: code
+:END:
+- Start by picking up the template for this lesson:
+- [[./doc/pygameDevTemplate.py][Right click and Save As - for a fresh template]]
+** Try It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: try
+:END:
+- We're going to create a function to allow us to draw text onto the screen.
+- Our pseudocode to do this is as follows:
+#+begin_src
+''' Setup code - run once only '''
+fontName = Load 'Arial' font into memory
+
+FUNCTION textDraw(msgText)
+    font = Use fontName, make the size 22.
+    text_surface = Use msgText as the message, and colour it white
+    blit the screen, drawing text_surface at coordinates: 100, 100.
+END FUNCTION
+
+''' GAME LOOP CODE - run repeatedly '''
+CALL textDraw("Good morning, Dave")
+#+end_src
+
+- To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop.
 [[./img/7-1.png]]
-- Now, we can start to build our function.
-- At the top of your code, under the import statements add this code, which creates your function.
+- Write the code for our function next, adding this code at the top of the program, immediately underneath the =import= statements. It'll look like this:
+- *NOTE:* Make sure you indent your code like in the screenshot above, or this won't work.
 [[./img/7-2.png]]
-- The function won't run until it's instructed to do so. 
-- By 'calling' the function, we tell the function that we’d like it to run. We'll do this from the main body of our code.
-- This is called a =Function Call=
+- Now we've taught the computer /how/ to write text, we can call this function any time we want to write something. 
+- Add a function call inside the game loop, by adding this code:
+- *NOTE:* Again, ensure that you've indented the code.
 [[./img/7-3.png]]
 ** Program It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: program
 :END:
-- It would be even more useful if we could tell the =textDraw= function which X, Y coordinates we’d like the text to be shown at.
-- We can accomplish this by adding a =parameter= to the function.
+- It would be even more useful if we could tell the =textDraw= function which X, Y coordinates we’d like the text to be shown at. At the moment, we're always drawing at 100, 100.
+- We can accomplish this by adding another =parameter= to the function. We have one at the moment, called =msgText=. Modify your function definition at the top of the code, like this:
+- *NOTE:* Two lines of code need to be changed; the first and last lines in the function definition.
 [[./img/7-4.png]]
 - We'll also need to modify the function call so that we send it the values we want to use in our program. 
+- Change this line in your game loop to send over more information about where we want the text to appear.
 [[./img/7-5.png]]
+- If you're unsure of how to complete the tasks so far, this video tutorial explains how to go about them:
+#+BEGIN_HTML
+
+#+END_HTML
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
 - *Silver:*
- - Add 2 more function calls to draw text at different points on the screen.
- - Add comments to your code, and upload it to [[https://www.bournetolearn.com][BourneToLearn.com]] 
+ - Add 2 more function calls using your =textDraw()= funciton to draw more text at different points on the screen. Add comments to your code, and upload it to [[https://www.bournetolearn.com][BourneToLearn.com]] 
 - *Gold:* 
  - Add another paramenter to your function to control the text size.
+ - Draw the words small, medium and lage below each other on the screen, each in different sizes.
+ - Upload the code for marking.
 - *Platinum:*
  - Modify the program so it displays a mouse click counter on the screen, *OR*
  - Modify your function call so the text moves across the screen.
+ - Upload your code for marking.

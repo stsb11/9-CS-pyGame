@@ -38,7 +38,7 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: link-heading
 :END:  
-* [[file:pages/6_Lesson.html][Week 7 - Text me]]
+* [[file:pages/7_Lesson.html][Week 7 - Text me]]
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: link-heading
 :END:  
