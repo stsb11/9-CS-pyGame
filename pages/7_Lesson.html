@@ -79,9 +79,134 @@ for the JavaScript code in this tag.
 <h2 id="sec-1">Text me</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 code">
-<h3 id="sec-1-1">Download It</h3>
+<div id="outline-container-sec-1-1" class="outline-3 learn">
+<h3 id="sec-1-1">Learn It</h3>
 <div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Almost all games require text to be displayed on the screen.
+</li>
+<li>It would be handy to  make something we can use again and again without writing the code repeatedly.
+</li>
+<li>In computing this is called a <i>function</i>. It is an independent block of code that lives outside the main program and only runs when asked to do so by the main program.
+</li>
+<li>Functions definitions always sit at the top of the code after the import statements.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3 try">
+<h3 id="sec-1-2">Try It</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Let's start by writing a simple program, and looking at how we can adapt it to to use functions. 
+</li>
+<li>What if we wanted a program to multiply some numbers together?
+</li>
+<li>Our pseudocode could be something like this:
+</li>
+</ul>
+<pre class="example">
+keepGoing = True
+WHILE keepGoing == True:
+   firstNumber = INPUT "What number would you like? "
+   secondNumber = INPUT "What number to multiply it by? "
+   result = firstNumber * secondNumber
+   print "The answer is " + result
+
+   yourAnswer = input "Again? "
+   IF yourAnswer = "no" THEN
+      keepGoing = False
+   ENDIF
+END WHILE
+</pre>
+<ul class="org-ul">
+<li>In this program, the <code>WHILE</code> loop has a lot of lines of code in it. 
+</li>
+<li>It'd be a lot easier to read the code if there were less of it. 
+</li>
+<li>Let's make some functions to clean this up. Our code <i>could</i> instead say:
+</li>
+<li><b>NOTE:</b> Line numbers are shown to make this easier to discuss.
+</li>
+</ul>
+<pre class="example">
+1 FUNCTION getNumbers()
+2    num1 = INPUT "What number would you like? "
+3    num2 = INPUT "What number to multiply it by? "
+4 RETURN num1, num2
+5
+6 FUNCTION doTheMaths(a, b)
+7    theAnswer = a * b
+8 RETURN theAnswer
+9 
+10 ''' THE ACTUAL PROGRAM STARTS HERE '''
+11 keepGoing = True
+12 WHILE keepGoing == True
+13    firstNumber, secondNumber = getNumbers()
+14    result = doTheMaths (firstNumber, secondNumber)
+15    print "The answer is " + result
+16
+17    yourAnswer = input "Again? "
+18    IF yourAnswer = "no" THEN
+19       keepGoing = False
+20    ENDIF
+21 END WHILE
+</pre>
+<ul class="org-ul">
+<li>The the program runs, the two functions at the very top (lines 1-8) are read by the computer, but not used.
+</li>
+<li>In effect, we are teaching the computer two new sets of code that we will eventually ask it to run when desired. The first line of code carried out is on line 11 (line 10 is a comment).
+</li>
+<li><b>Pro tip:</b> When you ask the computer to run a function, we use the term <i>calling</i>.
+</li>
+<li>On line 13, the program calls the <code>getNumbers()</code> function. The program then runs the code on lines 1-4.
+</li>
+<li>The result of running that function is two numbers entered by the user, and stored in variables called <code>num1</code> and <code>num2</code>. 
+</li>
+</ul>
+<p>
+= When line 4 of the code is run, the values entered by the user are <code>returned</code> to where we were in the program before the function was called (line 13). The values are stored in <code>firstNumber</code> and <code>secondNumber</code>. 
+</p>
+<ul class="org-ul">
+<li>The same process is repeated on line 14, but this time the numbers to be calculated are sent along when the <code>doTheMaths()</code> function is called. 
+</li>
+<li>Here's the Python code to accomplish this task:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">getNumbers</span>()
+    <span style="color: #268bd2;">num1</span> = <span style="color: #657b83; font-weight: bold;">input</span>(<span style="color: #2aa198;">"What number would you like? "</span>)
+    <span style="color: #268bd2;">num2</span> = <span style="color: #657b83; font-weight: bold;">input</span>(<span style="color: #2aa198;">"What number to multiply it by? "</span>)
+    <span style="color: #859900; font-weight: bold;">return</span> num1, num2
+
+<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">doTheMaths</span>(a, b)
+    <span style="color: #268bd2;">theAnswer</span> = a * b
+    <span style="color: #859900; font-weight: bold;">return</span> theAnswer
+
+ <span style="color: #2aa198;">''' THE ACTUAL PROGRAM STARTS HERE '''</span>
+ <span style="color: #268bd2;">keepGoing</span> = <span style="color: #268bd2; font-weight: bold;">True</span>
+ <span style="color: #859900; font-weight: bold;">while</span> keepGoing == <span style="color: #268bd2; font-weight: bold;">True</span>:
+    <span style="color: #268bd2;">firstNumber</span>, <span style="color: #268bd2;">secondNumber</span> = getNumbers()
+    <span style="color: #268bd2;">result</span> = doTheMaths (firstNumber, secondNumber)
+    <span style="color: #859900; font-weight: bold;">print</span>(<span style="color: #2aa198;">"The answer is "</span> + <span style="color: #657b83; font-weight: bold;">str</span>(result))
+
+    <span style="color: #268bd2;">yourAnswer</span> = <span style="color: #657b83; font-weight: bold;">input</span>(<span style="color: #2aa198;">"Again? "</span>)
+    <span style="color: #859900; font-weight: bold;">if</span> <span style="color: #268bd2;">yourAnswer</span> = <span style="color: #2aa198;">"no"</span>:
+        <span style="color: #268bd2;">keepGoing</span> = <span style="color: #268bd2; font-weight: bold;">False</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Put the code into a new, empty Python file, save it and run it.
+</li>
+<li><b>Challenge:</b> Could you add a function to replace the last 3 lines of the program (seeing if the user wishes to play again) with 1 line?
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3 code">
+<h3 id="sec-1-3">Download It</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>Start by picking up the template for this lesson:
 </li>
@@ -90,26 +215,31 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3 learn">
-<h3 id="sec-1-2">Learn It</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec-1-4" class="outline-3 try">
+<h3 id="sec-1-4">Try It</h3>
+<div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
-<li>Almost all games require text to be displayed on the screen.
+<li>We're going to create a function to allow us to draw text onto the screen.
 </li>
-<li>It would be handy to  make something we can use again and again without writing the code repeatedly.
-</li>
-<li>In computing this is called a <i>function</i>. It is an independent block of code that lives outside the main program and only runs when asked to do so by the main program.
-</li>
-<li>Functions always sit at the top of the code after the import statements.
+<li>Our pseudocode to do this is as follows:
 </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-sec-1-3" class="outline-3 try">
-<h3 id="sec-1-3">Try It</h3>
-<div class="outline-text-3" id="text-1-3">
+<pre class="example">
+''' Setup code - run once only '''
+fontName = Load 'Arial' font into memory
+
+FUNCTION textDraw(msgText)
+    font = Use fontName, make the size 22.
+    text_surface = Use msgText as the message, and colour it white
+    blit the screen, drawing text_surface at coordinates: 100, 100.
+END FUNCTION
+
+''' GAME LOOP CODE - run repeatedly '''
+CALL textDraw("Good morning, Dave")
+</pre>
+
 <ul class="org-ul">
-<li>First we need to load a font from the PC's font collection and store it in a variable for later use.
+<li>To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop.
 </li>
 </ul>
 
@@ -118,9 +248,9 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>Now, we can start to build our function.
+<li>Write the code for our function next, adding this code at the top of the program, immediately underneath the <code>import</code> statements. It'll look like this:
 </li>
-<li>At the top of your code, under the import statements add this code, which creates your function.
+<li><b>NOTE:</b> Make sure you indent your code like in the screenshot above, or this won't work.
 </li>
 </ul>
 
@@ -129,11 +259,11 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>The function won't run until it's instructed to do so. 
+<li>Now we've taught the computer <i>how</i> to write text, we can call this function any time we want to write something. 
 </li>
-<li>By 'calling' the function, we tell the function that we’d like it to run. We'll do this from the main body of our code.
+<li>Add a function call inside the game loop, by adding this code:
 </li>
-<li>This is called a <code>Function Call</code>
+<li><b>NOTE:</b> Again, ensure that you've indented the code.
 </li>
 </ul>
 
@@ -143,13 +273,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-1-4" class="outline-3 program">
-<h3 id="sec-1-4">Program It</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-sec-1-5" class="outline-3 program">
+<h3 id="sec-1-5">Program It</h3>
+<div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
-<li>It would be even more useful if we could tell the <code>textDraw</code> function which X, Y coordinates we’d like the text to be shown at.
+<li>It would be even more useful if we could tell the <code>textDraw</code> function which X, Y coordinates we’d like the text to be shown at. At the moment, we're always drawing at 100, 100.
 </li>
-<li>We can accomplish this by adding a <code>parameter</code> to the function.
+<li>We can accomplish this by adding another <code>parameter</code> to the function. We have one at the moment, called <code>msgText</code>. Modify your function definition at the top of the code, like this:
+</li>
+<li><b>NOTE:</b> Two lines of code need to be changed; the first and last lines in the function definition.
 </li>
 </ul>
 
@@ -160,29 +292,37 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>We'll also need to modify the function call so that we send it the values we want to use in our program. 
 </li>
+<li>Change this line in your game loop to send over more information about where we want the text to appear.
+</li>
 </ul>
 
 <div class="figure">
 <p><img src="./img/7-5.png" alt="7-5.png" />
 </p>
 </div>
+<ul class="org-ul">
+<li>If you're unsure of how to complete the tasks so far, this video tutorial explains how to go about them:
+</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-sec-1-5" class="outline-3 badge">
-<h3 id="sec-1-5">Badge It</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-sec-1-6" class="outline-3 badge">
+<h3 id="sec-1-6">Badge It</h3>
+<div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li><b>Silver:</b>
 <ul class="org-ul">
-<li>Add 2 more function calls to draw text at different points on the screen.
-</li>
-<li>Add comments to your code, and upload it to <a href="https://www.bournetolearn.com">BourneToLearn.com</a> 
+<li>Add 2 more function calls using your <code>textDraw()</code> funciton to draw more text at different points on the screen. Add comments to your code, and upload it to <a href="https://www.bournetolearn.com">BourneToLearn.com</a> 
 </li>
 </ul>
 </li>
 <li><b>Gold:</b> 
 <ul class="org-ul">
 <li>Add another paramenter to your function to control the text size.
+</li>
+<li>Draw the words small, medium and lage below each other on the screen, each in different sizes.
+</li>
+<li>Upload the code for marking.
 </li>
 </ul>
 </li>
@@ -191,6 +331,8 @@ for the JavaScript code in this tag.
 <li>Modify the program so it displays a mouse click counter on the screen, <b>OR</b>
 </li>
 <li>Modify your function call so the text moves across the screen.
+</li>
+<li>Upload your code for marking.
 </li>
 </ul>
 </li>
