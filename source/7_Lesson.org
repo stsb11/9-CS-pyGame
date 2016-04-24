@@ -259,7 +259,7 @@ textDraw("Good morning, Dave", (400, 60))
 - Try running the code. 
 - If you're unsure of how to complete the tasks so far, this video tutorial explains how to go about them:
 #+BEGIN_HTML
-
+<iframe width="650" height="393" src="https://www.youtube.com/embed/0c8C_ECq0_Y" frameborder="0" allowfullscreen></iframe>
 #+END_HTML
 ** Badge It
 :PROPERTIES:
