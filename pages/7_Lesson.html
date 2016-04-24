@@ -163,11 +163,8 @@ END WHILE
 </li>
 <li>The result of running that function is two numbers entered by the user, and stored in variables called <code>num1</code> and <code>num2</code>. 
 </li>
-</ul>
-<p>
-= When line 4 of the code is run, the values entered by the user are <code>returned</code> to where we were in the program before the function was called (line 13). The values are stored in <code>firstNumber</code> and <code>secondNumber</code>. 
-</p>
-<ul class="org-ul">
+<li>When line 4 of the code is run, the values entered by the user are <code>returned</code> to where we were in the program before the function was called (line 13). The values are stored in <code>firstNumber</code> and <code>secondNumber</code>. 
+</li>
 <li>The same process is repeated on line 14, but this time the numbers to be calculated are sent along when the <code>doTheMaths()</code> function is called. 
 </li>
 <li>Here's the Python code to accomplish this task:
@@ -239,7 +236,16 @@ CALL textDraw("Good morning, Dave")
 </pre>
 
 <ul class="org-ul">
-<li>To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop.
+<li>To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop (around line 28).
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">fontName</span> = pygame.font.match_font(<span style="color: #2aa198;">'arial'</span>)
+</pre>
+</div>
+<ul class="org-ul">
+<li>It should look like this:
 </li>
 </ul>
 
@@ -248,7 +254,19 @@ CALL textDraw("Good morning, Dave")
 </p>
 </div>
 <ul class="org-ul">
-<li>Write the code for our function next, adding this code at the top of the program, immediately underneath the <code>import</code> statements. It'll look like this:
+<li>Write the code for our function next, adding this code at the top of the program, immediately underneath the <code>import</code> statements. 
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">textDraw</span>(msgText):
+    <span style="color: #268bd2;">font</span> = pygame.font.Font(fontName, 22)
+    <span style="color: #268bd2;">text_surface</span> = font.render(msgText, <span style="color: #268bd2; font-weight: bold;">True</span>, white)
+    screen.blit(text_surface, (100, 100))
+</pre>
+</div>
+<ul class="org-ul">
+<li>It'll look like this:
 </li>
 <li><b>NOTE:</b> Make sure you indent your code like in the screenshot above, or this won't work.
 </li>
@@ -262,6 +280,15 @@ CALL textDraw("Good morning, Dave")
 <li>Now we've taught the computer <i>how</i> to write text, we can call this function any time we want to write something. 
 </li>
 <li>Add a function call inside the game loop, by adding this code:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">textDraw(<span style="color: #2aa198;">"Good morning, Dave"</span>)
+</pre>
+</div>
+<ul class="org-ul">
+<li>It'll look like this:
 </li>
 <li><b>NOTE:</b> Again, ensure that you've indented the code.
 </li>
@@ -281,7 +308,17 @@ CALL textDraw("Good morning, Dave")
 </li>
 <li>We can accomplish this by adding another <code>parameter</code> to the function. We have one at the moment, called <code>msgText</code>. Modify your function definition at the top of the code, like this:
 </li>
-<li><b>NOTE:</b> Two lines of code need to be changed; the first and last lines in the function definition.
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">textDraw</span>(msgText, XYPosition):
+    <span style="color: #268bd2;">font</span> = pygame.font.Font(fontName, 22)
+    <span style="color: #268bd2;">text_surface</span> = font.render(msgText, <span style="color: #268bd2; font-weight: bold;">True</span>, white)
+    screen.blit(text_surface, XYPosition)
+</pre>
+</div>
+<ul class="org-ul">
+<li><b>NOTE:</b> Two lines of code need to be changed; the first and last lines in the function definition. It should look like this:
 </li>
 </ul>
 
@@ -293,6 +330,15 @@ CALL textDraw("Good morning, Dave")
 <li>We'll also need to modify the function call so that we send it the values we want to use in our program. 
 </li>
 <li>Change this line in your game loop to send over more information about where we want the text to appear.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">textDraw(<span style="color: #2aa198;">"Good morning, Dave"</span>, (400, 60))
+</pre>
+</div>
+<ul class="org-ul">
+<li>It should look like this:
 </li>
 </ul>
 

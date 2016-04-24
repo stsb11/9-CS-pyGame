@@ -154,7 +154,7 @@ END WHILE
 - *Pro tip:* When you ask the computer to run a function, we use the term /calling/.
 - On line 13, the program calls the =getNumbers()= function. The program then runs the code on lines 1-4.
 - The result of running that function is two numbers entered by the user, and stored in variables called =num1= and =num2=. 
-= When line 4 of the code is run, the values entered by the user are =returned= to where we were in the program before the function was called (line 13). The values are stored in =firstNumber= and =secondNumber=. 
+- When line 4 of the code is run, the values entered by the user are =returned= to where we were in the program before the function was called (line 13). The values are stored in =firstNumber= and =secondNumber=. 
 - The same process is repeated on line 14, but this time the numbers to be calculated are sent along when the =doTheMaths()= function is called. 
 - Here's the Python code to accomplish this task:
 #+begin_src python
@@ -206,13 +206,28 @@ END FUNCTION
 CALL textDraw("Good morning, Dave")
 #+end_src
 
-- To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop.
+- To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop (around line 28).
+#+begin_src python
+fontName = pygame.font.match_font('arial')
+#+end_src
+- It should look like this:
 [[./img/7-1.png]]
-- Write the code for our function next, adding this code at the top of the program, immediately underneath the =import= statements. It'll look like this:
+- Write the code for our function next, adding this code at the top of the program, immediately underneath the =import= statements. 
+#+begin_src python
+def textDraw(msgText):
+    font = pygame.font.Font(fontName, 22)
+    text_surface = font.render(msgText, True, white)
+    screen.blit(text_surface, (100, 100))
+#+end_src
+- It'll look like this:
 - *NOTE:* Make sure you indent your code like in the screenshot above, or this won't work.
 [[./img/7-2.png]]
 - Now we've taught the computer /how/ to write text, we can call this function any time we want to write something. 
 - Add a function call inside the game loop, by adding this code:
+#+begin_src python
+textDraw("Good morning, Dave")
+#+end_src
+- It'll look like this:
 - *NOTE:* Again, ensure that you've indented the code.
 [[./img/7-3.png]]
 ** Program It
@@ -221,10 +236,20 @@ CALL textDraw("Good morning, Dave")
 :END:
 - It would be even more useful if we could tell the =textDraw= function which X, Y coordinates we’d like the text to be shown at. At the moment, we're always drawing at 100, 100.
 - We can accomplish this by adding another =parameter= to the function. We have one at the moment, called =msgText=. Modify your function definition at the top of the code, like this:
-- *NOTE:* Two lines of code need to be changed; the first and last lines in the function definition.
+#+begin_src python
+def textDraw(msgText, XYPosition):
+    font = pygame.font.Font(fontName, 22)
+    text_surface = font.render(msgText, True, white)
+    screen.blit(text_surface, XYPosition)
+#+end_src
+- *NOTE:* Two lines of code need to be changed; the first and last lines in the function definition. It should look like this:
 [[./img/7-4.png]]
 - We'll also need to modify the function call so that we send it the values we want to use in our program. 
 - Change this line in your game loop to send over more information about where we want the text to appear.
+#+begin_src python
+textDraw("Good morning, Dave", (400, 60))
+#+end_src
+- It should look like this:
 [[./img/7-5.png]]
 - If you're unsure of how to complete the tasks so far, this video tutorial explains how to go about them:
 #+BEGIN_HTML
