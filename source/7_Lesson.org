@@ -158,28 +158,33 @@ END WHILE
 - The same process is repeated on line 14, but this time the numbers to be calculated are sent along when the =doTheMaths()= function is called. 
 - Here's the Python code to accomplish this task:
 #+begin_src python
-def getNumbers()
-    num1 = input("What number would you like? ")
-    num2 = input("What number to multiply it by? ")
+def getNumbers():
+    num1 = int(input("What number would you like? "))
+    num2 = int(input("What number to multiply it by? "))
     return num1, num2
 
-def doTheMaths(a, b)
+def doTheMaths(a, b):
     theAnswer = a * b
     return theAnswer
 
- ''' THE ACTUAL PROGRAM STARTS HERE '''
- keepGoing = True
- while keepGoing == True:
+
+''' THE ACTUAL PROGRAM STARTS HERE '''
+keepGoing = True
+while keepGoing == True:
     firstNumber, secondNumber = getNumbers()
     result = doTheMaths (firstNumber, secondNumber)
     print("The answer is " + str(result))
 
     yourAnswer = input("Again? ")
-    if yourAnswer = "no":
+    if yourAnswer == "no":
         keepGoing = False
 #+end_src
 - Put the code into a new, empty Python file, save it and run it.
 - *Challenge:* Could you add a function to replace the last 3 lines of the program (seeing if the user wishes to play again) with 1 line?
+- If you're struggling with the concept of functions the task above is explained in the tutorial below:
+#+BEGIN_HTML
+<iframe width="650" height="393" src="https://www.youtube.com/embed/mOeYxnaYzNE" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
 ** Download It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
