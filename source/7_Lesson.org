@@ -206,13 +206,13 @@ END FUNCTION
 CALL textDraw("Good morning, Dave")
 #+end_src
 
-- To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop (around line 28).
+- To code this in Python, first we need to load a font from the PC's font collection and store it in a variable for later use. Add this line just above the game loop (around line 18).
 #+begin_src python
 fontName = pygame.font.match_font('arial')
 #+end_src
 - It should look like this:
 [[./img/7-1.png]]
-- Write the code for our function next, adding this code at the top of the program, immediately underneath the =import= statements. 
+- Write the code for our function next, adding this code at the top of the program, immediately underneath the =import= statements near line 4. 
 #+begin_src python
 def textDraw(msgText):
     font = pygame.font.Font(fontName, 22)
@@ -245,12 +245,13 @@ def textDraw(msgText, XYPosition):
 - *NOTE:* Two lines of code need to be changed; the first and last lines in the function definition. It should look like this:
 [[./img/7-4.png]]
 - We'll also need to modify the function call so that we send it the values we want to use in our program. 
-- Change this line in your game loop to send over more information about where we want the text to appear.
+- Change this line in your game loop (around line 32)  to send over more information about where we want the text to appear.
 #+begin_src python
 textDraw("Good morning, Dave", (400, 60))
 #+end_src
 - It should look like this:
 [[./img/7-5.png]]
+- Try running the code. 
 - If you're unsure of how to complete the tasks so far, this video tutorial explains how to go about them:
 #+BEGIN_HTML
 
@@ -260,7 +261,7 @@ textDraw("Good morning, Dave", (400, 60))
 :HTML_CONTAINER_CLASS: badge
 :END:
 - *Silver:*
- - Add 2 more function calls using your =textDraw()= funciton to draw more text at different points on the screen. Add comments to your code, and upload it to [[https://www.bournetolearn.com][BourneToLearn.com]] 
+ - Add 2 more function calls using your =textDraw()= function to draw more text at different points on the screen. Add comments to your code, and upload it to [[https://www.bournetolearn.com][BourneToLearn.com]] 
 - *Gold:* 
  - Add another paramenter to your function to control the text size.
  - Draw the words small, medium and lage below each other on the screen, each in different sizes.
