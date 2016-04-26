@@ -79,15 +79,14 @@ for the JavaScript code in this tag.
 <h2 id="sec-1">Pythagoras</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 code">
-<h3 id="sec-1-1">Download It</h3>
+<div id="outline-container-sec-1-1" class="outline-3 design">
+<h3 id="sec-1-1">Design It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Start by picking up the template for this lesson:
-</li>
-<li><a href="./doc/pygameDevTemplate.py">Right click and Save As - for a fresh template</a>
+<li>Now we've learnt some individual coding techniques, we can try and bring them together to create a nice target shooting game like this:
 </li>
 </ul>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/G7T_j9nAHBs" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 <div id="outline-container-sec-1-2" class="outline-3 learn">
@@ -96,7 +95,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>Pythagoras invented his theorem in ancient Greek times so we could make video games.
 </li>
-<li>You may remember this from your math class:
+<li>You may remember this from your maths classes:
 </li>
 </ul>
 
@@ -111,10 +110,25 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="outline-container-sec-1-3" class="outline-3 code">
-<h3 id="sec-1-3">Code It</h3>
+<h3 id="sec-1-3">Download It</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>First we need to load a player and target image they <code>must</code> be saved in a folder called  <code>img</code>
+<li>Start by picking up the template for this lesson:
+</li>
+<li><a href="./doc/pygameDevTemplate.py">Right click and Save As - for a fresh template</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3 code">
+<h3 id="sec-1-4">Code It</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>First we'll need some graphics for our game. At the very least, we'll need to load a player and target image.
+</li>
+<li>Save the two images below into your pyGame folder on your H: drive.
+</li>
+<li>To keep things neat, make a sub-folder in your pyGame folder and call it <code>img</code>. Put both images in there. <b>NOTE:</b> If you don't place them into the sub-folder, the code examples used in this lesson won't work.
 </li>
 </ul>
 <p>
@@ -122,22 +136,62 @@ for the JavaScript code in this tag.
 <img src="./img/crossHair.png" alt="crossHair.png" /> 
 </p>
 <ul class="org-ul">
-<li>Then set the targets starting X and Y position
+<li>We'll start off by establishing the target's starting <code>X</code> and <code>Y</code> position on the screen. Add these lines just before your game loop, around line 18:
 </li>
 </ul>
-<p>
-<img src="./img/8-2.png" alt="8-2.png" />
-The player will follow the mouse curser
-<img src="./img/8-3.png" alt="8-3.png" />
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #268bd2;">gameState</span> = <span style="color: #2aa198;">"running"</span>  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">controls which state the games is in</span>
+<span style="color: #268bd2;">player1Image</span> = pygame.image.load(<span style="color: #2aa198;">"img/crossHair.png"</span>)
+<span style="color: #268bd2;">targetImage</span> = pygame.image.load(<span style="color: #2aa198;">"img/bird1.png"</span>)
+<span style="color: #268bd2;">targetX</span> = 100
+<span style="color: #268bd2;">targetY</span> = 100
+</pre>
+</div>
+<ul class="org-ul">
+<li>It should look like this:
+</li>
+</ul>
+
+<div class="figure">
+<p><img src="./img/8-2.png" alt="8-2.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Using the ideas used in the Mouse lesson, we'll have the target graphic follow the mouse cursor. Add these lines into your game loop, around line 30:
+</li>
+<li><b>NOTE:</b> This code must be indented in order to work.
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">screen.fill(white)
+<span style="color: #268bd2;">mousePos</span> = pygame.mouse.get_pos()
+<span style="color: #268bd2;">player1X</span> = pygame.mouse.get_pos()[0] - 50
+<span style="color: #268bd2;">player1Y</span> = pygame.mouse.get_pos()[1] - 50
+
+<span style="color: #268bd2;">target</span> = screen.blit(targetImage, (targetX, targetY))
+<span style="color: #268bd2;">player1</span> = screen.blit(player1Image, (player1X, player1Y))
+</pre>
+</div>
+
+<div class="figure">
+<p><img src="./img/8-3.png" alt="8-3.png" />
 </p>
 </div>
 </div>
-
-<div id="outline-container-sec-1-4" class="outline-3 build">
-<h3 id="sec-1-4">Build It</h3>
-<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-sec-1-5" class="outline-3 learn">
+<h3 id="sec-1-5">Learn It</h3>
+<div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
-<li>Yes we’ve done this in Maths but how does it help us make games?
+<li>In our game, we'll need to know when the player has 'hit' the target bird. 
+</li>
+<li>We'll draw an imaginary circle around the bird's X, Y coordinates and say that when the player clicks the mouse, if the mouse is inside the circle, they've hit the target. 
+</li>
+<li>We could also use the idea of how close the player is to the middle to decide their accuracy.
+</li>
+<li>You've almost certianly covered Pythagoras' theorem in maths, but how does it help us solve this problem?
 </li>
 </ul>
 
@@ -145,39 +199,73 @@ The player will follow the mouse curser
 <p><img src="./img/8-4.png" alt="8-4.png" />
 </p>
 </div>
-
 <ul class="org-ul">
-<li>In order to keep the game loop as tidy as possible we will create a function to calculate c. 
-</li>
-<li>The function will need to use the math module square root method – so the math module must be imported.
+<li>Look at the diagram above for a moment. We can use the variables we already have to establish the X and Y distance from the bird to the target, then apply Pythagoras to see how far away it is. 
 </li>
 </ul>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3 code">
+<h3 id="sec-1-6">Code It</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>In order to keep the game loop as tidy as possible we will create a function to calculate <code>c</code>. 
+</li>
+<li>The function will need to use the math module's square root method. This isn't built into Python by default, so some extra code in the form of the <code>math</code> module must be imported. 
+</li>
+<li>Add these lines to the top of your program, around line 4
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #859900; font-weight: bold;">import</span> math
+
+<span style="color: #859900; font-weight: bold;">def</span> <span style="color: #268bd2;">pythag</span>(pX, pY, tX, tY):
+    <span style="color: #268bd2;">a</span> = pX - tX
+    <span style="color: #268bd2;">b</span> = pY - tY
+    <span style="color: #268bd2;">c</span> = math.sqrt(a ** 2 + b ** 2)
+    <span style="color: #859900; font-weight: bold;">print</span> (c)
+</pre>
+</div>
 
 <div class="figure">
 <p><img src="./img/8-5.png" alt="8-5.png" />
 </p>
 </div>
 <ul class="org-ul">
-<li>And finally we must call the function and send it the player and target X and Y position.
+<li>Finally, we must call the function and send it the player's and target's <code>X</code> and <code>Y</code> positions to perform the calculation with. Add this code inside the game loop, near line 44.
+</li>
+<li><b>NOTE:</b> This code must also be indented in order to work.
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pythag(player1X, player1Y, targetX, targetY)
+</pre>
+</div>
 
 <div class="figure">
 <p><img src="./img/8-6.png" alt="8-6.png" />
 </p>
 </div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-5" class="outline-3 badge">
-<h3 id="sec-1-5">Badge It</h3>
-<div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
-<li><b>Silver:</b> Upload your code <code>with comments</code>
+<li>Now test your code. Look at the bottom of the pyCharm window. What is this telling you?
 </li>
-<li><b>Gold:</b> Use the function from the text me lesson to display the distance on the screen
+<li>If you're struggling with the concepts, this video tutorial will help with this lesson:
 </li>
-<li><b>Platinum:</b> Use Pygame.draw.line to draw the 3 sides of the triangle
+</ul>
+<iframe width="650" height="393" src="https://www.youtube.com/embed/GIH4srUh-7I" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div id="outline-container-sec-1-7" class="outline-3 badge">
+<h3 id="sec-1-7">Badge It</h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><b>Silver:</b> Add comments explaining your code, then upload it form marking.
+</li>
+<li><b>Gold:</b> Use the function from the 'Text me' lesson to display how accurate the player was.
+</li>
+<li><b>Platinum:</b> Use Pygame.draw.line to draw the 3 sides of the triangle, like in the screenshot below.
 </li>
 </ul>
 
