@@ -182,7 +182,7 @@ pythag(player1X, player1Y, targetX, targetY)
 - Now test your code. Look at the bottom of the pyCharm window. What is this telling you?
 - If you're struggling with the concepts, this video tutorial will help with this lesson:
 #+BEGIN_HTML
-<iframe width="650" height="393" src="https://www.youtube.com/embed/GIH4srUh-7I" frameborder="0" allowfullscreen></iframe>
+<iframe width="650" height="393" src="https://www.youtube.com/embed/9yDunCtTTJw" frameborder="0" allowfullscreen></iframe>
 #+END_HTML
 ** Badge It
 :PROPERTIES:
