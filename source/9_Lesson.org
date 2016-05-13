@@ -98,15 +98,17 @@ SCHEDULED: <2016-05-08 Sun>
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: save
 :END:
-- Download and save the [[./doc/pygame_StagesTemplate.py][Stages Template]]. Please note this is a different template to all prevoius lessons.
+- Download and save the [[./doc/pygame_StagesTemplate.py][Stages Template]]. Please note this is a different template to all previous lessons.
+- You'll also need some assets for your game...
 - Download this [[./img/Laser_Cannon.ogg][sound file]] and save it to your Images folder
+- Download this [[./img/Bourne_Town_Hall.jpg][background image]] and save it to your Images folder
+- Download this [[./img/b1.png][sprite file]] and alo save it to your Images folder
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
 - In order for your game to look like a real game we’ll need to have several states for it to exist in.
 - The game will have 3 states - splash, playing and game over.
-
 - Splash:
   - Opening image
   - Title
@@ -234,6 +236,6 @@ pygame.mouse.set_visible(False)  # hide mouse cursor
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:      
-- *Silver:* Assemble the game from the template by adding the 4 sections of code above.
-- *Gold:* Add a background image and some additional text to the splash. screen 
-- *Platinum:* Modify the game to use are own sprites, backgrounds and sounds
+- *Silver:* The code uses something called a list to store the players moves. Read the first half of [[https://bournetocode.com/projects/8-CS-TextGames/pages/3_2015Lesson.html][these]] online notes about lists, then write a short piece in a text file (e.g. using Notepad) to explain what a list is.
+- *Gold:* Add a background image and some additional text to the splash. screen section of the code, and upload a screenshot of the new splash screen to collect the badge.
+- *Platinum:* Modify the game to use are own sprites, backgrounds and sounds, by looking around online. Upload screenshots of your revised game, and the .py file and your new assets to collect the badge. 
