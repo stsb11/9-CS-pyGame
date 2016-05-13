@@ -83,9 +83,15 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-1">Save It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Download and save the <a href="./doc/pygame_StagesTemplate.py">Stages Template</a>. Please note this is a different template to all prevoius lessons.
+<li>Download and save the <a href="./doc/pygame_StagesTemplate.py">Stages Template</a>. Please note this is a different template to all previous lessons.
+</li>
+<li>You'll also need some assets for your game&#x2026;
 </li>
 <li>Download this <a href="./img/Laser_Cannon.ogg">sound file</a> and save it to your Images folder
+</li>
+<li>Download this <a href="./img/Bourne_Town_Hall.jpg">background image</a> and save it to your Images folder
+</li>
+<li>Download this <a href="./img/b1.png">sprite file</a> and alo save it to your Images folder
 </li>
 </ul>
 </div>
@@ -98,7 +104,6 @@ for the JavaScript code in this tag.
 </li>
 <li>The game will have 3 states - splash, playing and game over.
 </li>
-
 <li>Splash:
 <ul class="org-ul">
 <li>Opening image
@@ -153,20 +158,20 @@ for the JavaScript code in this tag.
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-python"># loads font, images and sounds
-fontName = pygame.font.match_font('arial')
-BGImage = pygame.image.load("Images/Bourne_Town_Hall.jpg")
-player1Image = pygame.image.load("Images/crossHair.png")
-targetImage = pygame.image.load("Images/b1.png")
-gunSound = pygame.mixer.Sound("Images/Laser_Cannon.ogg")
+<pre class="src src-python"><span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">loads font, images and sounds</span>
+<span style="color: #268bd2;">fontName</span> = pygame.font.match_font(<span style="color: #2aa198;">'arial'</span>)
+<span style="color: #268bd2;">BGImage</span> = pygame.image.load(<span style="color: #2aa198;">"Images/Bourne_Town_Hall.jpg"</span>)
+<span style="color: #268bd2;">player1Image</span> = pygame.image.load(<span style="color: #2aa198;">"Images/crossHair.png"</span>)
+<span style="color: #268bd2;">targetImage</span> = pygame.image.load(<span style="color: #2aa198;">"Images/b1.png"</span>)
+<span style="color: #268bd2;">gunSound</span> = pygame.mixer.Sound(<span style="color: #2aa198;">"Images/Laser_Cannon.ogg"</span>)
 
-# resize images
-player1ImageWidthHeight = [100, 97]  # set size for player sprite
-player1Image = pygame.transform.scale(player1Image, player1ImageWidthHeight)  # modifies size of image
-targetImageWidthHeight = [41, 50]
-targetImage = pygame.transform.scale(targetImage, targetImageWidthHeight)
+<span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">resize images</span>
+<span style="color: #268bd2;">player1ImageWidthHeight</span> = [100, 97]  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">set size for player sprite</span>
+<span style="color: #268bd2;">player1Image</span> = pygame.transform.scale(player1Image, player1ImageWidthHeight)  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">modifies size of image</span>
+<span style="color: #268bd2;">targetImageWidthHeight</span> = [41, 50]
+<span style="color: #268bd2;">targetImage</span> = pygame.transform.scale(targetImage, targetImageWidthHeight)
 
-targetXY = [500, 500]  # sets target start position
+<span style="color: #268bd2;">targetXY</span> = [500, 500]  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">sets target start position</span>
 </pre>
 </div>
 </div>
@@ -189,12 +194,12 @@ targetXY = [500, 500]  # sets target start position
 
 <div class="org-src-container">
 
-<pre class="src src-python"># set start game variables
-startTime = pygame.time.get_ticks()
-fireLock = 0
-score = 0
-hitList = []
-distanceList = []
+<pre class="src src-python"><span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">set start game variables</span>
+<span style="color: #268bd2;">startTime</span> = pygame.time.get_ticks()
+<span style="color: #268bd2;">fireLock</span> = 0
+<span style="color: #268bd2;">score</span> = 0
+<span style="color: #268bd2;">hitList</span> = []
+<span style="color: #268bd2;">distanceList</span> = []
 </pre>
 </div>
 <ul class="org-ul">
@@ -222,31 +227,31 @@ distanceList = []
 </div>
 <div class="org-src-container">
 
-<pre class="src src-python">pygame.mouse.set_visible(False)  # hide mouse cursor
-	screen.blit(BGImage, (0, 0))  # draw background image
-	mousePosition = pygame.mouse.get_pos()
-	target = screen.blit(targetImage, targetXY)
-	player1XY = mousePosition[0] - player1ImageWidthHeight[0] / 2, mousePosition[1] - player1ImageWidthHeight[1] / 2
-	player1 = screen.blit(player1Image, player1XY)
-	distance = pythag(player1XY[0], player1XY[1], targetXY[0], targetXY[1])
+<pre class="src src-python">pygame.mouse.set_visible(<span style="color: #268bd2; font-weight: bold;">False</span>)  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">hide mouse cursor</span>
+        screen.blit(BGImage, (0, 0))  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">draw background image</span>
+        <span style="color: #268bd2;">mousePosition</span> = pygame.mouse.get_pos()
+        <span style="color: #268bd2;">target</span> = screen.blit(targetImage, targetXY)
+        <span style="color: #268bd2;">player1XY</span> = mousePosition[0] - player1ImageWidthHeight[0] / 2, mousePosition[1] - player1ImageWidthHeight[1] / 2
+        <span style="color: #268bd2;">player1</span> = screen.blit(player1Image, player1XY)
+        <span style="color: #268bd2;">distance</span> = pythag(player1XY[0], player1XY[1], targetXY[0], targetXY[1])
 
-	if pygame.mouse.get_pressed()[0] == 1 and fireLock == 0:  # player fires
-	    gunSound.play()
-	    fireLock = 1
-	    if player1.colliderect(target):  # when the target is hit
-		targetXY[0] = random.randint(0, SCREENWIDTH - 50)  # new target X
-		targetXY[1] = random.randint(0, SCREENHEIGHT - 50)  # new target Y
-		score += 1  # add to score
-		hitList.append([int(player1XY[0]), int(player1XY[1])])
-		distanceList.append(distance)
+        <span style="color: #859900; font-weight: bold;">if</span> pygame.mouse.get_pressed()[0] == 1 <span style="color: #859900; font-weight: bold;">and</span> fireLock == 0:  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">player fires</span>
+            gunSound.play()
+            <span style="color: #268bd2;">fireLock</span> = 1
+            <span style="color: #859900; font-weight: bold;">if</span> player1.colliderect(target):  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">when the target is hit</span>
+                <span style="color: #268bd2;">targetXY</span>[0] = random.randint(0, SCREENWIDTH - 50)  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">new target X</span>
+                <span style="color: #268bd2;">targetXY</span>[1] = random.randint(0, SCREENHEIGHT - 50)  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">new target Y</span>
+                <span style="color: #268bd2;">score</span> += 1  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">add to score</span>
+                hitList.append([<span style="color: #657b83; font-weight: bold;">int</span>(player1XY[0]), <span style="color: #657b83; font-weight: bold;">int</span>(player1XY[1])])
+                distanceList.append(distance)
 
-	# draw text to screen
-	textDraw("distance: " + str(int(distance)), (SCREENWIDTH / 2 - 100, 10), black)
-	textDraw("Score: " + str(score), (SCREENWIDTH / 2 - 100, 40), black)
-	textDraw("Time: " + str( pygame.time.get_ticks() - startTime), (SCREENWIDTH / 2 - 100, 70), black)
+        <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">draw text to screen</span>
+        textDraw(<span style="color: #2aa198;">"distance: "</span> + <span style="color: #657b83; font-weight: bold;">str</span>(<span style="color: #657b83; font-weight: bold;">int</span>(distance)), (SCREENWIDTH / 2 - 100, 10), black)
+        textDraw(<span style="color: #2aa198;">"Score: "</span> + <span style="color: #657b83; font-weight: bold;">str</span>(score), (SCREENWIDTH / 2 - 100, 40), black)
+        textDraw(<span style="color: #2aa198;">"Time: "</span> + <span style="color: #657b83; font-weight: bold;">str</span>( pygame.time.get_ticks() - startTime), (SCREENWIDTH / 2 - 100, 70), black)
 
-	if pygame.time.get_ticks() - startTime &gt; 10000:  # end game after 10 seconds
-	    gameState = "gameOver"
+        <span style="color: #859900; font-weight: bold;">if</span> pygame.time.get_ticks() - startTime &gt; 10000:  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">end game after 10 seconds</span>
+            <span style="color: #268bd2;">gameState</span> = <span style="color: #2aa198;">"gameOver"</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -271,16 +276,16 @@ distanceList = []
 <div class="org-src-container">
 
 <pre class="src src-python">screen.fill(black)
-pygame.mouse.set_visible(True)
-for h in range(0, len(hitList) - 1):  # for each hit....
+pygame.mouse.set_visible(<span style="color: #268bd2; font-weight: bold;">True</span>)
+<span style="color: #859900; font-weight: bold;">for</span> h <span style="color: #859900; font-weight: bold;">in</span> <span style="color: #657b83; font-weight: bold;">range</span>(0, <span style="color: #657b83; font-weight: bold;">len</span>(hitList) - 1):  <span style="color: #93a1a1;"># </span><span style="color: #93a1a1;">for each hit....</span>
     pygame.draw.circle(screen, red, hitList[h], 30)
-    textDraw(str(int(distanceList[h])), (hitList[h][0] + 20, hitList[h][1] + 20), red)
-    textDraw("Score: " + str(score), (10, 40), green)
-    avDistance = sum(distanceList) / len(distanceList)
-    textDraw("Average distance: " + str(int(avDistance)), (10, 100), green)
-textDraw("Right click to play again", (400, 400), green)
-if pygame.mouse.get_pressed()[2]:
-    gameState = "splash"
+    textDraw(<span style="color: #657b83; font-weight: bold;">str</span>(<span style="color: #657b83; font-weight: bold;">int</span>(distanceList[h])), (hitList[h][0] + 20, hitList[h][1] + 20), red)
+    textDraw(<span style="color: #2aa198;">"Score: "</span> + <span style="color: #657b83; font-weight: bold;">str</span>(score), (10, 40), green)
+    <span style="color: #268bd2;">avDistance</span> = <span style="color: #657b83; font-weight: bold;">sum</span>(distanceList) / <span style="color: #657b83; font-weight: bold;">len</span>(distanceList)
+    textDraw(<span style="color: #2aa198;">"Average distance: "</span> + <span style="color: #657b83; font-weight: bold;">str</span>(<span style="color: #657b83; font-weight: bold;">int</span>(avDistance)), (10, 100), green)
+textDraw(<span style="color: #2aa198;">"Right click to play again"</span>, (400, 400), green)
+<span style="color: #859900; font-weight: bold;">if</span> pygame.mouse.get_pressed()[2]:
+    <span style="color: #268bd2;">gameState</span> = <span style="color: #2aa198;">"splash"</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -310,11 +315,11 @@ if pygame.mouse.get_pressed()[2]:
 <h3 id="sec-4-2">Badge It</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
-<li><b>Silver:</b> Assemble the game from the template by adding the 4 sections of code above.
+<li><b>Silver:</b> The code uses something called a list to store the players moves. Read the first half of <a href="https://bournetocode.com/projects/8-CS-TextGames/pages/3_2015Lesson.html">these</a> online notes about lists, then write a short piece in a text file (e.g. using Notepad) to explain what a list is.
 </li>
-<li><b>Gold:</b> Add a background image and some additional text to the splash. screen 
+<li><b>Gold:</b> Add a background image and some additional text to the splash. screen section of the code, and upload a screenshot of the new splash screen to collect the badge.
 </li>
-<li><b>Platinum:</b> Modify the game to use are own sprites, backgrounds and sounds
+<li><b>Platinum:</b> Modify the game to use are own sprites, backgrounds and sounds, by looking around online. Upload screenshots of your revised game, and the .py file and your new assets to collect the badge. 
 </li>
 </ul>
 </div>
