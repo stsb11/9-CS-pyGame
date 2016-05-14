@@ -100,7 +100,7 @@ SCHEDULED: <2016-05-08 Sun>
 :END:
 - Download and save the [[./doc/pygame_StagesTemplate.py][Stages Template]]. Please note this is a different template to all previous lessons.
 - You'll also need some assets for your game...
-- Download this [[./img/Laser_Cannon.ogg][sound file]] and save it to your Images folder
+- Download this [[./doc/Laser_Cannon.ogg][sound file]] and save it to your Images folder
 - Download this [[./img/Bourne_Town_Hall.jpg][background image]] and save it to your Images folder
 - Download this [[./img/b1.png][sprite file]] and alo save it to your Images folder
 ** Learn It
@@ -228,10 +228,13 @@ pygame.mouse.set_visible(False)  # hide mouse cursor
 :HTML_CONTAINER_CLASS: test
 :END:
 - Try running your program.
-- The most like problems you will encounter will be:
- - Image or sound file are in the wrong location or the files names do not match.
- - Levels of indenation are  incorrect.
-
+- If it doesn't work, some possible explanations are:
+  - Images or sound files in the wrong location or the files names do not match.
+  - Levels of indentation are incorrect.
+- The video tutorial below walks you through building the finished game:
+#+BEGIN_HTML
+<iframe width="650" height="393" src="https://www.youtube.com/embed/xg9UIrildXI" frameborder="0" allowfullscreen></iframe>
+#+END_HTML
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
