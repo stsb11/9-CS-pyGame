@@ -49,7 +49,12 @@
 * [[file:pages/9_Lesson.html][Week 9 - Game On]]
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: link-heading
-:END:  
+:END:      
+
+* [[file:pages/homework.html][Homework]]
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: link-heading
+:END:      
 * [[file:pages/0_Lesson.html][Installing pyGame at home]]
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: link-heading
