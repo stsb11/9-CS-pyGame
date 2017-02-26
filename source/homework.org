@@ -97,10 +97,10 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- In lesson 1, you had tried drawing different shapes using code.
-- Mary has been experimenting with pyGame at home, and added these lines of code:
-- *NOTE:* The first 4 lines are comments that explain how the shapes are drawn
-- *NOTE:* Remember that you can always re-visit the week 1 notes for a reminder of how the code works.
++ In lesson 1, you had tried drawing different shapes using code.
++ Mary has been experimenting with pyGame at home, and added these lines of code:
++ *NOTE:* The first 4 lines are comments that explain how the shapes are drawn
++ *NOTE:* Remember that you can always re-visit the week 1 notes for a reminder of how the code works.
 #+BEGIN_SRC python
     # pygame.draw.rect(screen, colour, (x, y, width, height), thickness)
     # thickness is optional filled shape if specified
@@ -114,7 +114,39 @@
 #+END_SRC
 - Sketch out the shape that is drawn onto the screen when the code runs. The first is done for you. 
 [[./img/w1hwk.jpg]]
-- The first shape is a rectangle, which starts being drawn from x=100, y=100.
-- The size of the rectangle is 100 pixels wide and 40 pixels tall. 
-- To complete the task, you can use MS Paint, an app or complete the task on paper and photograph it with a phone.
-- Upload the finished sketch to the first homework upload slot at www.BourneToLearn.com
++ The first shape is a rectangle, which starts being drawn from x=100, y=100.
++ The size of the rectangle is 100 pixels wide and 40 pixels tall. 
++ To complete the task, you can use MS Paint, an app or complete the task on paper and photograph it with a phone.
++ Upload the finished sketch to the first homework upload slot at www.BourneToLearn.com
+* Homework 2: The Games Industry
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- The gaming industry is huge, and worth billions of pounds a year.
+- Read [[https://www.theguardian.com/careers/careers-in-gaming][this article]], Then answer the following questions:
+  1. Describe three tips for getting a job in the gaming industry.
+  2. Name three different job roles within the games industry.
+- Upload your answers to the second homework upload slot at [[https://www.BourneToLearn.com][www.BourneToLearn.com]]
+* Homework 3: Key terms
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Learn It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: learn
+:END:
+- You've used a lot of new vocabularly in working on this project, and coding in general. 
+- Provide definitions (in your own words) for each of the following: 
+  - parameter
+  - RGB colour
+  - Blit
+  - Event listener
+  - Event handler
+  - Pseudocode
+  - Sprite
+- All of these terms can be found within the notes for the first six lessons.
+- Upload the finished work to the third homework upload slot at www.BourneToLearn.com
